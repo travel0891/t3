@@ -1,7 +1,0 @@
-D:\project20160307\view\bin\view.dll
-D:\project20160307\view\bin\view.pdb
-D:\project20160307\view\bin\utils.dll
-D:\project20160307\view\bin\utils.pdb
-D:\project20160307\view\obj\Debug\view.csprojResolveAssemblyReference.cache
-D:\project20160307\view\obj\Debug\view.dll
-D:\project20160307\view\obj\Debug\view.pdb

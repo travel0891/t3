@@ -1,4 +1,0 @@
-D:\project20160307\utils\bin\Debug\utils.dll
-D:\project20160307\utils\bin\Debug\utils.pdb
-D:\project20160307\utils\obj\Debug\utils.dll
-D:\project20160307\utils\obj\Debug\utils.pdb

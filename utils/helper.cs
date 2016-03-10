@@ -7,6 +7,8 @@ namespace utils
 {
     class helper
     {
+        #region method
+
         #region SetParameter
 
         public static readonly String connectionString = ConfigurationManager.ConnectionStrings["mssqlConnection"].ConnectionString;
@@ -172,6 +174,8 @@ namespace utils
                 return valInt;
             }
         }
+
+        #endregion
 
         #endregion
 
