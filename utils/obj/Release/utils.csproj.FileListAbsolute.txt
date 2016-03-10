@@ -1,0 +1,6 @@
+D:\project20160307\utils\bin\Release\utils.dll
+D:\project20160307\utils\bin\Release\utils.pdb
+D:\project20160307\utils\bin\Release\Microsoft.SqlServer.BatchParser.dll
+D:\project20160307\utils\obj\Release\ResolveAssemblyReference.cache
+D:\project20160307\utils\obj\Release\utils.dll
+D:\project20160307\utils\obj\Release\utils.pdb

@@ -1,0 +1,90 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>register</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css?v=20160220" />
+    <style type="text/css">
+        .t_form {
+            width: 96%;
+            min-width: 320px;
+            max-width: 400px;
+            margin: 6% auto;
+        }
+
+            .t_form .header {
+                margin-bottom: 40px;
+                height: 54px;
+                background: #b0e1ef url(../static/image/logo.png?v=20160220) no-repeat center;
+                line-height: 54px;
+            }
+
+            .t_form .content {
+                border: 1px solid #ececec;
+                padding: 40px 40px 25px 40px;
+                height: auto;
+                background-color: #fff;
+                box-shadow: 0 0 3px #eee, 0 0 3px #fff inset;
+            }
+
+                .t_form .content .tool {
+                    font-size: 12px;
+                    margin-top: 15px;
+                }
+
+        .color999 {
+            color: #999;
+        }
+
+        .t_form .footer {
+            margin-top: 40px;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .fs12_34 {
+            font-size: 12px;
+            line-height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="t_form">
+        <div class="header text-center">
+            <a href="javascript:;">title</a>
+        </div>
+        <div class="content">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="请输入手机号" maxlength="11" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default fs12_34" type="button" disabled="disabled">发送短信验证码</button>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="请输入短信验证码" maxlength="4" />
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="设置登录密码，至少6位" maxlength="18" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-info btn-block">注 册</button>
+                <div class="tool color999">
+                    注册表示同意<a class="text-left" href="javascript:;">《用户使用条款》</a>
+                    <div class="right">
+                        已有账号？<a href="../login.html?from=register">立即登录</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer text-center color999">
+            © 2016 travel0891
+        </div>
+    </div>
+</body>
+</html>
