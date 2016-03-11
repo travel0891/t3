@@ -73,8 +73,6 @@ namespace view
                         }
                         #endregion
                         break;
-                    default:
-                        break;
                 }
             }
             if (!json.IsObject)
