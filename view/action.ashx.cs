@@ -29,7 +29,7 @@ namespace view
                             , inPassword = context.Request["password"]
                             , inKeep = context.Request["keepLine"];
 
-                        if (String.IsNullOrEmpty(inName) || String.IsNullOrEmpty(inPassword) || inKeep == null)
+                        if (String.IsNullOrEmpty(inName) || String.IsNullOrEmpty(inPassword))
                         {
                             break;
                         }
