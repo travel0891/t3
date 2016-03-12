@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web;
 using System.Text;
+using System.Web;
 using System.Web.SessionState;
 
 using LitJson;
@@ -17,13 +17,32 @@ namespace view
         {
             String type = context.Request.QueryString["type"];
             JsonData json = new JsonData();
+            c_userid cUser = new c_userid();
 
             if (!String.IsNullOrEmpty(type))
             {
                 switch (type)
                 {
-                    case "login":
-                        #region login
+                    #region existsName
+                    case "existsName":
+                        userid tempUser = new userid();
+                        tempUser.name = context.Request["name"];
+                        userid tempOutUser = cUser.existsUser(tempUser);
+                        if (tempOutUser.intId == 0)
+                        {
+                            context.Response.Write("false");
+                        }
+                        else
+                        {
+                            context.Response.Write("true");
+                        }
+                        context.Response.End();
+                        return;
+                    #endregion
+
+                    #region doLogin
+                    case "doLogin":
+
 
                         String inName = context.Request["name"]
                             , inPassword = context.Request["password"]
@@ -40,7 +59,6 @@ namespace view
                         inUser.super = 1;
                         inUser.status = 0;
 
-                        c_userid cUser = new c_userid();
                         userid outUser = cUser.selectUser(inUser);
 
                         if (outUser.intId == 0)
@@ -71,8 +89,8 @@ namespace view
                             json["code"] = "pass";
                             json["story"] = "登录验证通过";
                         }
-                        #endregion
                         break;
+                    #endregion
                 }
             }
             if (!json.IsObject)

@@ -54,9 +54,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="forget_password.html" />
+    <Content Include="index.aspx" />
     <Content Include="lib\LitJSON.dll" />
     <Content Include="login.html" />
-    <Content Include="manage\login.aspx" />
+    <Content Include="static\image\temp.jpg" />
+    <Content Include="static\image\temp1.jpg" />
+    <Content Include="system\left.aspx" />
+    <Content Include="system\login.aspx" />
+    <Content Include="system\main.aspx" />
+    <Content Include="system\mainframe.html" />
+    <Content Include="system\top.aspx" />
+    <Content Include="system\user_add.aspx" />
+    <Content Include="system\user_list.aspx" />
     <Content Include="register.html" />
     <Content Include="static\bootstrap\css\bootstrap-theme.css" />
     <Content Include="static\bootstrap\css\bootstrap-theme.min.css" />
@@ -65,6 +74,10 @@
     <Content Include="static\bootstrap\js\bootstrap.js" />
     <Content Include="static\bootstrap\js\bootstrap.min.js" />
     <Content Include="static\bootstrap\js\npm.js" />
+    <Content Include="static\image\1.png" />
+    <Content Include="static\image\2.png" />
+    <Content Include="static\image\3.png" />
+    <Content Include="static\image\4.png" />
     <Content Include="static\jquery-validation\demo\ajaxSubmit-integration-demo.html" />
     <Content Include="static\jquery-validation\demo\bootstrap\index.html" />
     <Content Include="static\jquery-validation\demo\captcha\captcha.js" />
@@ -393,6 +406,7 @@
     <Content Include="static\jquery-validation\test\rules.js" />
     <Content Include="static\jquery-validation\test\test.js" />
     <Content Include="static\jquery\jquery.min.js" />
+    <Content Include="static\temp\slide-toggle.min.js" />
     <Content Include="static\main.js" />
     <Content Include="static\require.js" />
     <Content Include="static\temp\login.js" />
@@ -403,12 +417,54 @@
       <DependentUpon>action.ashx</DependentUpon>
     </Compile>
     <Compile Include="controller\c_userid.cs" />
-    <Compile Include="manage\login.aspx.cs">
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\left.aspx.cs">
+      <DependentUpon>left.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\left.aspx.designer.cs">
+      <DependentUpon>left.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="manage\login.aspx.designer.cs">
+    <Compile Include="system\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\main.aspx.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\main.aspx.designer.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\top.aspx.cs">
+      <DependentUpon>top.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\top.aspx.designer.cs">
+      <DependentUpon>top.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\user_add.aspx.cs">
+      <DependentUpon>user_add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\user_add.aspx.designer.cs">
+      <DependentUpon>user_add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\user_list.aspx.cs">
+      <DependentUpon>user_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\user_list.aspx.designer.cs">
+      <DependentUpon>user_list.aspx</DependentUpon>
     </Compile>
     <Compile Include="model\userid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -419,7 +475,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="SQL\" />
-    <Folder Include="static\image\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\utils\utils.csproj">

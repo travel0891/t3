@@ -40,6 +40,37 @@ namespace view.controller
             return lsUser;
         }
 
+        public userid existsUser(userid model)
+        {
+            userid mUser = new userid();
+
+            StringBuilder sbSQL = new StringBuilder();
+            sbSQL.Append(" select intId,charId ");
+            sbSQL.Append(" ,name,password ");
+            sbSQL.Append(" ,createTime,super,status ");
+            sbSQL.Append(" from userid where ");
+            sbSQL.Append(" name = @name and status = 0 ");
+            IDbDataParameter[] parameter = { new SqlParameter("name", model.name) };
+
+            IDataReader dr = query.GetInstance().dataReader(sbSQL.ToString(), parameter);
+            if (dr.Read())
+            {
+                mUser.intId = Convert.ToInt32(dr["intId"]);
+                mUser.charId = dr["charId"].ToString();
+                mUser.name = dr["name"].ToString();
+                mUser.password = dr["password"].ToString();
+                mUser.createTime = Convert.ToDateTime(dr["createTime"]);
+                mUser.super = Convert.ToInt16(dr["super"]);
+                mUser.status = Convert.ToInt16(dr["status"]);
+            }
+            else
+            {
+                mUser.intId = 0;
+            }
+            dr.Close();
+            return mUser;
+        }
+
         public userid selectUser(userid model)
         {
             userid mUser = new userid();
