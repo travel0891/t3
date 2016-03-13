@@ -64,10 +64,10 @@
 <body>
     <div class="t_form">
         <div class="header text-center">
-            <p><%=WebsiteTitle %></p>
+            <p>管理员登录</p>
         </div>
         <div class="content">
-        <form id="tempForm" onsubmit="return false">
+        <form id="tempForm" onsubmit="javascript:return false">
             <div class="input-group form-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                 <input type="text" name="name" id="nameInput" class="form-control" placeholder="请输入账号" maxlength="8" value="<%=name %>" />

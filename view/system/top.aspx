@@ -20,7 +20,7 @@
             background: linear-gradient(#f9f9f9, #f3f3f3); /* 标准的语法 */
             background-color: #f6f6f6;
             font-size: 12px;
-            color: #096;
+            color: #269abc;
             padding: 0 12px;
         }
         a
@@ -31,7 +31,7 @@
         }
         a:hover
         {
-            color: #096;
+            color: #269abc;
             text-decoration: underline;
         }
     </style>

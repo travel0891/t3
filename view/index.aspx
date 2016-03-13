@@ -9,6 +9,9 @@
     <title>首页 -
         <%=WebsiteTitle %></title>
     <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+    .mt8{margin-top: 8px;}
+    </style>
 </head>
 <body>
     <div class="container">
@@ -32,7 +35,7 @@
                         <li><a href="#">论坛交流</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">登录</a></li>
+                        <li><button class="btn btn-info mt8">登录</button> </li>
                     </ul>
                 </div>
             </div>
