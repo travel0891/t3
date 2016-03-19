@@ -1,8 +1,0 @@
-D:\travel0891\t3\view\bin\view.dll
-D:\travel0891\t3\view\bin\view.pdb
-D:\travel0891\t3\view\bin\LitJSON.dll
-D:\travel0891\t3\view\bin\utils.dll
-D:\travel0891\t3\view\bin\utils.pdb
-D:\travel0891\t3\view\obj\Debug\view.csprojResolveAssemblyReference.cache
-D:\travel0891\t3\view\obj\Debug\view.dll
-D:\travel0891\t3\view\obj\Debug\view.pdb

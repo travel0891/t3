@@ -4,11 +4,11 @@
         var submitStatus = $(form).validate({
             debug: true,
             rules: {
-                name: {
+                account: {
                     required: true,
                     rangelength: [3, 8],
                     remote: {
-                        url: encodeURI("../action.ashx?type=existsName"),
+                        url: encodeURI("../action.ashx?type=existsAccount"),
                         type: "post"
                     }
                 }, password: {
@@ -16,7 +16,7 @@
                     rangelength: [6, 12]
                 }
             }, messages: {
-                name: {
+                account: {
                     required: "账号不能为空",
                     rangelength: "账号长度3至8位",
                     remote: "该账号不存在"
@@ -26,7 +26,7 @@
                 }
             },
             errorPlacement: function (error, element) {
-                if (element.is("#nameInput")) {
+                if (element.is("#accountInput")) {
                     $("#promptId").html(error);
                 }
                 if ($("#promptId").html().indexOf("账号") == -1) {

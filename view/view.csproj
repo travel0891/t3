@@ -949,7 +949,7 @@
     <Compile Include="action.ashx.cs">
       <DependentUpon>action.ashx</DependentUpon>
     </Compile>
-    <Compile Include="controller\c_userid.cs" />
+    <Compile Include="controller\students.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -999,7 +999,6 @@
     <Compile Include="system\user_list.aspx.designer.cs">
       <DependentUpon>user_list.aspx</DependentUpon>
     </Compile>
-    <Compile Include="model\userid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="viewBase.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -1010,9 +1009,9 @@
     <Folder Include="SQL\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\utils\utils.csproj">
+    <ProjectReference Include="..\utils\model.csproj">
       <Project>{5965930E-B1F7-4472-BAB6-AAAEA3C93BC4}</Project>
-      <Name>utils</Name>
+      <Name>model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

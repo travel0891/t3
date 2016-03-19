@@ -1,7 +1,10 @@
 ﻿using System;
 
-namespace model
+namespace model.utils
 {
+    /// <summary>
+    /// 表基类
+    /// </summary>
     public class baseTable
     {
         /// <summary>

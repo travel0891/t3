@@ -70,7 +70,7 @@
         <form id="tempForm" onsubmit="javascript:return false">
             <div class="input-group form-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                <input type="text" name="name" id="nameInput" class="form-control" placeholder="请输入账号" maxlength="8" value="<%=name %>" />
+                <input type="text" name="account" id="accountInput" class="form-control" placeholder="请输入账号" maxlength="8" value="<%=account %>" />
             </div>
             <div class="input-group form-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>

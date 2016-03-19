@@ -5,14 +5,13 @@ using System.Data.SqlClient;
 using System.Reflection;
 using System.Text;
 
-namespace model
+namespace model.utils
 {
+    
+
     public class query
     {
-        #region method
-
-        private static readonly String
-            IDENTITY1 = "intId"
+        private static readonly String IDENTITY1 = "intId"
             , IDENTITY2 = "charId"
             , AUTOFIEID = "createTime";
 
@@ -48,7 +47,7 @@ namespace model
                 , temp1.ToString().Trim(',')
                 , temp2.ToString().Trim(','));
 
-            return helper.GetInstance().ExecuteNonQuery(helper.connectionString, commandText, null, parameter, CommandType.Text);
+            return helper.instance().ExecuteNonQuery(helper.connectionString, commandText, null, parameter, CommandType.Text);
         }
 
         public Int32 update(baseTable table)
@@ -81,7 +80,7 @@ namespace model
                 , temp1.ToString().Trim(',')
                 , IDENTITY2);
 
-            return helper.GetInstance().ExecuteNonQuery(helper.connectionString, commandText, null, parameter, CommandType.Text);
+            return helper.instance().ExecuteNonQuery(helper.connectionString, commandText, null, parameter, CommandType.Text);
         }
 
         public Int32 delete(baseTable table)
@@ -96,38 +95,34 @@ namespace model
                   , type.Name
                   , IDENTITY2);
 
-            return helper.GetInstance().ExecuteNonQuery(helper.connectionString, commandText, null, parameter, CommandType.Text);
+            return helper.instance().ExecuteNonQuery(helper.connectionString, commandText, null, parameter, CommandType.Text);
         }
 
         public IDataReader dataReader(String commandText, IDbDataParameter[] dataParameter)
         {
-            return helper.GetInstance().ExecuteReader(helper.connectionString, commandText, dataParameter, CommandType.Text);
+            return helper.instance().ExecuteReader(helper.connectionString, commandText, dataParameter, CommandType.Text);
         }
 
         public DataSet dataSet(String commandText, IDbDataParameter[] dataParameter)
         {
-            return helper.GetInstance().ExecuteDataSet(helper.connectionString, commandText, dataParameter, CommandType.Text);
+            return helper.instance().ExecuteDataSet(helper.connectionString, commandText, dataParameter, CommandType.Text);
         }
 
         public String scalarString(String commandText, IDbDataParameter[] dataParameter)
         {
-            return helper.GetInstance().ExecuteScalarToString(helper.connectionString, commandText, dataParameter, CommandType.Text);
+            return helper.instance().ExecuteScalarToString(helper.connectionString, commandText, dataParameter, CommandType.Text);
         }
 
         public Int32 scalarInt(String commandText, IDbDataParameter[] dataParameter)
         {
-            return helper.GetInstance().ExecuteScalarToInt(helper.connectionString, commandText, dataParameter, CommandType.Text);
+            return helper.instance().ExecuteScalarToInt(helper.connectionString, commandText, dataParameter, CommandType.Text);
         }
 
-        #endregion
+        private static query q = null;
 
-        private static query instance = null;
-
-        private query() { }
-
-        public static query GetInstance()
+        public static query instance()
         {
-            return instance == null ? new query() : instance;
+            return q == null ? new query() : q;
         }
     }
 }

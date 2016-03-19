@@ -1,4 +1,0 @@
-D:\travel0891\t3\utils\bin\Debug\utils.dll
-D:\travel0891\t3\utils\bin\Debug\utils.pdb
-D:\travel0891\t3\utils\obj\Debug\utils.dll
-D:\travel0891\t3\utils\obj\Debug\utils.pdb

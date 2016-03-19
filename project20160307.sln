@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "view", "view\view.csproj", "{A79C4125-A898-4CEA-9F8F-8BDFDD3D4419}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "utils", "utils\utils.csproj", "{5965930E-B1F7-4472-BAB6-AAAEA3C93BC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "model", "utils\model.csproj", "{5965930E-B1F7-4472-BAB6-AAAEA3C93BC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

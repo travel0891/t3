@@ -1,6 +1,0 @@
-D:\project20160307\view\bin\view.dll
-D:\project20160307\view\bin\view.pdb
-D:\project20160307\view\bin\utils.dll
-D:\project20160307\view\obj\Release\ResolveAssemblyReference.cache
-D:\project20160307\view\obj\Release\view.dll
-D:\project20160307\view\obj\Release\view.pdb

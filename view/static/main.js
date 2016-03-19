@@ -7,7 +7,6 @@
 });
 
 require(["jquery", "l", "jqueryv"], function ($, a, b) {
-
     $(function () {
         a.v("#tempForm");
     });

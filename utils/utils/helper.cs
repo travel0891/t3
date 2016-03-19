@@ -3,12 +3,10 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace model
+namespace model.utils
 {
     class helper
     {
-        #region method
-
         #region SetParameter
 
         public static readonly String connectionString = ConfigurationManager.ConnectionStrings["mssqlConnection"].ConnectionString;
@@ -177,13 +175,9 @@ namespace model
 
         #endregion
 
-        #endregion
-
         private static helper h = null;
 
-        private helper() { }
-
-        public static helper GetInstance()
+        public static helper instance()
         {
             return h == null ? new helper() : h;
         }

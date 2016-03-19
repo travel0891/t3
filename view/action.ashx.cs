@@ -8,33 +8,35 @@ using LitJson;
 
 namespace view
 {
+    using model.table;
     using controller;
-    using model;
 
-    public class action : IHttpHandler,IRequiresSessionState
+    public class action : IHttpHandler, IRequiresSessionState
     {
         public void ProcessRequest(HttpContext context)
         {
             String type = context.Request.QueryString["type"];
             JsonData json = new JsonData();
-            c_userid cUser = new c_userid();
 
             if (!String.IsNullOrEmpty(type))
             {
                 switch (type)
                 {
-                    #region existsName
-                    case "existsName":
-                        userid tempUser = new userid();
-                        tempUser.name = context.Request["name"];
-                        userid tempOutUser = cUser.existsUser(tempUser);
-                        if (tempOutUser.intId == 0)
+                    #region existsAccount
+                    case "existsAccount":
+                        students tempStudents = new students();
+                        tempStudents.account = context.Request["account"];
+                        tempStudents.super = 1;
+                        tempStudents.status = 0;
+
+                        Boolean tempOutStudents = controllerProvider.instance().selectAccount(tempStudents);
+                        if (tempOutStudents)
                         {
-                            context.Response.Write("false");
+                            context.Response.Write("true");
                         }
                         else
                         {
-                            context.Response.Write("true");
+                            context.Response.Write("false");
                         }
                         context.Response.End();
                         return;
@@ -42,26 +44,24 @@ namespace view
 
                     #region doLogin
                     case "doLogin":
-
-
-                        String inName = context.Request["name"]
+                        String inAccount = context.Request["account"]
                             , inPassword = context.Request["password"]
                             , inKeep = context.Request["keepLine"];
 
-                        if (String.IsNullOrEmpty(inName) || String.IsNullOrEmpty(inPassword))
+                        if (String.IsNullOrEmpty(inAccount) || String.IsNullOrEmpty(inPassword))
                         {
                             break;
                         }
 
-                        userid inUser = new userid();
-                        inUser.name = inName;
-                        inUser.password = inPassword;
-                        inUser.super = 1;
-                        inUser.status = 0;
+                        students inStudents = new students();
+                        inStudents.account = inAccount;
+                        inStudents.password = inPassword;
+                        inStudents.super = 1;
+                        inStudents.status = 0;
 
-                        userid outUser = cUser.selectUser(inUser);
+                        students outStudents = controllerProvider.instance().selectStudents(inStudents);
 
-                        if (outUser.intId == 0)
+                        if (outStudents == null)
                         {
                             json["code"] = "error";
                             json["story"] = "登录验证失败";
@@ -71,8 +71,8 @@ namespace view
                             if (inKeep == "on")
                             {
                                 HttpCookie cookies = new HttpCookie("keepLine");
-                                cookies["name"] = context.Server.HtmlEncode(outUser.name);
-                                cookies["password"] = context.Server.HtmlEncode(outUser.password);
+                                cookies["account"] = context.Server.HtmlEncode(outStudents.account);
+                                cookies["password"] = context.Server.HtmlEncode(outStudents.password);
                                 cookies.Expires = DateTime.Now.AddYears(1);
                                 context.Response.Cookies.Add(cookies);
                             }
@@ -81,7 +81,7 @@ namespace view
                                 HttpCookie cookies = context.Request.Cookies.Get("keepLine");
                                 if (cookies != null)
                                 {
-                                    cookies.Values.Remove("name");
+                                    cookies.Values.Remove("account");
                                     cookies.Values.Remove("password");
                                     context.Response.Cookies.Add(cookies);
                                 }
