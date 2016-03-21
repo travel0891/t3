@@ -26,13 +26,13 @@ namespace model.entity
             whereSQL.Append(" where 1 = @where ");
             if (whereModel != null)
             {
-                if (!String.IsNullOrEmpty(whereModel.courses_charId))
-                {
-                    whereSQL.Append(" and courses_charId = @courses_charId ");
-                }
                 if (!String.IsNullOrEmpty(whereModel.students_charId))
                 {
                     whereSQL.Append(" and students_charId = @students_charId ");
+                }
+                if (!String.IsNullOrEmpty(whereModel.courses_charId))
+                {
+                    whereSQL.Append(" and courses_charId = @courses_charId ");
                 }
             }
 
@@ -49,8 +49,8 @@ namespace model.entity
 
             IDbDataParameter[] parameter = {
                                            new SqlParameter("where","1"),
-                                           new SqlParameter("courses_charId",whereModel == null? (Object)DBNull.Value:whereModel.courses_charId == null ? (Object)DBNull.Value : whereModel.courses_charId),
-                                           new SqlParameter("students_charId",whereModel == null? (Object)DBNull.Value:whereModel.students_charId == null ? (Object)DBNull.Value : whereModel.students_charId)
+                                           new SqlParameter("students_charId",whereModel == null? (Object)DBNull.Value:whereModel.students_charId == null ? (Object)DBNull.Value : whereModel.students_charId),
+                                           new SqlParameter("courses_charId",whereModel == null? (Object)DBNull.Value:whereModel.courses_charId == null ? (Object)DBNull.Value : whereModel.courses_charId)
             };
 
             List<studies> listStudiesModel = new List<studies>();

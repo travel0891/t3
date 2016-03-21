@@ -594,6 +594,7 @@
     <Content Include="static\extend.css" />
     <Content Include="static\image\temp.jpg" />
     <Content Include="static\image\temp1.jpg" />
+    <Content Include="static\system.js" />
     <Content Include="system\left.aspx" />
     <Content Include="system\login.aspx" />
     <Content Include="system\main.aspx" />

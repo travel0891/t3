@@ -7,11 +7,9 @@ using System.Text;
 
 namespace model.utils
 {
-    
-
     public class query
     {
-        private static readonly String IDENTITY1 = "intId", IDENTITY2 = "charId";
+        private static readonly String IDENTITY1 = "intId", IDENTITY2 = "charId", AUTOFIEID = "createTime";
 
         public Int32 insert(baseTable table)
         {
@@ -26,7 +24,14 @@ namespace model.utils
                 {
                     temp1.Append(field.Name + ",");
                     temp2.Append("@" + field.Name + ",");
-                    lsParameter.Add(new SqlParameter("@" + field.Name, field.GetValue(table, null)));
+                    if (field.Name == AUTOFIEID)
+                    {
+                        lsParameter.Add(new SqlParameter("@" + field.Name, "getdate()"));
+                    }
+                    else
+                    {
+                        lsParameter.Add(new SqlParameter("@" + field.Name, field.GetValue(table, null)));
+                    }
                 }
             }
 
@@ -52,11 +57,14 @@ namespace model.utils
             {
                 if (field.GetValue(table, null) != null)
                 {
-                    if (field.Name != IDENTITY1 && field.Name != IDENTITY2)
+                    if (field.Name != IDENTITY1 && field.Name != IDENTITY2 && field.Name != AUTOFIEID)
                     {
                         temp1.Append(field.Name + " = @" + field.Name + ",");
                     }
-                    lsParameter.Add(new SqlParameter("@" + field.Name, field.GetValue(table, null)));
+                    if (field.Name != AUTOFIEID)
+                    {
+                        lsParameter.Add(new SqlParameter("@" + field.Name, field.GetValue(table, null)));
+                    }
                 }
             }
 
@@ -65,7 +73,7 @@ namespace model.utils
             commandText = String.Format(" update {0} set {1} where {2} = @{2} "
                 , type.Name
                 , temp1.ToString().Trim(',')
-                , IDENTITY1);
+                , IDENTITY2);
 
             return helper.instance().ExecuteNonQuery(helper.connectionString, commandText, null, parameter, CommandType.Text);
         }

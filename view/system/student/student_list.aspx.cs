@@ -26,7 +26,7 @@ namespace view
             sbHTML.Append("<th>账号</th>");
             sbHTML.Append("<th>密码</th>");
             sbHTML.Append("<th>角色</th>");
-            sbHTML.Append("<th>操作</th>");
+            sbHTML.Append("<th class=\"tac\">操作</th>");
             sbHTML.Append("</thead>");
             sbHTML.Append("<tbody>");
             List<students> listModel = controllerProvider.instance().selectStudents();
@@ -40,8 +40,9 @@ namespace view
                 sbHTML.AppendFormat("<td>{0}</td>", item.account);
                 sbHTML.AppendFormat("<td>{0}</td>", item.password);
                 sbHTML.AppendFormat("<td>{0}</td>", item.super == 0 ? "普通" : "管理员");
-                sbHTML.AppendFormat("<td>");
-                sbHTML.AppendFormat("<button type=\"button\" data-for=\"{0}\" class=\"btn btn-info btn-xs\">维护</button>", item.charId);
+                sbHTML.AppendFormat("<td class=\"tac\">");
+                sbHTML.AppendFormat("<a data-for=\"{0}\" class=\"btn btn-primary btn-sm\">编辑</a>", item.charId);
+                sbHTML.AppendFormat("<a data-for=\"{0}\" class=\"ml6 btn btn-default btn-sm\">删除</a>", item.charId);
                 sbHTML.AppendFormat("</td>");
                 sbHTML.Append("</tr>");
             }

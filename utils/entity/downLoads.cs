@@ -26,13 +26,13 @@ namespace model.entity
             whereSQL.Append(" where 1 = @where ");
             if (whereModel != null)
             {
-                if (!String.IsNullOrEmpty(whereModel.documents_charId))
-                {
-                    whereSQL.Append(" and documents_charId = @documents_charId ");
-                }
                 if (!String.IsNullOrEmpty(whereModel.students_charId))
                 {
                     whereSQL.Append(" and students_charId = @students_charId ");
+                }
+                if (!String.IsNullOrEmpty(whereModel.documents_charId))
+                {
+                    whereSQL.Append(" and documents_charId = @documents_charId ");
                 }
             }
 
@@ -49,8 +49,8 @@ namespace model.entity
 
             IDbDataParameter[] parameter = {
                                            new SqlParameter("where","1"),
-                                           new SqlParameter("documents_charId",whereModel == null? (Object)DBNull.Value:whereModel.documents_charId == null ? (Object)DBNull.Value : whereModel.documents_charId),
-                                           new SqlParameter("students_charId",whereModel == null? (Object)DBNull.Value:whereModel.students_charId == null ? (Object)DBNull.Value : whereModel.students_charId)
+                                           new SqlParameter("students_charId",whereModel == null? (Object)DBNull.Value:whereModel.students_charId == null ? (Object)DBNull.Value : whereModel.students_charId),
+                                           new SqlParameter("documents_charId",whereModel == null? (Object)DBNull.Value:whereModel.documents_charId == null ? (Object)DBNull.Value : whereModel.documents_charId)
             };
 
             List<downLoads> listDownLoadsModel = new List<downLoads>();

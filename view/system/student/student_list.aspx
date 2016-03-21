@@ -10,54 +10,31 @@
     <link href="../../static/extend.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-   <div id="dataList" class="container-fluid mt15" runat="server"></div>
+    <div id="dataList" class="container-fluid mt15" runat="server">
+    </div>
+    <script src="../../static/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="../../static/datatables/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="../../static/datatables/media/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#tableList").dataTable({
+                "sort": false,
+                "language": {
+                    "lengthMenu": "每页 _MENU_ 条记录",
+                    "zeroRecords": "没有找到记录",
+                    "info": "当前 _START_ ~ _END_ 条记录，共 _TOTAL_ 条记录",
+                    "infoEmpty": "无记录",
+                    "infoFiltered": "(从 _MAX_ 条记录过滤)",
+                    "search": "关键词",
+                    "paginate": {
+                        "first": "首页",
+                        "last": "尾页",
+                        "next": "下一页",
+                        "previous": "上一页"
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-<script src="../../static/jquery/jquery.min.js" type="text/javascript"></script>
-<script src="../../static/datatables/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
-<script src="../../static/datatables/media/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-    $(function () {
-        $("#tableList").dataTable({
-            "sort": false,
-            "language": {
-                "lengthMenu": "每页 _MENU_ 条记录",
-                "zeroRecords": "没有找到记录",
-                "info": "当前 _START_ ~ _END_ 条记录，共 _TOTAL_ 条记录",
-                "infoEmpty": "无记录",
-                "infoFiltered": "(从 _MAX_ 条记录过滤)",
-                "search": "关键词",
-                "paginate": {
-                    "first": "首页",
-                    "last": "尾页",
-                    "next": "下一页",
-                    "previous": "上一页"
-                }
-            }
-        });
-    });
-</script>
-
-<%--{  
-    "emptyTable":     "No data available in table",  
-    "info":           "Showing _START_ to _END_ of _TOTAL_ entries",  
-    "infoEmpty":      "Showing 0 to 0 of 0 entries",  
-    "infoFiltered":   "(filtered from _MAX_ total entries)",  
-    "infoPostFix":    "",  
-    "thousands":      ",",  
-    "lengthMenu":     "Show _MENU_ entries",  
-    "loadingRecords": "Loading...",  
-    "processing":     "Processing...",  
-    "search":         "Search:",  
-    "zeroRecords":    "No matching records found",  
-    "paginate": {  
-        "first":      "First",  
-        "last":       "Last",  
-        "next":       "Next",  
-        "previous":   "Previous"  
-    },  
-    "aria": {  
-        "sortAscending":  ": activate to sort column ascending",  
-        "sortDescending": ": activate to sort column descending"  
-    }  
-}--%>

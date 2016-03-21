@@ -1,1 +1,10 @@
-﻿.mt15{ margin-top:15px;}
+﻿.ml6{ margin-left:6px;}
+.mt15{ margin-top:15px;}
+.mt30{ margin-top:30px;}
+
+.tac{ text-align:center;}
+.tal{ text-align:left;}
+.tar{ text-align:right;}
+
+#tableList tr th{border-bottom:1px solid #337ab7;}
+#tableList tr td a{ display:inline;}

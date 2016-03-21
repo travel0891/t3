@@ -67,10 +67,10 @@
     <Compile Include="entity\downLoads.cs" />
     <Compile Include="entity\examples.cs" />
     <Compile Include="entity\exams.cs" />
-    <Compile Include="extend\students.cs" />
     <Compile Include="entity\questions.cs" />
     <Compile Include="entity\students.cs" />
     <Compile Include="entity\studies.cs" />
+    <Compile Include="extend\students.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="table\answers.cs" />
     <Compile Include="table\courses.cs" />
