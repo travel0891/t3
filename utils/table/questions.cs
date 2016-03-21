@@ -12,12 +12,12 @@ namespace model.table
         public String number { get; set; }
 
         /// <summary> 
-        ///  NVARCHAR 2000   
+        ///  问题内容 NVARCHAR 2000   
         /// </summary> 
         public String question { get; set; }
 
         /// <summary> 
-        ///  UNIQUEIDENTIFIER 16   
+        ///  学生charId UNIQUEIDENTIFIER 16   
         /// </summary> 
         public String students_charId { get; set; }
 

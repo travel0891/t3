@@ -100,51 +100,48 @@
     </style>
 </head>
 <body>
-    <div style="margin: 8px 0px; height: 36px; background-color: #f3f3f3; color: #999">LOGO</div>
+    <div style="margin: 8px 0px; height: 36px; text-align:center; line-height:36px; background-color: #f3f3f3; color: #999">
+        <%=WebsiteTitle %></div>
     <div class="left">
         <div class="all">
             <div class="bgm">
                 <div class="icon1">
                 </div>
-                用户管理</div>
+                学生管理</div>
             <div class="meun" id="urlList">
                 <ul>
-                    <li title="user_list">用户列表</li>
-                    <li title="user_add">用户添加</li>
+                    <li title="student/student_list">学生列表</li>
+                    <li title="student/student_add">学生添加</li>
                 </ul>
             </div>
             <div class="bgm">
                 <div class="icon2">
                 </div>
-                论坛管理</div>
+                课题管理</div>
             <div class="meun" id="urlList">
                 <ul>
-                    <li title="1">板块列表</li>
-                    <li title="2">板块添加</li>
-                    <li title="3">帖子管理</li>
+                    <li title="1">课题列表</li>
+                    <li title="2">课题添加</li>
                 </ul>
             </div>
             <div class="bgm">
                 <div class="icon3">
                 </div>
-                课件管理</div>
+                习题管理</div>
             <div class="meun" id="urlList">
                 <ul>
-                    <li title="1">课件类别</li>
-                    <li title="2">课件添加</li>
-                    <li title="3">课件列表</li>
-                    <li title="3">课件添加</li>
+                    <li title="1">习题列表</li>
+                    <li title="2">习题添加</li>
                 </ul>
             </div>
             <div class="bgm">
                 <div class="icon4">
                 </div>
-                上传管理</div>
+                文档管理</div>
             <div class="meun" id="urlList">
                 <ul>
-                    <li title="1">1</li>
-                    <li title="2">2</li>
-                    <li title="3">3</li>
+                    <li title="1">文档列表</li>
+                    <li title="2">文档添加</li>
                 </ul>
             </div>
         </div>

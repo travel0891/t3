@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace view.manage
 {
-    public partial class left : System.Web.UI.Page
+    public partial class left : viewBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {

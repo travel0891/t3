@@ -69,11 +69,11 @@
         <div class="content">
         <form id="tempForm" onsubmit="javascript:return false">
             <div class="input-group form-group">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-user color999"></span></span>
                 <input type="text" name="account" id="accountInput" class="form-control" placeholder="请输入账号" maxlength="8" value="<%=account %>" />
             </div>
             <div class="input-group form-group">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-lock color999"></span></span>
                 <input type="password" name="password" id="passwordInput" class="form-control" placeholder="请输入密码" maxlength="12" value="<%=password %>" />
             </div>
             <div class="form-group">

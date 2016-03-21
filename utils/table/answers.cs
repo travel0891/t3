@@ -7,17 +7,17 @@ namespace model.table
     public class answers : baseTable
     {
         /// <summary> 
-        ///  UNIQUEIDENTIFIER 16   
+        ///  问题charId UNIQUEIDENTIFIER 16   
         /// </summary> 
         public String questions_charId { get; set; }
 
         /// <summary> 
-        ///  NVARCHAR 2000   
+        ///  回答内容 NVARCHAR 2000   
         /// </summary> 
         public String answer { get; set; }
 
         /// <summary> 
-        ///  UNIQUEIDENTIFIER 16   
+        ///  学生charId UNIQUEIDENTIFIER 16   
         /// </summary> 
         public String students_charId { get; set; }
 

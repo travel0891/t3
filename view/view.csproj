@@ -57,6 +57,7 @@
     <Content Include="index.aspx" />
     <Content Include="lib\LitJSON.dll" />
     <Content Include="login.html" />
+    <Content Include="SQL\table_script.sql" />
     <Content Include="static\datatables\examples\advanced_init\column_render.html" />
     <Content Include="static\datatables\examples\advanced_init\complex_header.html" />
     <Content Include="static\datatables\examples\advanced_init\defaults.html" />
@@ -590,15 +591,16 @@
     <Content Include="static\datatables\media\js\jquery.dataTables.js" />
     <Content Include="static\datatables\media\js\jquery.dataTables.min.js" />
     <Content Include="static\datatables\media\js\jquery.js" />
+    <Content Include="static\extend.css" />
     <Content Include="static\image\temp.jpg" />
     <Content Include="static\image\temp1.jpg" />
     <Content Include="system\left.aspx" />
     <Content Include="system\login.aspx" />
     <Content Include="system\main.aspx" />
     <Content Include="system\mainframe.html" />
+    <Content Include="system\student\student_add.aspx" />
+    <Content Include="system\student\student_list.aspx" />
     <Content Include="system\top.aspx" />
-    <Content Include="system\user_add.aspx" />
-    <Content Include="system\user_list.aspx" />
     <Content Include="register.html" />
     <Content Include="static\bootstrap\css\bootstrap-theme.css" />
     <Content Include="static\bootstrap\css\bootstrap-theme.min.css" />
@@ -943,6 +945,7 @@
     <Content Include="static\main.js" />
     <Content Include="static\require.js" />
     <Content Include="static\temp\login.js" />
+    <Content Include="temp.htm" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -978,26 +981,26 @@
     <Compile Include="system\main.aspx.designer.cs">
       <DependentUpon>main.aspx</DependentUpon>
     </Compile>
+    <Compile Include="system\student\student_add.aspx.cs">
+      <DependentUpon>student_add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\student\student_add.aspx.designer.cs">
+      <DependentUpon>student_add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\student\student_list.aspx.cs">
+      <DependentUpon>student_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\student\student_list.aspx.designer.cs">
+      <DependentUpon>student_list.aspx</DependentUpon>
+    </Compile>
     <Compile Include="system\top.aspx.cs">
       <DependentUpon>top.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="system\top.aspx.designer.cs">
       <DependentUpon>top.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="system\user_add.aspx.cs">
-      <DependentUpon>user_add.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="system\user_add.aspx.designer.cs">
-      <DependentUpon>user_add.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="system\user_list.aspx.cs">
-      <DependentUpon>user_list.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="system\user_list.aspx.designer.cs">
-      <DependentUpon>user_list.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="viewBase.cs">
@@ -1006,7 +1009,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="SQL\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\utils\model.csproj">
