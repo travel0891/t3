@@ -596,6 +596,8 @@
     <Content Include="static\image\temp1.jpg" />
     <Content Include="static\system.js" />
     <Content Include="static\temp\students.js" />
+    <Content Include="system\course\course_action.aspx" />
+    <Content Include="system\course\course_list.aspx" />
     <Content Include="system\left.aspx" />
     <Content Include="system\login.aspx" />
     <Content Include="system\main.aspx" />
@@ -962,6 +964,20 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="system\course\course_action.aspx.cs">
+      <DependentUpon>course_action.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\course\course_action.aspx.designer.cs">
+      <DependentUpon>course_action.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\course\course_list.aspx.cs">
+      <DependentUpon>course_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\course\course_list.aspx.designer.cs">
+      <DependentUpon>course_list.aspx</DependentUpon>
+    </Compile>
     <Compile Include="system\left.aspx.cs">
       <DependentUpon>left.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1011,6 +1027,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="system\document\" />
+    <Folder Include="system\example\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\utils\model.csproj">

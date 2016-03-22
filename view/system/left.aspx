@@ -117,11 +117,11 @@
             <div class="bgm">
                 <div class="icon2">
                 </div>
-                课题管理</div>
+                课件管理</div>
             <div class="meun" id="urlList">
                 <ul>
-                    <li title="1">课题列表</li>
-                    <li title="2">课题添加</li>
+                    <li title="course/course_list">课件列表</li>
+                    <li title="2">课件添加</li>
                 </ul>
             </div>
             <div class="bgm">
