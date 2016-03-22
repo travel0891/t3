@@ -41,8 +41,8 @@ namespace view
                 sbHTML.AppendFormat("<td>{0}</td>", item.password);
                 sbHTML.AppendFormat("<td>{0}</td>", item.super == 0 ? "普通" : "管理员");
                 sbHTML.AppendFormat("<td class=\"tac\">");
-                sbHTML.AppendFormat("<a data-for=\"{0}\" class=\"btn btn-primary btn-sm\">编辑</a>", item.charId);
-                sbHTML.AppendFormat("<a data-for=\"{0}\" class=\"ml6 btn btn-default btn-sm\">删除</a>", item.charId);
+                sbHTML.AppendFormat("<a href=\"student_action.aspx?charId={0}\" class=\"btn btn-primary btn-sm\">编辑</a>", item.charId);
+                sbHTML.AppendFormat("<a href=\"javascript:del('{0}');\" class=\"ml6 btn btn-default btn-sm\">删除</a>", item.charId);
                 sbHTML.AppendFormat("</td>");
                 sbHTML.Append("</tr>");
             }

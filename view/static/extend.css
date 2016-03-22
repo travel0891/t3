@@ -6,5 +6,9 @@
 .tal{ text-align:left;}
 .tar{ text-align:right;}
 
+.c999{ color:#999;}
+
+.breadcrumb{ font-size:12px;}
+
 #tableList tr th{border-bottom:1px solid #337ab7;}
 #tableList tr td a{ display:inline;}

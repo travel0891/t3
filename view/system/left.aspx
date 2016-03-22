@@ -111,7 +111,7 @@
             <div class="meun" id="urlList">
                 <ul>
                     <li title="student/student_list">学生列表</li>
-                    <li title="student/student_add">学生添加</li>
+                    <li title="student/student_action">学生添加</li>
                 </ul>
             </div>
             <div class="bgm">

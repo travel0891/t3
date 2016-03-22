@@ -595,11 +595,12 @@
     <Content Include="static\image\temp.jpg" />
     <Content Include="static\image\temp1.jpg" />
     <Content Include="static\system.js" />
+    <Content Include="static\temp\students.js" />
     <Content Include="system\left.aspx" />
     <Content Include="system\login.aspx" />
     <Content Include="system\main.aspx" />
     <Content Include="system\mainframe.html" />
-    <Content Include="system\student\student_add.aspx" />
+    <Content Include="system\student\student_action.aspx" />
     <Content Include="system\student\student_list.aspx" />
     <Content Include="system\top.aspx" />
     <Content Include="register.html" />
@@ -982,12 +983,12 @@
     <Compile Include="system\main.aspx.designer.cs">
       <DependentUpon>main.aspx</DependentUpon>
     </Compile>
-    <Compile Include="system\student\student_add.aspx.cs">
-      <DependentUpon>student_add.aspx</DependentUpon>
+    <Compile Include="system\student\student_action.aspx.cs">
+      <DependentUpon>student_action.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="system\student\student_add.aspx.designer.cs">
-      <DependentUpon>student_add.aspx</DependentUpon>
+    <Compile Include="system\student\student_action.aspx.designer.cs">
+      <DependentUpon>student_action.aspx</DependentUpon>
     </Compile>
     <Compile Include="system\student\student_list.aspx.cs">
       <DependentUpon>student_list.aspx</DependentUpon>

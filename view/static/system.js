@@ -1,12 +1,19 @@
 ﻿require.config({
     paths: {
         jquery: "jquery/jquery.min",
-        jqueryv: "jquery-validation/dist/jquery.validate.min"
+        jqueryv: "jquery-validation/dist/jquery.validate.min",
+        student: "temp/students"
     }
 });
 
-require(["jquery"], function ($) {
+require(["jquery", "jqueryv", "student"], function ($, a, b) {
     $(function () {
-        $(document).css("color","#f60");
+        b.v("#tempForm");
+    });
+
+    $("button[type='submit']").on("click", function () {
+        if (b.v("#tempForm").form()) {
+            b.s("#tempForm", $("#postType").val());
+        }
     });
 });

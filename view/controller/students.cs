@@ -20,6 +20,11 @@ namespace view.controller
             return entityProvider.instance().selectStudents(model);
         }
 
+        public students selectStudentsByCharId(students model)
+        {
+            return entityProvider.instance().selectStudentsByCharId(model.charId);
+        }
+
         public List<students> selectStudents()
         {
             Int32 dataCount = 0, pageCount = 0;

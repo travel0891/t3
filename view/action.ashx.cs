@@ -91,6 +91,96 @@ namespace view
                         }
                         break;
                     #endregion
+
+                    #region addStudent
+                    case "addStudent":
+
+                        String addAccount = context.Request["account"]
+                            , addPassword = context.Request["password"]
+                            , addNumber = context.Request["number"]
+                            , addName = context.Request["name"]
+                            , addGender = context.Request["gender"]
+                            , addClasses = context.Request["classes"]
+                            , addSuper = context.Request["super"];
+
+                        inStudents = new students();
+                        inStudents.account = addAccount;
+                        inStudents.password = addPassword;
+                        inStudents.number = addNumber;
+                        inStudents.name = addName;
+                        inStudents.gender = Convert.ToInt16(addGender);
+                        inStudents.classes = addClasses;
+                        inStudents.super = Convert.ToInt16(String.IsNullOrEmpty(addSuper) ? 0 : 1);
+
+                        if (controllerProvider.instance().doStudent(1, inStudents))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "保存成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "保存失败";
+                        }
+
+                        break;
+                    #endregion
+
+                    #region updateStudent
+
+                    case "updateStudent":
+                        String updateAccount = context.Request["account"]
+                            , updatePassword = context.Request["password"]
+                            , updateNumber = context.Request["number"]
+                            , updateName = context.Request["name"]
+                            , updateGender = context.Request["gender"]
+                            , updateClasses = context.Request["classes"]
+                            , updateSuper = context.Request["super"]
+                            , updateCharId = context.Request["charId"];
+
+                        inStudents = new students();
+                        inStudents.charId = updateCharId;
+                        inStudents.account = updateAccount;
+                        inStudents.password = updatePassword;
+                        inStudents.number = updateNumber;
+                        inStudents.name = updateName;
+                        inStudents.gender = Convert.ToInt16(updateGender);
+                        inStudents.classes = updateClasses;
+                        inStudents.super = Convert.ToInt16(String.IsNullOrEmpty(updateSuper) ? 0 : 1);
+
+                        if (controllerProvider.instance().doStudent(2, inStudents))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "更新成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "更新失败";
+                        }
+                        break;
+
+                    #endregion
+
+                    #region delStudent
+
+                    case "delStudent":
+                        String delCharId = context.Request["charId"];
+                        inStudents = new students();
+                        inStudents.charId = delCharId;
+                        if (controllerProvider.instance().doStudent(3, inStudents))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "删除成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "删除失败";
+                        }
+                        break;
+
+                    #endregion
                 }
             }
             if (!json.IsObject)
