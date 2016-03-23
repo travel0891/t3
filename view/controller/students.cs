@@ -28,7 +28,7 @@ namespace view.controller
         public List<students> selectStudents()
         {
             Int32 dataCount = 0, pageCount = 0;
-            return entityProvider.instance().selectStudents(null, Int32.MaxValue, 1, out dataCount, out pageCount);
+            return entityProvider.instance().selectStudents(null, Int32.MaxValue, 1, out dataCount, out pageCount, null, null);
         }
 
         /// <summary>

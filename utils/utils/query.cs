@@ -113,6 +113,23 @@ namespace model.utils
             return helper.instance().ExecuteScalarToInt(helper.connectionString, commandText, dataParameter, CommandType.Text);
         }
 
+        public IDbDataParameter[] builderParameter(out String whereSQL, params Object[] pars)
+        {
+            StringBuilder sbSQL = new StringBuilder();
+            List<IDbDataParameter> listParameter = new List<IDbDataParameter>();
+            if (pars != null && pars.Length > 0 && pars.Length % 4 == 0)
+            {
+                for (int i = 0; i < pars.Length; i++)
+                {
+                    sbSQL.Append((i > 0 ? pars[i] : "where") + " " + pars[i + 1] + " " + pars[i + 2] + " @" + pars[i + 1] + " ");
+                    listParameter.Add(new SqlParameter(pars[i + 1].ToString(), pars[i + 3]));
+                    i += 3;
+                }
+            }
+            whereSQL = sbSQL.ToString();
+            return listParameter.ToArray();
+        }
+
         private static query q = null;
 
         public static query instance()

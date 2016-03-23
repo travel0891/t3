@@ -11,7 +11,7 @@ namespace model.entity
 
     public partial class entityProvider
     {
-        public List<students> selectStudents(students whereModel, Int32 pageSize, Int32 pageIndex, out Int32 dataCount, out Int32 pageCount)
+        public List<students> selectStudents(students whereModel, Int32 pageSize, Int32 pageIndex, out Int32 dataCount, out Int32 pageCount, String orderString, params Object[] param)
         {
             String dataCountSQL = " select count(1) from students ";
 
@@ -22,31 +22,27 @@ namespace model.entity
             sbSQL.Append(" ,account ,password ,name ,number ,gender ,classes ,createTime ,super ,status ");
             sbSQL.Append(" from students ");
 
-            StringBuilder whereSQL = new StringBuilder();
-            whereSQL.Append(" where 1 = @where ");
+            String whereSQL = String.Empty;
+            IDbDataParameter[] parameter = query.instance().builderParameter(out whereSQL, param);
 
             StringBuilder pageSQL = new StringBuilder();
             pageIndex = pageIndex > 0 ? pageIndex - 1 : 0;
             if (pageIndex > 0)
             {
                 pageSQL.Append(" and intId > ");
-                pageSQL.AppendFormat(" ( select max(intId) from (select top {0} intId from area {1} order by intId ) as dataList ) ", pageIndex * pageSize, whereSQL.ToString());
+                pageSQL.AppendFormat(" ( select max(intId) from (select top {0} intId from area {1} order by intId ) as dataList ) ", pageIndex * pageSize, whereSQL);
             }
 
             StringBuilder orderSQL = new StringBuilder();
-            orderSQL.Append(" order by intId ");
-
-            IDbDataParameter[] parameter = {
-                                           new SqlParameter("where","1")
-            };
+            orderSQL.AppendFormat(" order by {0} ", String.IsNullOrEmpty(orderString) ? "intId asc" : orderString);
 
             List<students> listStudentsModel = new List<students>();
             students studentsModel = null;
 
-            dataCount = query.instance().scalarInt(dataCountSQL + whereSQL.ToString(), parameter);
+            dataCount = query.instance().scalarInt(dataCountSQL + whereSQL, parameter);
             pageCount = (Int32)Math.Ceiling((Double)dataCount / (Double)pageSize);
 
-            IDataReader dr = query.instance().dataReader(sbSQL.ToString() + whereSQL.ToString() + pageSQL.ToString() + orderSQL.ToString(), parameter);
+            IDataReader dr = query.instance().dataReader(sbSQL.ToString() + whereSQL + pageSQL.ToString() + orderSQL.ToString(), parameter);
             while (dr.Read())
             {
                 studentsModel = new students();
