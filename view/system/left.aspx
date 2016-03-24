@@ -121,7 +121,7 @@
             <div class="meun" id="urlList">
                 <ul>
                     <li title="course/course_list">课件列表</li>
-                    <li title="2">课件添加</li>
+                    <li title="course/course_action">课件添加</li>
                 </ul>
             </div>
             <div class="bgm">

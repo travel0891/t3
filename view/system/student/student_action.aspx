@@ -17,7 +17,7 @@
       <ol class="breadcrumb">
             <li class="c999">当前：学生管理</li><li class="c999">学生<%=String.IsNullOrEmpty(Request.QueryString["charId"])?"添加":"编辑" %></li>
         </ol>
-        <form id="tempForm" class="form-horizontal" onsubmit="javascript:return false;">
+        <form id="studentForm" class="form-horizontal" onsubmit="javascript:return false;">
         <div class="form-group">
             <label class="col-sm-1  control-label">账号</label>
             <div class="col-sm-5">
@@ -74,7 +74,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-1 col-sm-5">
-                <button type="submit" class="btn btn-primary"><%=String.IsNullOrEmpty(Request.QueryString["charId"])?"保存":"更新" %></button>
+                <button type="submit" id="studentSubmit" class="btn btn-primary"><%=String.IsNullOrEmpty(Request.QueryString["charId"])?"保存":"更新" %></button>
                 <%=String.IsNullOrEmpty(Request.QueryString["charId"])?null:"<button type=\"button\" onclick=\"javascript:history.go(-1);\" class=\"btn btn-default\">取消编辑</button>" %>
             </div>
         </div>

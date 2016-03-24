@@ -19,6 +19,6 @@ namespace model.table
         /// <summary> 
         /// 下载时间 DATETIME 8 (getdate())  
         /// </summary> 
-        public DateTime createTime { get; set; }
+        public DateTime? createTime { get; set; }
     }
 }

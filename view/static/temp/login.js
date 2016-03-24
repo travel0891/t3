@@ -38,7 +38,7 @@
                 }
             },
             error: function () {
-                $("#promptId").html(bLabel + "网络异常，请重试！" + eLabel);
+                $("#promptId").html(bLabel + "网络异常，请重试" + eLabel);
             }
         });
     };

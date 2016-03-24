@@ -24,6 +24,6 @@ namespace model.table
         /// <summary> 
         ///  DATETIME 8 (getdate())  
         /// </summary> 
-        public DateTime createTime { get; set; }
+        public DateTime? createTime { get; set; }
     }
 }

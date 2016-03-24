@@ -34,7 +34,7 @@ namespace model.table
         /// <summary> 
         ///  DATETIME 8 (getdate())  
         /// </summary> 
-        public DateTime createTime { get; set; }
+        public DateTime? createTime { get; set; }
 
         /// <summary> 
         /// 更新时间 DATETIME 8   

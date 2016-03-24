@@ -24,7 +24,7 @@ namespace model.table
         /// <summary> 
         /// 开始时间 DATETIME 8   
         /// </summary> 
-        public DateTime createTime { get; set; }
+        public DateTime? createTime { get; set; }
 
         /// <summary> 
         /// 得分 SMALLINT 2 ((0))  

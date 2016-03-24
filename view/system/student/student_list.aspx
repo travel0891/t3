@@ -25,7 +25,7 @@
                     "lengthMenu": "每页 _MENU_ 条记录",
                     "zeroRecords": "没有找到记录",
                     "info": "当前 _START_ ~ _END_ 条记录，共 _TOTAL_ 条记录",
-                    "infoEmpty": "无记录",
+                    "infoEmpty": "",
                     "infoFiltered": "(从 _MAX_ 条记录检索)",
                     "search": "关键词",
                     "paginate": { "first": "首页", "last": "尾页", "next": "下一页", "previous": "上一页" }

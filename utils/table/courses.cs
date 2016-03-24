@@ -19,7 +19,7 @@ namespace model.table
         /// <summary> 
         /// 创建时间 DATETIME 8 (getdate())  
         /// </summary> 
-        public DateTime createTime { get; set; }
+        public DateTime? createTime { get; set; }
 
         /// <summary> 
         /// 课件内容 NVARCHAR 2000   

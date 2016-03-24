@@ -1,19 +1,19 @@
 ﻿require.config({
     paths: {
         jquery: "jquery/jquery.min",
-        l: "temp/login",
-        jqueryv: "jquery-validation/dist/jquery.validate.min"
+        jqueryv: "jquery-validation/dist/jquery.validate.min",
+        l: "temp/login"
     }
 });
 
-require(["jquery", "l", "jqueryv"], function ($, a, b) {
+require(["jquery", "jqueryv", "l"], function ($, a, b) {
     $(function () {
-        a.v("#tempForm");
+        b.v("#tempForm");
     });
 
     $("button[type='submit']").on("click", function () {
-        if (a.v("#tempForm").form()) {
-            a.l("#tempForm");
+        if (b.v("#tempForm").form()) {
+            b.l("#tempForm");
         }
     });
 });

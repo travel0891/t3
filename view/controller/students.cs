@@ -7,7 +7,7 @@ namespace view.controller
     using model.table;
     using model.entity;
 
-    public class controllerProvider
+    public partial class controllerProvider
     {
         public Boolean selectAccount(students model)
         {

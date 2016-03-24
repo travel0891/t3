@@ -95,22 +95,22 @@ namespace view
                     #region addStudent
                     case "addStudent":
 
-                        String addAccount = context.Request["account"]
-                            , addPassword = context.Request["password"]
-                            , addNumber = context.Request["number"]
-                            , addName = context.Request["name"]
-                            , addGender = context.Request["gender"]
-                            , addClasses = context.Request["classes"]
-                            , addSuper = context.Request["super"];
+                        String addStudentAccount = context.Request["account"]
+                            , addStudentPassword = context.Request["password"]
+                            , addStudentNumber = context.Request["number"]
+                            , addStudentName = context.Request["name"]
+                            , addStudentGender = context.Request["gender"]
+                            , addStudentClasses = context.Request["classes"]
+                            , addStudentSuper = context.Request["super"];
 
                         inStudents = new students();
-                        inStudents.account = addAccount;
-                        inStudents.password = addPassword;
-                        inStudents.number = addNumber;
-                        inStudents.name = addName;
-                        inStudents.gender = Convert.ToInt16(addGender);
-                        inStudents.classes = addClasses;
-                        inStudents.super = Convert.ToInt16(String.IsNullOrEmpty(addSuper) ? 0 : 1);
+                        inStudents.account = addStudentAccount;
+                        inStudents.password = addStudentPassword;
+                        inStudents.number = addStudentNumber;
+                        inStudents.name = addStudentName;
+                        inStudents.gender = Convert.ToInt16(addStudentGender);
+                        inStudents.classes = addStudentClasses;
+                        inStudents.super = Convert.ToInt16(String.IsNullOrEmpty(addStudentSuper) ? 0 : 1);
 
                         if (controllerProvider.instance().doStudent(1, inStudents))
                         {
@@ -129,24 +129,24 @@ namespace view
                     #region updateStudent
 
                     case "updateStudent":
-                        String updateAccount = context.Request["account"]
-                            , updatePassword = context.Request["password"]
-                            , updateNumber = context.Request["number"]
-                            , updateName = context.Request["name"]
-                            , updateGender = context.Request["gender"]
-                            , updateClasses = context.Request["classes"]
-                            , updateSuper = context.Request["super"]
-                            , updateCharId = context.Request["charId"];
+                        String updateStudentAccount = context.Request["account"]
+                            , updateStudentPassword = context.Request["password"]
+                            , updateStudentNumber = context.Request["number"]
+                            , updateStudentName = context.Request["name"]
+                            , updateStudentGender = context.Request["gender"]
+                            , updateStudentClasses = context.Request["classes"]
+                            , updateStudentSuper = context.Request["super"]
+                            , updateStudentCharId = context.Request["charId"];
 
                         inStudents = new students();
-                        inStudents.charId = updateCharId;
-                        inStudents.account = updateAccount;
-                        inStudents.password = updatePassword;
-                        inStudents.number = updateNumber;
-                        inStudents.name = updateName;
-                        inStudents.gender = Convert.ToInt16(updateGender);
-                        inStudents.classes = updateClasses;
-                        inStudents.super = Convert.ToInt16(String.IsNullOrEmpty(updateSuper) ? 0 : 1);
+                        inStudents.charId = updateStudentCharId;
+                        inStudents.account = updateStudentAccount;
+                        inStudents.password = updateStudentPassword;
+                        inStudents.number = updateStudentNumber;
+                        inStudents.name = updateStudentName;
+                        inStudents.gender = Convert.ToInt16(updateStudentGender);
+                        inStudents.classes = updateStudentClasses;
+                        inStudents.super = Convert.ToInt16(String.IsNullOrEmpty(updateStudentSuper) ? 0 : 1);
 
                         if (controllerProvider.instance().doStudent(2, inStudents))
                         {
@@ -165,9 +165,9 @@ namespace view
                     #region delStudent
 
                     case "delStudent":
-                        String delCharId = context.Request["charId"];
+                        String delStudentCharId = context.Request["charId"];
                         inStudents = new students();
-                        inStudents.charId = delCharId;
+                        inStudents.charId = delStudentCharId;
                         if (controllerProvider.instance().doStudent(3, inStudents))
                         {
                             json["code"] = "pass";
@@ -181,6 +181,82 @@ namespace view
                         break;
 
                     #endregion
+
+                    #region addCourse
+                    case "addCourse":
+
+                        String addCourseNumber = context.Request["number"]
+                            , addCourseTitle = context.Request["title"]
+                            , addCourseContents = context.Request["hiContents"];
+
+                        courses inCourse = new courses();
+                        inCourse.number = addCourseNumber;
+                        inCourse.title = addCourseTitle;
+                        inCourse.contents = addCourseContents;
+
+                        if (controllerProvider.instance().doCourses(1, inCourse))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "保存成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "保存失败";
+                        }
+
+                        break;
+                    #endregion
+
+                    #region updateCourse
+                    case "updateCourse":
+
+                        String updateCourseNumber = context.Request["number"]
+                            , updateCourseTitle = context.Request["title"]
+                            , updateCourseContents = context.Request["hiContents"]
+                            , updateCourseCharId = context.Request["charId"];
+
+                         inCourse = new courses();
+                         inCourse.charId = updateCourseCharId;
+                         inCourse.number = updateCourseNumber;
+                         inCourse.title = updateCourseTitle;
+                         inCourse.contents = updateCourseContents;
+                         inCourse.updateTime = DateTime.Now;
+
+                        if (controllerProvider.instance().doCourses(2, inCourse))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "更新成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "更新失败";
+                        }
+
+                        break;
+                    #endregion
+
+                    #region delCourse
+
+                    case "delCourse":
+                        String delCourseCharId = context.Request["charId"];
+                        inCourse = new courses();
+                        inCourse.charId = delCourseCharId;
+                        if (controllerProvider.instance().doCourses(3, inCourse))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "删除成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "删除失败";
+                        }
+                        break;
+
+                    #endregion
+
                 }
             }
             if (!json.IsObject)
