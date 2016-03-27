@@ -3,11 +3,12 @@
         jquery: "jquery/jquery.min",
         jqueryv: "jquery-validation/dist/jquery.validate.min",
         student: "temp/students",
-        course: "temp/courses"
+        course: "temp/courses",
+        document: "temp/documents"
     }
 });
 
-require(["jquery", "jqueryv", "student", "course"], function ($, a, b, c) {
+require(["jquery", "jqueryv", "student", "course", "document"], function ($, a, b, c, d) {
     $(function () {
         b.v("#studentForm");
         c.v("#courseForm");
@@ -22,6 +23,12 @@ require(["jquery", "jqueryv", "student", "course"], function ($, a, b, c) {
     $("#courseSubmit").on("click", function () {
         if (c.v("#courseForm").form()) {
             c.c("#courseForm", $("#postType").val());
+        }
+    });
+
+    $("#documentSubmit").on("click", function () {
+        if (d.v("#documentForm").form()) {
+            d.d("#documentForm", $("#postType").val());
         }
     });
 });

@@ -20,7 +20,7 @@
         <div class="form-group">
             <label class="col-sm-1  control-label">
                 编号</label>
-            <div class="col-sm-5">
+            <div class="col-sm-2">
                 <input type="text" id="number" class="form-control" maxlength="6" placeholder="必填"
                     runat="server" />
             </div>

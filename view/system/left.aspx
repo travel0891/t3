@@ -105,7 +105,7 @@
     <div class="left">
         <div class="all">
             <div class="bgm">
-                <div class="icon1">
+                <div class="icon2">
                 </div>
                 学生管理</div>
             <div class="meun" id="urlList">
@@ -115,7 +115,7 @@
                 </ul>
             </div>
             <div class="bgm">
-                <div class="icon2">
+                <div class="icon1">
                 </div>
                 课件管理</div>
             <div class="meun" id="urlList">
@@ -127,21 +127,21 @@
             <div class="bgm">
                 <div class="icon3">
                 </div>
-                习题管理</div>
+                文档管理</div>
             <div class="meun" id="urlList">
                 <ul>
-                    <li title="1">习题列表</li>
-                    <li title="2">习题添加</li>
+                    <li title="document/document_list">文档列表</li>
+                    <li title="document/document_action">文档添加</li>
                 </ul>
             </div>
             <div class="bgm">
                 <div class="icon4">
                 </div>
-                文档管理</div>
+                习题管理</div>
             <div class="meun" id="urlList">
                 <ul>
-                    <li title="1">文档列表</li>
-                    <li title="2">文档添加</li>
+                    <li title="example/example_list">习题列表</li>
+                    <li title="example/example_action">习题添加</li>
                 </ul>
             </div>
         </div>

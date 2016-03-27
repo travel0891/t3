@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Web;
 
 namespace view
 {
-    using view.controller;
     using model.table;
-    using System.Text.RegularExpressions;
-
+    using view.controller;
+    
     public partial class course_list : viewBase
     {
         protected void Page_Load(object sender, EventArgs e)

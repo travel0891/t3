@@ -58,6 +58,7 @@
     <Content Include="lib\LitJSON.dll" />
     <Content Include="login.html" />
     <Content Include="SQL\table_script.sql" />
+    <Content Include="static\bootstrap\js\dropdowns.min.js" />
     <Content Include="static\datatables\examples\advanced_init\column_render.html" />
     <Content Include="static\datatables\examples\advanced_init\complex_header.html" />
     <Content Include="static\datatables\examples\advanced_init\defaults.html" />
@@ -798,13 +799,27 @@
     <Content Include="static\kindeditor\themes\qq\editor.gif" />
     <Content Include="static\kindeditor\themes\qq\qq.css" />
     <Content Include="static\kindeditor\themes\simple\simple.css" />
+    <Content Include="static\layer\extend\layer.ext.js" />
+    <Content Include="static\layer\layer.js" />
+    <Content Include="static\layer\skin\default\icon-ext.png" />
+    <Content Include="static\layer\skin\default\icon.png" />
+    <Content Include="static\layer\skin\default\loading-0.gif" />
+    <Content Include="static\layer\skin\default\loading-1.gif" />
+    <Content Include="static\layer\skin\default\loading-2.gif" />
+    <Content Include="static\layer\skin\layer.css" />
+    <Content Include="static\layer\skin\layer.ext.css" />
     <Content Include="static\otherJs\courses.js" />
     <Content Include="static\otherJs\students.js" />
     <Content Include="static\system.js" />
     <Content Include="static\temp\courses.js" />
+    <Content Include="static\temp\documents.js" />
     <Content Include="static\temp\students.js" />
     <Content Include="system\course\course_action.aspx" />
     <Content Include="system\course\course_list.aspx" />
+    <Content Include="system\document\document_action.aspx" />
+    <Content Include="system\document\document_list.aspx" />
+    <Content Include="system\example\example_action.aspx" />
+    <Content Include="system\example\example_list.aspx" />
     <Content Include="system\left.aspx" />
     <Content Include="system\login.aspx" />
     <Content Include="system\main.aspx" />
@@ -1164,6 +1179,7 @@
       <DependentUpon>action.ashx</DependentUpon>
     </Compile>
     <Compile Include="controller\courses.cs" />
+    <Compile Include="controller\documents.cs" />
     <Compile Include="controller\students.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -1185,6 +1201,34 @@
     </Compile>
     <Compile Include="system\course\course_list.aspx.designer.cs">
       <DependentUpon>course_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\document\document_action.aspx.cs">
+      <DependentUpon>document_action.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\document\document_action.aspx.designer.cs">
+      <DependentUpon>document_action.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\document\document_list.aspx.cs">
+      <DependentUpon>document_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\document\document_list.aspx.designer.cs">
+      <DependentUpon>document_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\example\example_action.aspx.cs">
+      <DependentUpon>example_action.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\example\example_action.aspx.designer.cs">
+      <DependentUpon>example_action.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\example\example_list.aspx.cs">
+      <DependentUpon>example_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\example\example_list.aspx.designer.cs">
+      <DependentUpon>example_list.aspx</DependentUpon>
     </Compile>
     <Compile Include="system\left.aspx.cs">
       <DependentUpon>left.aspx</DependentUpon>
@@ -1235,9 +1279,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="documentFile\" />
     <Folder Include="static\kindeditor\attached\" />
-    <Folder Include="system\document\" />
-    <Folder Include="system\example\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\utils\model.csproj">

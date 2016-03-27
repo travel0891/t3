@@ -35,8 +35,8 @@ namespace view.controller
         /// doStudent
         /// </summary>
         /// <param name="type">1 insert 2 update 3 delete</param>
-        /// <param name="model"></param>
-        /// <returns></returns>
+        /// <param name="model">Students</param>
+        /// <returns>Boolean</returns>
         public Boolean doStudent(Int32 type, students model)
         {
             Boolean ef = false;

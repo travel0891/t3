@@ -22,6 +22,8 @@ namespace view
             {
                 switch (type)
                 {
+                    #region login
+
                     #region existsAccount
                     case "existsAccount":
                         students tempStudents = new students();
@@ -91,6 +93,10 @@ namespace view
                         }
                         break;
                     #endregion
+
+                    #endregion
+
+                    #region student
 
                     #region addStudent
                     case "addStudent":
@@ -182,6 +188,10 @@ namespace view
 
                     #endregion
 
+                    #endregion
+
+                    #region course
+
                     #region addCourse
                     case "addCourse":
 
@@ -216,12 +226,12 @@ namespace view
                             , updateCourseContents = context.Request["hiContents"]
                             , updateCourseCharId = context.Request["charId"];
 
-                         inCourse = new courses();
-                         inCourse.charId = updateCourseCharId;
-                         inCourse.number = updateCourseNumber;
-                         inCourse.title = updateCourseTitle;
-                         inCourse.contents = updateCourseContents;
-                         inCourse.updateTime = DateTime.Now;
+                        inCourse = new courses();
+                        inCourse.charId = updateCourseCharId;
+                        inCourse.number = updateCourseNumber;
+                        inCourse.title = updateCourseTitle;
+                        inCourse.contents = updateCourseContents;
+                        inCourse.updateTime = DateTime.Now;
 
                         if (controllerProvider.instance().doCourses(2, inCourse))
                         {
@@ -257,6 +267,110 @@ namespace view
 
                     #endregion
 
+                    #endregion
+
+                    #region document
+
+                    #region addDocument
+
+                    case "addDocument":
+                        documents inDocuments = new documents();
+
+                        String addDocumentNumber = context.Request["number"]
+                            , addDocumentTitle = context.Request["title"]
+                            , tempFile = "documentFile"
+                            , tempName = addDocumentTitle + "." + Guid.NewGuid().ToString();
+
+                        HttpPostedFile postFile = context.Request.Files["url"];
+                        if (postFile.ContentLength > 0)
+                        {
+                            inDocuments.number = addDocumentNumber;
+                            inDocuments.title = addDocumentTitle;
+                            inDocuments.type = postFile.FileName.Substring(postFile.FileName.LastIndexOf(".") + 1).ToLower();
+                            inDocuments.size = postFile.ContentLength;
+                            inDocuments.url = tempFile + "/" + tempName + "." + inDocuments.type;
+
+                            try
+                            {
+                                postFile.SaveAs(context.Server.MapPath(inDocuments.url));
+                                if (controllerProvider.instance().doDocuments(1, inDocuments))
+                                {
+                                    json["code"] = "pass";
+                                    json["story"] = "保存成功";
+                                }
+                                else
+                                {
+                                    json["code"] = "error";
+                                    json["story"] = "保存失败";
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                json["code"] = "error";
+                                json["story"] = "上传文档错误，" + ex.Message;
+                            }
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "文档不能为空";
+                        }
+
+                        break;
+
+                    #endregion
+
+                    #region updateDocument
+
+                    case "updateDocument":
+                        String updateDocumentNumber = context.Request["number"]
+                           , updateDocumentTitle = context.Request["title"]
+                           , updateHiTitle = context.Request["hiTitle"]
+                           , updateHiUrl = context.Request["hiUrl"]
+                           , tempName1 = updateDocumentTitle + "." + Guid.NewGuid().ToString()
+                           , updateDocumentCharId = context.Request["charId"];
+
+                        inDocuments = new documents();
+                        inDocuments.number = updateDocumentNumber;
+                        inDocuments.title = updateDocumentTitle;
+                        inDocuments.url = updateHiUrl.Replace(updateHiTitle, inDocuments.title);
+                        inDocuments.charId = updateDocumentCharId;
+
+                        if (controllerProvider.instance().doDocuments(2, inDocuments))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "保存成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "保存失败";
+                        }
+
+                        break;
+                    #endregion
+
+                    #region delDocument
+
+                    case "delDocument":
+                        String delDocumentCharId = context.Request["charId"];
+                        inDocuments = new documents();
+                        inDocuments.charId = delDocumentCharId;
+                        if (controllerProvider.instance().doDocuments(3, inDocuments))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "删除成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "删除失败";
+                        }
+                        break;
+
+                    #endregion
+
+                    #endregion
                 }
             }
             if (!json.IsObject)

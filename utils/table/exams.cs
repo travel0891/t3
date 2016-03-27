@@ -22,7 +22,7 @@ namespace model.table
         public String students_charId { get; set; }
 
         /// <summary> 
-        /// 开始时间 DATETIME 8   
+        /// 开始时间 DATETIME 8 (getdate())  
         /// </summary> 
         public DateTime? createTime { get; set; }
 
@@ -32,7 +32,7 @@ namespace model.table
         public Int16 score { get; set; }
 
         /// <summary> 
-        /// 更新时间 DATETIME 8   
+        /// 更新时间 DATETIME 8 (getdate())  
         /// </summary> 
         public DateTime? updateTime { get; set; }
     }

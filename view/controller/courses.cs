@@ -21,11 +21,11 @@ namespace view.controller
         }
 
         /// <summary>
-        /// doStudent
+        /// doCourses
         /// </summary>
         /// <param name="type">1 insert 2 update 3 delete</param>
-        /// <param name="model"></param>
-        /// <returns></returns>
+        /// <param name="model">Courses</param>
+        /// <returns>Boolean</returns>
         public Boolean doCourses(Int32 type, courses model)
         {
             Boolean ef = false;
