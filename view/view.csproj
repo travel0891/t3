@@ -813,6 +813,7 @@
     <Content Include="static\system.js" />
     <Content Include="static\temp\courses.js" />
     <Content Include="static\temp\documents.js" />
+    <Content Include="static\temp\examples.js" />
     <Content Include="static\temp\students.js" />
     <Content Include="system\course\course_action.aspx" />
     <Content Include="system\course\course_list.aspx" />
@@ -1180,6 +1181,7 @@
     </Compile>
     <Compile Include="controller\courses.cs" />
     <Compile Include="controller\documents.cs" />
+    <Compile Include="controller\examples.cs" />
     <Compile Include="controller\students.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

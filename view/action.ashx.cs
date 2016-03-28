@@ -371,6 +371,144 @@ namespace view
                     #endregion
 
                     #endregion
+
+                    #region example
+
+                    #region addExample
+
+                    case "addExample":
+
+                        String addExampleNumber = context.Request["number"]
+                            , addExampleExample = context.Request["example"]
+                            , addExampleOption = context.Request["option"]
+                            , addExampleACountent = context.Request["aCountent"]
+                            , addExampleBCountent = context.Request["bCountent"]
+                            , addExampleCCountent = context.Request["cCountent"]
+                            , addExampleDCountent = context.Request["dCountent"];
+
+                        examples inExamples = new examples();
+                        inExamples.number = addExampleNumber;
+                        inExamples.example = addExampleExample;
+                        inExamples.optionA = 0;
+                        inExamples.optionB = 0;
+                        inExamples.optionC = 0;
+                        inExamples.optionD = 0;
+
+                        switch (addExampleOption)
+                        {
+                            case "A":
+                                inExamples.optionA = 1;
+                                break;
+                            case "B":
+                                inExamples.optionB = 1;
+                                break;
+                            case "C":
+                                inExamples.optionC = 1;
+                                break;
+                            case "D":
+                                inExamples.optionD = 1;
+                                break;
+                        }
+
+                        inExamples.aCountent = addExampleACountent;
+                        inExamples.bCountent = addExampleBCountent;
+                        inExamples.cCountent = addExampleCCountent;
+                        inExamples.dCountent = addExampleDCountent;
+
+                        if (controllerProvider.instance().doExamples(1, inExamples))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "保存成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "保存失败";
+                        }
+
+                        break;
+
+                    #endregion
+
+                    #region updateExample
+
+                    case "updateExample":
+
+                        String updateExampleNumber = context.Request["number"]
+                            , updateExampleExample = context.Request["example"]
+                            , updateExampleOption = context.Request["option"]
+                            , updateExampleACountent = context.Request["aCountent"]
+                            , updateExampleBCountent = context.Request["bCountent"]
+                            , updateExampleCCountent = context.Request["cCountent"]
+                            , updateExampleDCountent = context.Request["dCountent"]
+                            , updateExampleCharId = context.Request["charId"];
+
+                        inExamples = new examples();
+                        inExamples.charId = updateExampleCharId;
+                        inExamples.number = updateExampleNumber;
+                        inExamples.example = updateExampleExample;
+                        inExamples.optionA = 0;
+                        inExamples.optionB = 0;
+                        inExamples.optionC = 0;
+                        inExamples.optionD = 0;
+
+                        switch (updateExampleOption)
+                        {
+                            case "A":
+                                inExamples.optionA = 1;
+                                break;
+                            case "B":
+                                inExamples.optionB = 1;
+                                break;
+                            case "C":
+                                inExamples.optionC = 1;
+                                break;
+                            case "D":
+                                inExamples.optionD = 1;
+                                break;
+                        }
+
+                        inExamples.aCountent = updateExampleACountent;
+                        inExamples.bCountent = updateExampleBCountent;
+                        inExamples.cCountent = updateExampleCCountent;
+                        inExamples.dCountent = updateExampleDCountent;
+
+                        if (controllerProvider.instance().doExamples(2, inExamples))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "更新成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "更新失败";
+                        }
+
+                        break;
+
+                    #endregion
+
+                    #region delExample
+
+                    case "delExample":
+                        String delExampleCharId = context.Request["charId"];
+                        inExamples = new examples();
+                        inExamples.charId = delExampleCharId;
+                        if (controllerProvider.instance().doExamples(3, inExamples))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "删除成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "删除失败";
+                        }
+                        break;
+
+                    #endregion
+
+                    #endregion
                 }
             }
             if (!json.IsObject)

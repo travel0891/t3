@@ -9,7 +9,7 @@ namespace model.entity
     using model.table;
     using model.utils;
 
-    public partial class entityProvider 
+    public partial class entityProvider
     {
         public List<students> selectStudents(students whereModel, Int32 pageSize, Int32 pageIndex, out Int32 dataCount, out Int32 pageCount, String orderString, params Object[] param)
         {
@@ -72,7 +72,7 @@ namespace model.entity
             sbSQL.Append(" ,account ,password ,name ,number ,gender ,classes ,createTime ,super ,status ");
             sbSQL.Append(" from students ");
             sbSQL.Append(" where charId = @charId ");
-            IDbDataParameter[] parameter = { new SqlParameter("charId", charId) }; 
+            IDbDataParameter[] parameter = { new SqlParameter("charId", charId) };
             IDataReader dr = query.instance().dataReader(sbSQL.ToString(), parameter);
             if (dr.Read())
             {

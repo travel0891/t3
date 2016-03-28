@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using System.Text;
 
 namespace view
@@ -40,16 +39,16 @@ namespace view
                 sbHTML.AppendFormat("<td class=\"tac\">");
                 // sbHTML.AppendFormat("<a href=\"document_action.aspx?charId={0}\" class=\"btn btn-primary btn-sm\">编辑</a>", item.charId);
 
-                sbHTML.Append("<div class=\"btn-group\">");
-                sbHTML.AppendFormat("<button type=\"button\" onclick=\"javascript:{0}\" class=\"btn btn-success btn-sm\">下载</button>", "window.open('" + tempUrl + item.url + "')");
-                sbHTML.Append("<a class=\"btn btn-success dropdown-toggle btn-sm\" data-toggle=\"dropdown\">");
-                sbHTML.Append("<span class=\"caret\"></span>");
-                sbHTML.Append("<span class=\"sr-only\">Toggle Dropdown</span>");
-                sbHTML.Append("</a>");
-                sbHTML.Append("<ul class=\"dropdown-menu\">");
-                sbHTML.AppendFormat("<li><a href=\"javascript:;\" onclick=\"javascript:layer.alert('{0}');\">查看下载地址</button></a>", tempUrl + item.url);
-                sbHTML.Append("</ul>");
-                sbHTML.Append("</div>");
+                //sbHTML.Append("<div class=\"btn-group\">");
+                sbHTML.AppendFormat("<a href=\"javascript:void(0);\" onclick=\"javascript:{0}\" class=\"btn btn-success btn-sm\">下载</a>", "window.open('" + tempUrl + item.url + "')");
+                //sbHTML.Append("<a class=\"btn btn-success dropdown-toggle btn-sm\" data-toggle=\"dropdown\">");
+                //sbHTML.Append("<span class=\"caret\"></span>");
+                //sbHTML.Append("<span class=\"sr-only\">Toggle Dropdown</span>");
+                //sbHTML.Append("</a>");
+                //sbHTML.Append("<ul class=\"dropdown-menu\">");
+                //sbHTML.AppendFormat("<li><a href=\"javascript:;\" onclick=\"javascript:layer.alert('{0}');\">查看下载地址</button></a>", tempUrl + item.url);
+                //sbHTML.Append("</ul>");
+                //sbHTML.Append("</div>");
 
                 sbHTML.AppendFormat("<a href=\"javascript:del('{0}');\" class=\"ml6 btn btn-default btn-sm\">删除</a>", item.charId);
                 sbHTML.AppendFormat("</td>");

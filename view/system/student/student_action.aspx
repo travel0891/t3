@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>学生<%=String.IsNullOrEmpty(Request.QueryString["charId"])?"添加":"编辑" %> -<%=WebsiteTitle %></title>
+    <title>学生<%=String.IsNullOrEmpty(Request.QueryString["charId"])?"添加":"编辑" %> - <%=WebsiteTitle %></title>
     <link href="../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../../static/extend.css" rel="stylesheet" type="text/css" />
 
@@ -17,7 +17,7 @@
       <ol class="breadcrumb">
             <li class="c999">当前：学生管理</li><li class="c999">学生<%=String.IsNullOrEmpty(Request.QueryString["charId"])?"添加":"编辑" %></li>
         </ol>
-        <form id="studentForm" class="form-horizontal" onsubmit="javascript:return false;">
+        <form id="studentForm" class="form-horizontal">
         <div class="form-group">
             <label class="col-sm-1  control-label">账号</label>
             <div class="col-sm-5">

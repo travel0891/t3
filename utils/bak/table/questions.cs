@@ -4,25 +4,25 @@ namespace model.table
 {
     using model.utils;
 
-    public class answers : baseTable
+    public class questions : baseTable
     {
         /// <summary> 
-        ///  UNIQUEIDENTIFIER 16    
+        /// 问题编号 VARCHAR 12   
         /// </summary> 
-        public String questions_charId { get; set; }
+        public String number { get; set; }
 
         /// <summary> 
-        ///  NVARCHAR 2000    
+        ///  NVARCHAR 2000   
         /// </summary> 
-        public String answer { get; set; }
+        public String question { get; set; }
 
         /// <summary> 
-        ///  UNIQUEIDENTIFIER 16    
+        ///  UNIQUEIDENTIFIER 16   
         /// </summary> 
         public String students_charId { get; set; }
 
         /// <summary> 
-        ///  DATETIME 8 (getdate())   
+        ///  DATETIME 8 (getdate())  
         /// </summary> 
         public DateTime? createTime { get; set; }
     }

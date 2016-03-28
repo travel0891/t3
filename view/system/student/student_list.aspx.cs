@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Text;
 
 namespace view
 {
-    using model.table;
     using controller;
+    using model.table;
 
     public partial class student_list : viewBase
     {

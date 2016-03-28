@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>文档<%=String.IsNullOrEmpty(Request.QueryString["charId"])?"添加":"编辑" %>-<%=WebsiteTitle %></title>
+    <title>文档<%=String.IsNullOrEmpty(Request.QueryString["charId"])?"添加":"编辑" %> - <%=WebsiteTitle %></title>
     <link href="../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../../static/extend.css" rel="stylesheet" type="text/css" />
     <style type="text/css">

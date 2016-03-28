@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace view.manage
+namespace view
 {
-    public partial class top : System.Web.UI.Page
+    public partial class top : viewBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {

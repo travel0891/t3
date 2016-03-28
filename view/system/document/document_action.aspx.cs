@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace view
 {
-    using model.table;
-    using view.controller;
 
     public partial class document_action : viewBase
     {

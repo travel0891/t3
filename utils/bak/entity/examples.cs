@@ -19,7 +19,7 @@ namespace model.entity
             sbSQL.Append(" select ");
             sbSQL.AppendFormat(" {0} ", pageSize > 0 ? " top " + pageSize : null);
             sbSQL.Append(" intId, charId ");
-            sbSQL.Append(" ,number ,type ,example ,optionA ,optionB ,optionC ,optionD ,aCountent ,bCountent ,cCountent ,dCountent ");
+            sbSQL.Append(" ,number ,type ,example ,optionA ,optionB ,optionC ,optionD ");
             sbSQL.Append(" from examples ");
 
             String whereSQL = String.Empty;
@@ -55,10 +55,6 @@ namespace model.entity
                 examplesModel.optionB = dr.GetInt16(6);
                 examplesModel.optionC = dr.GetInt16(7);
                 examplesModel.optionD = dr.GetInt16(8);
-                examplesModel.aCountent = dr.GetString(9);
-                examplesModel.bCountent = dr.GetString(10);
-                examplesModel.cCountent = dr.GetString(11);
-                examplesModel.dCountent = dr.GetString(12);
                 listExamplesModel.Add(examplesModel);
             }
             dr.Close();
@@ -71,7 +67,7 @@ namespace model.entity
             examples examplesModel = null;
             StringBuilder sbSQL = new StringBuilder();
             sbSQL.Append(" select intId, charId ");
-            sbSQL.Append(" ,number ,type ,example ,optionA ,optionB ,optionC ,optionD ,aCountent ,bCountent ,cCountent ,dCountent ");
+            sbSQL.Append(" ,number ,type ,example ,optionA ,optionB ,optionC ,optionD ");
             sbSQL.Append(" from examples ");
             sbSQL.Append(" where charId = @charId ");
             IDbDataParameter[] parameter = { new SqlParameter("charId", charId) }; 
@@ -88,10 +84,6 @@ namespace model.entity
                 examplesModel.optionB = dr.GetInt16(6);
                 examplesModel.optionC = dr.GetInt16(7);
                 examplesModel.optionD = dr.GetInt16(8);
-                examplesModel.aCountent = dr.GetString(9);
-                examplesModel.bCountent = dr.GetString(10);
-                examplesModel.cCountent = dr.GetString(11);
-                examplesModel.dCountent = dr.GetString(12);
             }
             dr.Close();
             return examplesModel;

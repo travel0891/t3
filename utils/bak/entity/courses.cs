@@ -99,14 +99,5 @@ namespace model.entity
         {
             return query.instance().delete(coursesModel);
         }
-
-        private static entityProvider entity = null;
-
-        private entityProvider() { }
-
-        public static entityProvider instance()
-        {
-            return entity == null ? new entityProvider() : entity;
-        }
     }
 }
