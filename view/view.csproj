@@ -53,11 +53,9 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="forget_password.html" />
     <Content Include="index.aspx" />
     <Content Include="lib\LitJSON.dll" />
-    <Content Include="login.html" />
-    <Content Include="SQL\table_script.sql" />
+    <Content Include="SQL\script.sql" />
     <Content Include="static\bootstrap\js\dropdowns.min.js" />
     <Content Include="static\datatables\examples\advanced_init\column_render.html" />
     <Content Include="static\datatables\examples\advanced_init\complex_header.html" />
@@ -828,7 +826,6 @@
     <Content Include="system\student\student_action.aspx" />
     <Content Include="system\student\student_list.aspx" />
     <Content Include="system\top.aspx" />
-    <Content Include="register.html" />
     <Content Include="static\bootstrap\css\bootstrap-theme.css" />
     <Content Include="static\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="static\bootstrap\css\bootstrap.css" />
@@ -1172,7 +1169,6 @@
     <Content Include="static\main.js" />
     <Content Include="static\require.js" />
     <Content Include="static\temp\login.js" />
-    <Content Include="temp.htm" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

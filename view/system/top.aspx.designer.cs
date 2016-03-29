@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace view.manage {
+namespace view {
     
     
     public partial class top {

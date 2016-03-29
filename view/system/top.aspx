@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="top.aspx.cs" Inherits="view.manage.top" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="top.aspx.cs" Inherits="view.top" %>
 
 <!doctype html>
 <html lang="zh-CN">

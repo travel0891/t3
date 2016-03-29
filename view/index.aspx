@@ -29,13 +29,14 @@
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">首页</a></li>
-                        <li><a href="#">上级实验</a></li>
-                        <li><a href="#">模拟考试</a></li>
-                        <li><a href="#">在线授课</a></li>
-                        <li><a href="#">论坛交流</a></li>
+                        <li><a href="#">课件学习</a></li>
+                        <li><a href="#">文档下载</a></li>
+                        <li><a href="#">习题练习</a></li>
+                        <li><a href="#">模拟测试</a></li>
+                        <li><a href="#">在线提问</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><button class="btn btn-info mt8">登录</button> </li>
+                        <li><button class="btn btn-info mt8">学生登录</button> </li>
                     </ul>
                 </div>
             </div>
@@ -51,27 +52,27 @@
                     <img src="static/image/temp.jpg" data-holder-rendered="true" />
                     <div class="carousel-caption">
                         <h3>
-                            First slide label</h3>
+                           PAGE 3</h3>
                         <p>
-                            Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            &nbsp;</p>
                     </div>
                 </div>
                 <div class="item active">
                     <img src="static/image/temp.jpg" data-holder-rendered="true" />
                     <div class="carousel-caption">
                         <h3>
-                            Second slide label</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            PAGE 1</h3>
+                         <p>
+                            &nbsp;</p>
                     </div>
                 </div>
                 <div class="item">
                     <img src="static/image/temp.jpg" data-holder-rendered="true" />
                     <div class="carousel-caption">
                         <h3>
-                            Third slide label</h3>
-                        <p>
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                           PAGE 2</h3>
+                       <p>
+                            &nbsp;</p>
                     </div>
                 </div>
             </div>
@@ -79,7 +80,7 @@
                 <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span><span class="sr-only">
                     Previous</span> </a><a data-slide="next" role="button" href="#carousel-example-captions"
                         class="right carousel-control"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right">
-                        </span><span class="sr-only">Next</span> </a>
+                        </span><span class="sr-only">Next</span></a>
         </div>
         <div class="text-center" style="color:#999; margin-top:20px; min-height:60px; background-color:#f9f9f9;padding:20px 0; border-top:1px solid #e7e7e7;">
             © 2016 <%=WebsiteTitle %> <a href="system/login.aspx">后台管理</a>

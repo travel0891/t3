@@ -5,15 +5,15 @@ using System.Data.SqlClient;
 
 namespace model.utils
 {
-    class helper
+    public class helper
     {
-        #region SetParameter
+        #region setParameter
 
         public static readonly String connectionString = ConfigurationManager.ConnectionStrings["mssqlConnection"].ConnectionString;
 
-        private Boolean SetParameter(IDbCommand command, IDbConnection connection, IDbTransaction transaction, CommandType commandType, String commandText, IDbDataParameter[] dataParameters)
+        private Boolean setParameter(IDbCommand command, IDbConnection connection, CommandType commandType, String commandText, IDbDataParameter[] dataParameter)
         {
-            Boolean isSuccess = true;
+            Boolean success = true;
             if (connection.State != ConnectionState.Open)
             {
                 try
@@ -22,40 +22,36 @@ namespace model.utils
                 }
                 catch (SqlException sqlException)
                 {
-                    isSuccess = false;
+                    success = false;
                     throw sqlException;
                 }
             }
-            if (isSuccess)
+            if (success)
             {
                 command.Connection = connection;
                 command.CommandText = commandText;
-                if (transaction != null)
-                {
-                    command.Transaction = transaction;
-                }
                 command.CommandType = commandType;
-                if (dataParameters != null)
+                if (dataParameter != null)
                 {
-                    foreach (IDbDataParameter dataParameter in dataParameters)
+                    foreach (IDbDataParameter parameter in dataParameter)
                     {
-                        command.Parameters.Add(dataParameter);
+                        command.Parameters.Add(parameter);
                     }
                 }
             }
-            return isSuccess;
+            return success;
         }
 
         #endregion
 
-        #region ExecuteReader
+        #region executeReader
 
-        public IDataReader ExecuteReader(String connectionString, String commandText, IDbDataParameter[] dataParameter, CommandType commandType)
+        public IDataReader executeReader(String connectionString, String commandText, IDbDataParameter[] dataParameter, CommandType commandType)
         {
             IDataReader dataReader = null;
             IDbCommand command = new SqlCommand();
             IDbConnection connection = new SqlConnection(connectionString);
-            if (SetParameter(command, connection, null, commandType, commandText, dataParameter))
+            if (setParameter(command, connection, commandType, commandText, dataParameter))
             {
                 dataReader = command.ExecuteReader(CommandBehavior.CloseConnection);
                 command.Parameters.Clear();
@@ -65,19 +61,18 @@ namespace model.utils
 
         #endregion
 
-        #region ExecuteDataSet
+        #region executeDataSet
 
-        public DataSet ExecuteDataSet(String connectionString, String commandText, IDbDataParameter[] dataParameter, CommandType commandType)
+        public DataSet executeDataSet(String connectionString, String commandText, IDbDataParameter[] dataParameter, CommandType commandType)
         {
             IDataReader dataReader = null;
             IDbCommand command = new SqlCommand();
             IDbConnection connection = new SqlConnection(connectionString);
-            if (SetParameter(command, connection, null, commandType, commandText, dataParameter))
+            if (setParameter(command, connection, commandType, commandText, dataParameter))
             {
                 dataReader = command.ExecuteReader(CommandBehavior.CloseConnection);
                 command.Parameters.Clear();
             }
-
             DataSet dataSet = new DataSet();
 
             DataTable schemaTable = dataReader.GetSchemaTable();
@@ -120,15 +115,15 @@ namespace model.utils
 
         #endregion
 
-        #region ExecuteNonQuery
+        #region executeNonQuery
 
-        public int ExecuteNonQuery(String connectionString, String commandText, IDbTransaction transaction, IDbDataParameter[] dataParameters, CommandType commandType)
+        public Int32 executeNonQuery(String connectionString, String commandText, IDbDataParameter[] dataParameters, CommandType commandType)
         {
             Int32 effect = 0;
             IDbCommand command = new SqlCommand();
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
-                if (SetParameter(command, connection, transaction, commandType, commandText, dataParameters))
+                if (setParameter(command, connection, commandType, commandText, dataParameters))
                 {
                     effect = command.ExecuteNonQuery();
                     command.Parameters.Clear();
@@ -139,15 +134,15 @@ namespace model.utils
 
         #endregion
 
-        #region ExecuteScalar
+        #region executeScalar
 
-        public String ExecuteScalarToString(String connectionString, String commandText, IDbDataParameter[] dataParameter, CommandType commandType)
+        public String executeScalarToString(String connectionString, String commandText, IDbDataParameter[] dataParameter, CommandType commandType)
         {
             String valString = null;
             IDbCommand command = new SqlCommand();
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
-                if (SetParameter(command, connection, null, commandType, commandText, dataParameter))
+                if (setParameter(command, connection, commandType, commandText, dataParameter))
                 {
                     Object valObj = command.ExecuteScalar();
                     command.Parameters.Clear();
@@ -157,13 +152,13 @@ namespace model.utils
             }
         }
 
-        public Int32 ExecuteScalarToInt(String connectionString, String commandText, IDbDataParameter[] dataParameter, CommandType commandType)
+        public Int32 executeScalarToInt(String connectionString, String commandText, IDbDataParameter[] dataParameter, CommandType commandType)
         {
             Int32 valInt = 0;
             IDbCommand command = new SqlCommand();
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
-                if (SetParameter(command, connection, null, commandType, commandText, dataParameter))
+                if (setParameter(command, connection, commandType, commandText, dataParameter))
                 {
                     Object valObj = command.ExecuteScalar();
                     command.Parameters.Clear();

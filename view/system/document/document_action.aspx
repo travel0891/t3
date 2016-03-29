@@ -34,7 +34,7 @@
         <%if (String.IsNullOrEmpty(Request.QueryString["charId"])){%>
         <div class="form-group">
             <label class="col-sm-1 control-label">
-                文件</label> <!-- url -->
+                文档</label> <!-- url -->
             <div class="col-sm-5">
                 <input type="file" id="url" name="url" />
             </div>

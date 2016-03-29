@@ -12,7 +12,6 @@ namespace view
         /// </summary>
         public String WebsiteTitle { get { return websiteTitle; } }
 
-
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);

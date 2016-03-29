@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="view.manage.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="view.login" %>
 
 <!doctype html>
 <html lang="zh-CN">
@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>管理员登录 - <%=WebsiteTitle %></title>
+    <title>后台管理 - <%=WebsiteTitle %></title>
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css?v=20160220" />
     <style type="text/css">
         body
@@ -64,7 +64,7 @@
 <body>
     <div class="t_form">
         <div class="header text-center">
-            <p>管理员登录</p>
+            <p>登录后台管理</p>
         </div>
         <div class="content">
         <form id="tempForm" onsubmit="javascript:return false">
