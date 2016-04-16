@@ -17,21 +17,26 @@
         </ol>
         <form id="documentForm" class="form-horizontal" method="post" enctype="multipart/form-data">
         <div class="form-group">
-            <label class="col-sm-1  control-label">
-                编号</label>
+            <label class="col-sm-1  control-label">编号</label>
             <div class="col-sm-2">
                 <input type="text" id="number" class="form-control" maxlength="6" placeholder="必填"
                     runat="server" />
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-1 control-label">
-                名称</label>
+            <label class="col-sm-1 control-label">名称</label>
             <div class="col-sm-5">
                 <input type="text" id="title" class="form-control" maxlength="25" placeholder="必填" runat="server" />
             </div>
         </div>
-        <%if (String.IsNullOrEmpty(Request.QueryString["charId"])){%>
+         <%if (!String.IsNullOrEmpty(Request.QueryString["charId"])){%>
+         <div class="form-group">
+            <label class="col-sm-1 control-label">原文件</label>
+            <div class="col-sm-2">
+                <%= fileA %>
+            </div>
+        </div>
+        <%}%>
         <div class="form-group">
             <label class="col-sm-1 control-label">
                 文档</label> <!-- url -->
@@ -39,7 +44,6 @@
                 <input type="file" id="url" name="url" />
             </div>
         </div>
-        <%}%>
         <div class="form-group">
             <div class="col-sm-offset-1 col-sm-5">
                 <button type="submit" id="documentSubmit" class="btn btn-primary">
@@ -47,9 +51,8 @@
                 <%=String.IsNullOrEmpty(Request.QueryString["charId"])?null:"<button type=\"button\" onclick=\"javascript:history.go(-1);\" class=\"btn btn-default\">取消编辑</button>" %>
             </div>
         </div>
-        <input type="hidden" name="charId" value="<%=Request.QueryString["charId"]%>" />
-        <input type="hidden" id="hiTitle" runat="server" />
-        <input type="hidden" id="hiUrl" runat="server" />
+        <input type="hidden" id="charId" value="<%=Request.QueryString["charId"]%>" />
+        <input type="hidden" id="size" runat="server" />
         </form>
         <input type="hidden" id="postType" value="<%=String.IsNullOrEmpty(Request.QueryString["charId"])?"addDocument":"updateDocument" %>" />
     </div>

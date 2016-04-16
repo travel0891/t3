@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="view.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="signin.aspx.cs" Inherits="view.signin" %>
+
 
 <!doctype html>
 <html lang="zh-CN">
@@ -6,7 +7,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>后台管理 - <%=WebsiteTitle %></title>
+    <title>学生登录 - <%=WebsiteTitle %></title>
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css?v=20160220" />
     <style type="text/css">
         body
@@ -64,10 +65,10 @@
 <body>
     <div class="t_form">
         <div class="header text-center">
-            <p>登录后台管理</p>
+            <p>学生登录</p>
         </div>
         <div class="content">
-        <form id="loginForm">
+        <form id="signinForm">
             <div class="input-group form-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-user color999"></span></span>
                 <input type="text" name="account" id="accountInput" class="form-control" placeholder="请输入账号" maxlength="8" value="<%=account %>" />
@@ -78,17 +79,17 @@
             </div>
             <div class="form-group">
                 <div class="checkbox">
-                    <label class="color999"><input type="checkbox" name="keepLine" <%=keep %> />记住账号密码</label>
+                    <label class="color999"><input type="checkbox" name="keepLineStu" <%=keep %> />记住账号密码</label>
                 </div>
             </div>
             <div class="form-group">
                 <span id="promptId"></span>
-                <button id="doLogin" type="submit" class="btn btn-info btn-block">登 录</button>
+                <button id="doSignin" type="submit" class="btn btn-info btn-block">登 录</button>
             </div>
         </form>
         </div>
         <div class="footer text-center color999">
-            © 2016 <%=WebsiteTitle %>
+            © 2016 <%=WebsiteTitle %> <a href="/index.aspx">返回首页</a>
         </div>
     </div>
     <script src="../static/require.js" data-main="../static/main" type="text/javascript"></script>

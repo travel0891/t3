@@ -22,7 +22,7 @@ namespace model.table
         public String name { get; set; }
 
         /// <summary> 
-        /// 学号 VARCHAR 12    
+        /// 学号 VARCHAR 12    允许NULL
         /// </summary> 
         public String number { get; set; }
 

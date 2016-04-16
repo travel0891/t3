@@ -2,18 +2,24 @@
     paths: {
         jquery: "jquery/jquery.min",
         jqueryv: "jquery-validation/dist/jquery.validate.min",
-        l: "temp/login"
+        l: "temp/login",
+        s: "temp/signin"
     }
 });
 
-require(["jquery", "jqueryv", "l"], function ($, a, b) {
+require(["jquery", "jqueryv", "l", "s"], function ($, a, b, c) {
     $(function () {
-        b.v("#tempForm");
+        b.v("#loginForm");
+        c.v("#signinForm");
     });
-
-    $("button[type='submit']").on("click", function () {
-        if (b.v("#tempForm").form()) {
-            b.l("#tempForm");
+    $("#doLogin").on("click", function () {
+        if (b.v("#loginForm").form()) {
+            b.l("#loginForm");
+        }
+    });
+    $("#doSignin").on("click", function () {
+        if (c.v("#signinForm").form()) {
+            c.s("#signinForm");
         }
     });
 });

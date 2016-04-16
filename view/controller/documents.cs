@@ -17,7 +17,7 @@ namespace view.controller
         public List<documents> selectDocuments()
         {
             Int32 dataCount = 0, pageCount = 0;
-            return entityProvider.instance().selectDocuments(null, Int32.MaxValue, 1, out dataCount, out pageCount, null, null);
+            return entityProvider.instance().selectDocuments(Int32.MaxValue, 1, out dataCount, out pageCount, null, null);
         }
 
         /// <summary>

@@ -10,7 +10,16 @@
 namespace view {
     
     
-    public partial class document_action {
+    public partial class manager_action {
+        
+        /// <summary>
+        /// account 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText account;
         
         /// <summary>
         /// number 控件。
@@ -22,21 +31,21 @@ namespace view {
         protected global::System.Web.UI.HtmlControls.HtmlInputText number;
         
         /// <summary>
-        /// title 控件。
+        /// name 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText title;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText name;
         
         /// <summary>
-        /// size 控件。
+        /// classes 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden size;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText classes;
     }
 }

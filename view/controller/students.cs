@@ -29,7 +29,7 @@ namespace view.controller
         public List<students> selectStudents()
         {
             Int32 dataCount = 0, pageCount = 0;
-            return entityProvider.instance().selectStudents(null, Int32.MaxValue, 1, out dataCount, out pageCount, null, null);
+            return entityProvider.instance().selectStudents(Int32.MaxValue, 1, out dataCount, out pageCount, null, null);
         }
 
         /// <summary>
@@ -63,25 +63,6 @@ namespace view.controller
         public static controllerProvider instance()
         {
             return controller == null ? new controllerProvider() : controller;
-        }
-
-        public Boolean doTest(Int16 type, params baseTable[] parameters)
-        {
-            Int32 temp1 = parameters.Length == 1 ? 0 : 1;
-            Boolean temp2 = false;
-            switch (type)
-            {
-                case 1:
-                    temp2 = query.instance().insert(parameters) > temp1 ? true : false;
-                    break;
-                case 2:
-                    temp2 = query.instance().update(parameters) > temp1 ? true : false;
-                    break;
-                case 3:
-                    temp2 = query.instance().delete(parameters) > temp1 ? true : false;
-                    break;
-            }
-            return temp2;
         }
     }
 }

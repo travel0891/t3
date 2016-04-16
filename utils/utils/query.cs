@@ -7,7 +7,7 @@ using System.Text;
 
 namespace model.utils
 {
-    public class query
+    internal class query
     {
         private static readonly String IDENTITY1 = "intId", IDENTITY2 = "charId";
 
@@ -153,6 +153,12 @@ namespace model.utils
             return tranCommandText.ToString();
         }
 
+        public String batchBlendString(out IDbDataParameter[] parameters, params Object[] objects)
+        {
+            parameters = null;
+            return null;
+        }
+
         #endregion
 
         #region execute
@@ -211,6 +217,16 @@ namespace model.utils
             return helper.instance().executeNonQuery(helper.connectionString, commandText, parameters, CommandType.Text);
         }
 
+        public Int32 blend(params Object[] tables)
+        {
+            String commandText = String.Empty;
+            IDbDataParameter[] parameters = null;
+
+            commandText = batchBlendString(out parameters, tables);
+
+            return helper.instance().executeNonQuery(helper.connectionString, commandText, parameters, CommandType.Text);
+        }
+
         #endregion
 
         #region data
@@ -255,6 +271,8 @@ namespace model.utils
         #endregion
 
         private static query q = null;
+
+        private query() { }
 
         public static query instance()
         {

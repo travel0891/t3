@@ -68,8 +68,7 @@
                 items: [
 						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
 						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-						'insertunorderedlist', '|', 'image', 'link', '|', 'wordpaste', 'clearhtml', 'table', '|', 'source', 'preview', 'fullscreen']
-
+						'insertunorderedlist', '|', 'image', 'flash', 'link', '|', 'wordpaste', 'clearhtml', 'table', '|', 'source', 'preview', 'fullscreen']
             });
             editor.html(document.getElementById("hiContents").value);
         });

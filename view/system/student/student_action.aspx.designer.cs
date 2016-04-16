@@ -22,15 +22,6 @@ namespace view {
         protected global::System.Web.UI.HtmlControls.HtmlInputText account;
         
         /// <summary>
-        /// password 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText password;
-        
-        /// <summary>
         /// number 控件。
         /// </summary>
         /// <remarks>
@@ -49,12 +40,12 @@ namespace view {
         protected global::System.Web.UI.HtmlControls.HtmlInputText name;
         
         /// <summary>
-        /// classes 控件。
+        /// clsList 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText classes;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl clsList;
     }
 }

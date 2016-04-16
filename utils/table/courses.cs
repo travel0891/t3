@@ -27,7 +27,7 @@ namespace model.table
         public String contents { get; set; }
 
         /// <summary> 
-        /// 更新时间 DATETIME 8 (getdate())   
+        /// 更新时间 DATETIME 8 (getdate())   允许NULL
         /// </summary> 
         public DateTime? updateTime { get; set; }
     }

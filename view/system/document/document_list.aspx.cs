@@ -50,6 +50,7 @@ namespace view
                 //sbHTML.Append("</ul>");
                 //sbHTML.Append("</div>");
 
+                sbHTML.AppendFormat("<a href=\"document_action.aspx?charId={0}\" class=\"ml6 btn btn-primary btn-sm\">编辑</a>", item.charId);
                 sbHTML.AppendFormat("<a href=\"javascript:del('{0}');\" class=\"ml6 btn btn-default btn-sm\">删除</a>", item.charId);
                 sbHTML.AppendFormat("</td>");
                 sbHTML.Append("</tr>");

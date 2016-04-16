@@ -18,13 +18,10 @@
         <div class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1"
-                        aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
-                            class="icon-bar"></span><span class="icon-bar"></span>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">
-                        <%=WebsiteTitle %></a>
+                    <a class="navbar-brand" href="#"><%=WebsiteTitle %></a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav">
@@ -36,7 +33,7 @@
                         <li><a href="#">在线提问</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><button class="btn btn-info mt8">学生登录</button> </li>
+                        <li><button onclick="javascript:doSignin();" class="btn btn-info mt8">学生登录</button> </li>
                     </ul>
                 </div>
             </div>
@@ -49,7 +46,7 @@
             </ol>
             <div role="listbox" class="carousel-inner">
                 <div class="item">
-                    <img src="static/image/temp.jpg" data-holder-rendered="true" />
+                    <img alt="page3" src="static/image/temp.jpg" data-holder-rendered="true" />
                     <div class="carousel-caption">
                         <h3>
                            PAGE 3</h3>
@@ -58,7 +55,7 @@
                     </div>
                 </div>
                 <div class="item active">
-                    <img src="static/image/temp.jpg" data-holder-rendered="true" />
+                    <img alt="page1" src="static/image/temp.jpg" data-holder-rendered="true" />
                     <div class="carousel-caption">
                         <h3>
                             PAGE 1</h3>
@@ -67,7 +64,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img src="static/image/temp.jpg" data-holder-rendered="true" />
+                    <img alt="page2" src="static/image/temp.jpg" data-holder-rendered="true" />
                     <div class="carousel-caption">
                         <h3>
                            PAGE 2</h3>
@@ -77,9 +74,9 @@
                 </div>
             </div>
             <a data-slide="prev" role="button" href="#carousel-example-captions" class="left carousel-control">
-                <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span><span class="sr-only">
+                <span class="glyphicon glyphicon-chevron-left"></span><span class="sr-only">
                     Previous</span> </a><a data-slide="next" role="button" href="#carousel-example-captions"
-                        class="right carousel-control"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right">
+                        class="right carousel-control"><span class="glyphicon glyphicon-chevron-right">
                         </span><span class="sr-only">Next</span></a>
         </div>
         <div class="text-center" style="color:#999; margin-top:20px; min-height:60px; background-color:#f9f9f9;padding:20px 0; border-top:1px solid #e7e7e7;">
@@ -94,4 +91,8 @@
     $(function () {
         $(".carousel").carousel();
     });
+
+    var doSignin = function () {
+        window.location.href = "/signin.aspx?from=index";
+    };
 </script>

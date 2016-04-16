@@ -17,7 +17,7 @@ namespace view.controller
         public List<examples> selectExamples()
         {
             Int32 dataCount = 0, pageCount = 0;
-            return entityProvider.instance().selectExamples(null, Int32.MaxValue, 1, out dataCount, out pageCount, null, null);
+            return entityProvider.instance().selectExamples(Int32.MaxValue, 1, out dataCount, out pageCount, null, null);
         }
 
         /// <summary>

@@ -94,6 +94,76 @@ namespace view
                         break;
                     #endregion
 
+                    #region existsStuAccount
+                    case "existsStuAccount":
+                        students tempStudents1 = new students();
+                        tempStudents1.account = context.Request["account"];
+                        tempStudents1.super = 0;
+                        tempStudents1.status = 0;
+
+                        Boolean tempOutStudents1 = controllerProvider.instance().selectAccount(tempStudents1);
+                        if (tempOutStudents1)
+                        {
+                            context.Response.Write("true");
+                        }
+                        else
+                        {
+                            context.Response.Write("false");
+                        }
+                        context.Response.End();
+                        return;
+                    #endregion
+
+                    #region doSignin
+                    case "doSignin":
+                        String sAccount = context.Request["account"]
+                            , sPassword = context.Request["password"]
+                            , sKeep = context.Request["keepLineStu"];
+
+                        if (String.IsNullOrEmpty(sAccount) || String.IsNullOrEmpty(sPassword))
+                        {
+                            break;
+                        }
+
+                        students sStudents = new students();
+                        sStudents.account = sAccount;
+                        sStudents.password = sPassword;
+                        sStudents.super = 0;
+                        sStudents.status = 0;
+
+                        students studentString = controllerProvider.instance().selectStudents(sStudents);
+
+                        if (studentString == null)
+                        {
+                            json["code"] = "error";
+                            json["story"] = "登录验证失败";
+                        }
+                        else
+                        {
+                            if (sKeep == "on")
+                            {
+                                HttpCookie cookies = new HttpCookie("keepLineStu");
+                                cookies["account"] = context.Server.HtmlEncode(sStudents.account);
+                                cookies["password"] = context.Server.HtmlEncode(sStudents.password);
+                                cookies.Expires = DateTime.Now.AddYears(1);
+                                context.Response.Cookies.Add(cookies);
+                            }
+                            else
+                            {
+                                HttpCookie cookies = context.Request.Cookies.Get("keepLineStu");
+                                if (cookies != null)
+                                {
+                                    cookies.Values.Remove("account");
+                                    cookies.Values.Remove("password");
+                                    context.Response.Cookies.Add(cookies);
+                                }
+                            }
+                            json["code"] = "pass";
+                            json["story"] = "登录验证通过";
+                        }
+                        break;
+                    #endregion
+
                     #endregion
 
                     #region student
@@ -114,9 +184,17 @@ namespace view
                         inStudents.password = addStudentPassword;
                         inStudents.number = addStudentNumber;
                         inStudents.name = addStudentName;
-                        inStudents.gender = Convert.ToInt16(addStudentGender);
                         inStudents.classes = addStudentClasses;
                         inStudents.super = Convert.ToInt16(String.IsNullOrEmpty(addStudentSuper) ? 0 : 1);
+
+                        if (inStudents.super == 1)
+                        {
+                            inStudents.gender = 0;
+                        }
+                        else
+                        {
+                            inStudents.gender = Convert.ToInt16(addStudentGender);
+                        }
 
                         if (controllerProvider.instance().doStudent(1, inStudents))
                         {
@@ -153,6 +231,11 @@ namespace view
                         inStudents.gender = Convert.ToInt16(updateStudentGender);
                         inStudents.classes = updateStudentClasses;
                         inStudents.super = Convert.ToInt16(String.IsNullOrEmpty(updateStudentSuper) ? 0 : 1);
+
+                        if (inStudents.super == 1)
+                        {
+                            inStudents.gender = 0;
+                        }
 
                         if (controllerProvider.instance().doStudent(2, inStudents))
                         {
@@ -279,7 +362,7 @@ namespace view
                         String addDocumentNumber = context.Request["number"]
                             , addDocumentTitle = context.Request["title"]
                             , tempFile = "documentFile"
-                            , tempName = addDocumentTitle + "." + Guid.NewGuid().ToString();
+                            , tempName = Guid.NewGuid().ToString();
 
                         HttpPostedFile postFile = context.Request.Files["url"];
                         if (postFile.ContentLength > 0)
@@ -326,27 +409,56 @@ namespace view
                         String updateDocumentNumber = context.Request["number"]
                            , updateDocumentTitle = context.Request["title"]
                            , updateHiTitle = context.Request["hiTitle"]
-                           , updateHiUrl = context.Request["hiUrl"]
-                           , tempName1 = updateDocumentTitle + "." + Guid.NewGuid().ToString()
+                           , updateHiSize = context.Request["size"]
                            , updateDocumentCharId = context.Request["charId"];
 
                         inDocuments = new documents();
                         inDocuments.number = updateDocumentNumber;
                         inDocuments.title = updateDocumentTitle;
-                        inDocuments.url = updateHiUrl.Replace(updateHiTitle, inDocuments.title);
+                        inDocuments.size = Convert.ToInt32(updateHiSize);
                         inDocuments.charId = updateDocumentCharId;
 
-                        if (controllerProvider.instance().doDocuments(2, inDocuments))
+                        HttpPostedFile updatePostFile = context.Request.Files["url"];
+
+                        if (updatePostFile != null && updatePostFile.ContentLength > 0)
                         {
-                            json["code"] = "pass";
-                            json["story"] = "保存成功";
+                            inDocuments.type = updatePostFile.FileName.Substring(updatePostFile.FileName.LastIndexOf(".") + 1).ToLower();
+                            inDocuments.size = updatePostFile.ContentLength;
+                            inDocuments.url = "documentFile/" + Guid.NewGuid().ToString() + "." + inDocuments.type;
+
+                            try
+                            {
+                                updatePostFile.SaveAs(context.Server.MapPath(inDocuments.url));
+                                if (controllerProvider.instance().doDocuments(2, inDocuments))
+                                {
+                                    json["code"] = "pass";
+                                    json["story"] = "保存成功";
+                                }
+                                else
+                                {
+                                    json["code"] = "error";
+                                    json["story"] = "保存失败";
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                json["code"] = "error";
+                                json["story"] = "上传文档错误，" + ex.Message;
+                            }
                         }
                         else
                         {
-                            json["code"] = "error";
-                            json["story"] = "保存失败";
+                            if (controllerProvider.instance().doDocuments(2, inDocuments))
+                            {
+                                json["code"] = "pass";
+                                json["story"] = "保存成功";
+                            }
+                            else
+                            {
+                                json["code"] = "error";
+                                json["story"] = "保存失败";
+                            }
                         }
-
                         break;
                     #endregion
 
@@ -507,6 +619,26 @@ namespace view
                         break;
 
                     #endregion
+
+                    #endregion
+
+                    #region class
+
+                    case "delClass":
+                        String delClassCharId = context.Request["charId"];
+                        classes inClasses = new classes();
+                        inClasses.charId = delClassCharId;
+                        if (controllerProvider.instance().doClasses(3, inClasses))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "删除成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "删除失败";
+                        }
+                        break;
 
                     #endregion
                 }

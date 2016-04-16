@@ -11,16 +11,16 @@ namespace model.entity
 
     public partial class entityProvider 
     {
-        public List<courses> selectCourses(Int32 pageSize, Int32 pageIndex, out Int32 dataCount, out Int32 pageCount, String orderString, params Object[] param)
+        public List<classes> selectClasses(Int32 pageSize, Int32 pageIndex, out Int32 dataCount, out Int32 pageCount, String orderString, params Object[] param)
         {
-            String dataCountSQL = " select count(1) from courses ";
+            String dataCountSQL = " select count(1) from classes ";
 
             StringBuilder sbSQL = new StringBuilder();
             sbSQL.Append(" select ");
             sbSQL.AppendFormat(" {0} ", pageSize > 0 ? " top " + pageSize : null);
             sbSQL.Append(" intId, charId ");
-            sbSQL.Append(" ,number ,title ,createTime ,contents ,updateTime ");
-            sbSQL.Append(" from courses ");
+            sbSQL.Append(" ,createTime ,classler ");
+            sbSQL.Append(" from classes ");
 
             String whereSQL = String.Empty;
             IDbDataParameter[] parameter = query.instance().builderParameter(out whereSQL, param);
@@ -36,8 +36,8 @@ namespace model.entity
             StringBuilder orderSQL = new StringBuilder();
             orderSQL.AppendFormat(" order by {0} ", String.IsNullOrEmpty(orderString) ? "intId asc" : orderString);
 
-            List<courses> listCoursesModel = new List<courses>();
-            courses coursesModel = null;
+            List<classes> listClassesModel = new List<classes>();
+            classes classesModel = null;
 
             dataCount = query.instance().scalarInt(dataCountSQL + whereSQL, parameter);
             pageCount = (Int32)Math.Ceiling((Double)dataCount / (Double)pageSize);
@@ -45,59 +45,53 @@ namespace model.entity
             IDataReader dr = query.instance().dataReader(sbSQL.ToString() + whereSQL + pageSQL.ToString() + orderSQL.ToString(), parameter);
             while (dr.Read())
             {
-                coursesModel = new courses();
-                coursesModel.intId = dr.GetInt32(0);
-                coursesModel.charId = dr.GetGuid(1).ToString();
-                coursesModel.number = dr.GetString(2);
-                coursesModel.title = dr.GetString(3);
-                coursesModel.createTime = dr.GetDateTime(4);
-                coursesModel.contents = dr.GetString(5);
-                coursesModel.updateTime = dr.GetDateTime(6);
-                listCoursesModel.Add(coursesModel);
+                classesModel = new classes();
+                classesModel.intId = dr.GetInt32(0);
+                classesModel.charId = dr.GetGuid(1).ToString();
+                classesModel.createTime = dr.GetDateTime(2);
+                classesModel.classler = dr.GetString(3);
+                listClassesModel.Add(classesModel);
             }
             dr.Close();
 
-            return listCoursesModel;
+            return listClassesModel;
         }
 
-        public courses selectCoursesByCharId(String charId)
+        public classes selectClassesByCharId(String charId)
         {
-            courses coursesModel = null;
+            classes classesModel = null;
             StringBuilder sbSQL = new StringBuilder();
             sbSQL.Append(" select intId, charId ");
-            sbSQL.Append(" ,number ,title ,createTime ,contents ,updateTime ");
-            sbSQL.Append(" from courses ");
+            sbSQL.Append(" ,createTime ,classler ");
+            sbSQL.Append(" from classes ");
             sbSQL.Append(" where charId = @charId ");
             IDbDataParameter[] parameter = { new SqlParameter("charId", charId) }; 
             IDataReader dr = query.instance().dataReader(sbSQL.ToString(), parameter);
             if (dr.Read())
             {
-                coursesModel = new courses();
-                coursesModel.intId = dr.GetInt32(0);
-                coursesModel.charId = dr.GetGuid(1).ToString();
-                coursesModel.number = dr.GetString(2);
-                coursesModel.title = dr.GetString(3);
-                coursesModel.createTime = dr.GetDateTime(4);
-                coursesModel.contents = dr.GetString(5);
-                coursesModel.updateTime = dr.GetDateTime(6);
+                classesModel = new classes();
+                classesModel.intId = dr.GetInt32(0);
+                classesModel.charId = dr.GetGuid(1).ToString();
+                classesModel.createTime = dr.GetDateTime(2);
+                classesModel.classler = dr.GetString(3);
             }
             dr.Close();
-            return coursesModel;
+            return classesModel;
         }
 
-        public Int32 insertCourses(courses coursesModel)
+        public Int32 insertClasses(classes classesModel)
         {
-            return query.instance().insert(coursesModel);
+            return query.instance().insert(classesModel);
         }
 
-        public Int32 updateCourses(courses coursesModel)
+        public Int32 updateClasses(classes classesModel)
         {
-            return query.instance().update(coursesModel);
+            return query.instance().update(classesModel);
         }
 
-        public Int32 deleteCourses(courses coursesModel)
+        public Int32 deleteClasses(classes classesModel)
         {
-            return query.instance().delete(coursesModel);
+            return query.instance().delete(classesModel);
         }
     }
 }

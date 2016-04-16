@@ -8,14 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <style>
-        body
-        {
+        body {
             margin: 0;
             padding: 0;
         }
         
-        .left
-        {
+        .left {
             width: 200px;
             height: 100%;
             border: 1px solid #ddd;
@@ -24,14 +22,12 @@
             text-align: center;
         }
         
-        .all
-        {
+        .all {
             text-align: center;
             width: 200px;
         }
         
-        .bgm
-        {
+        .bgm {
             height: 40px;
             line-height: 40px;
             cursor: pointer;
@@ -45,8 +41,7 @@
             background-color: #f6f6f6;
         }
         
-        .icon1, .icon2, .icon3, .icon4
-        {
+        .icon1, .icon2, .icon3, .icon4 {
             position: absolute;
             height: 20px;
             width: 20px;
@@ -54,38 +49,31 @@
             top: 10px;
         }
         
-        .icon1
-        {
+        .icon1 {
             background: url(../static/image/1.png);
         }
-        .icon2
-        {
+        .icon2 {
             background: url(../static/image/2.png);
         }
-        .icon3
-        {
+        .icon3 {
             background: url(../static/image/3.png);
         }
-        .icon4
-        {
+        .icon4 {
             background: url(../static/image/4.png);
         }
         
-        .meun
-        {
+        .meun {
             display: none;
             cursor: pointer;
             font-size: 14px;
         }
         
-        .meun ul
-        {
+        .meun ul {
             margin: 0;
             padding: 0;
         }
         
-        .meun ul li
-        {
+        .meun ul li {
             height: 40px;
             line-height: 40px;
             list-style: none;
@@ -93,32 +81,33 @@
             text-align: center;
             color: #333;
         }
-        .meun ul li:hover
-        {
+        .meun ul li:hover {
             color: #269abc;
         }
     </style>
 </head>
 <body>
-    <div style="margin: 8px 0px; height: 36px; text-align:center; line-height:36px; background-color: #f3f3f3; color: #999">
+    <div style="margin: 8px 0px; height: 36px; text-align: center; line-height: 36px;
+        background-color: #f3f3f3; color: #999">
         <%=WebsiteTitle %></div>
     <div class="left">
         <div class="all">
             <div class="bgm">
                 <div class="icon2">
                 </div>
-                学生管理</div>
-            <div class="meun" id="urlList">
+                用户管理</div>
+            <div class="meun">
                 <ul>
-                    <li title="student/student_list">学生列表</li>
+                    <li title="student/student_list">用户列表</li>
                     <li title="student/student_action">学生添加</li>
+                    <li title="student/manager_action">管理员添加</li>
                 </ul>
             </div>
             <div class="bgm">
-                <div class="icon1">
+                <div class="icon3">
                 </div>
                 课件管理</div>
-            <div class="meun" id="urlList">
+            <div class="meun">
                 <ul>
                     <li title="course/course_list">课件列表</li>
                     <li title="course/course_action">课件添加</li>
@@ -128,7 +117,7 @@
                 <div class="icon3">
                 </div>
                 文档管理</div>
-            <div class="meun" id="urlList">
+            <div class="meun">
                 <ul>
                     <li title="document/document_list">文档列表</li>
                     <li title="document/document_action">文档添加</li>
@@ -137,11 +126,23 @@
             <div class="bgm">
                 <div class="icon4">
                 </div>
-                习题管理</div>
-            <div class="meun" id="urlList">
+                考试管理</div>
+            <div class="meun">
                 <ul>
+                    <li title="example/example_list">测试列表</li>
+                    <li title="example/example_action">测试添加</li>
                     <li title="example/example_list">习题列表</li>
                     <li title="example/example_action">习题添加</li>
+                </ul>
+            </div>
+            <div class="bgm">
+                <div class="icon1">
+                </div>
+                参数设置</div>
+            <div class="meun">
+                <ul>
+                    <li title="config/class_list">班级列表</li>
+                    <li title="config/class_list">章节列表</li>
                 </ul>
             </div>
         </div>
@@ -154,7 +155,7 @@
         $(this).next("div").slideToggle("fast").siblings(".meun:visible").slideUp("fast");
     });
 
-    $("#urlList ul li").bind("click", function () {
+    $(".meun ul li").bind("click", function () {
         parent.mainFrame.location.href = $(this).attr("title") + ".aspx?t=" + Math.random();
     });
 </script>

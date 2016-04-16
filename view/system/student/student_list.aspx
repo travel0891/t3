@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>学生列表 - <%=WebsiteTitle %></title>
+    <title>用户列表 - <%=WebsiteTitle %></title>
     <link href="../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../../static/datatables/media/css/dataTables.bootstrap.min.css" rel="stylesheet"
         type="text/css" />
@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container-fluid mt15">
-        <ol class="breadcrumb"><li class="c999">当前：学生管理</li><li class="c999">学生列表</li></ol>
+        <ol class="breadcrumb"><li class="c999">当前：用户管理</li><li class="c999">用户列表</li></ol>
         <div id="dataList" runat="server"></div>
     </div>
     <script src="../../static/jquery/jquery.min.js" type="text/javascript"></script>

@@ -11,7 +11,7 @@ namespace model.entity
 
     public partial class entityProvider 
     {
-        public List<documents> selectDocuments(documents whereModel, Int32 pageSize, Int32 pageIndex, out Int32 dataCount, out Int32 pageCount, String orderString, params Object[] param)
+        public List<documents> selectDocuments(Int32 pageSize, Int32 pageIndex, out Int32 dataCount, out Int32 pageCount, String orderString, params Object[] param)
         {
             String dataCountSQL = " select count(1) from documents ";
 
@@ -102,6 +102,15 @@ namespace model.entity
         public Int32 deleteDocuments(documents documentsModel)
         {
             return query.instance().delete(documentsModel);
+        }
+
+        private static entityProvider entity = null;
+
+        private entityProvider() { }
+
+        public static entityProvider instance()
+        {
+            return entity == null ? new entityProvider() : entity;
         }
     }
 }

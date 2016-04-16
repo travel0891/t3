@@ -55,6 +55,7 @@
   <ItemGroup>
     <Content Include="index.aspx" />
     <Content Include="lib\LitJSON.dll" />
+    <Content Include="signin.aspx" />
     <Content Include="SQL\script.sql" />
     <Content Include="static\bootstrap\js\dropdowns.min.js" />
     <Content Include="static\datatables\examples\advanced_init\column_render.html" />
@@ -806,12 +807,12 @@
     <Content Include="static\layer\skin\default\loading-2.gif" />
     <Content Include="static\layer\skin\layer.css" />
     <Content Include="static\layer\skin\layer.ext.css" />
-    <Content Include="static\otherJs\courses.js" />
-    <Content Include="static\otherJs\students.js" />
     <Content Include="static\system.js" />
     <Content Include="static\temp\courses.js" />
     <Content Include="static\temp\documents.js" />
     <Content Include="static\temp\examples.js" />
+    <Content Include="static\temp\managers.js" />
+    <Content Include="static\temp\signin.js" />
     <Content Include="static\temp\students.js" />
     <Content Include="system\course\course_action.aspx" />
     <Content Include="system\course\course_list.aspx" />
@@ -823,6 +824,8 @@
     <Content Include="system\login.aspx" />
     <Content Include="system\main.aspx" />
     <Content Include="system\mainframe.html" />
+    <Content Include="system\config\class_list.aspx" />
+    <Content Include="system\student\manager_action.aspx" />
     <Content Include="system\student\student_action.aspx" />
     <Content Include="system\student\student_list.aspx" />
     <Content Include="system\top.aspx" />
@@ -1175,6 +1178,7 @@
     <Compile Include="action.ashx.cs">
       <DependentUpon>action.ashx</DependentUpon>
     </Compile>
+    <Compile Include="controller\classes.cs" />
     <Compile Include="controller\courses.cs" />
     <Compile Include="controller\documents.cs" />
     <Compile Include="controller\examples.cs" />
@@ -1185,6 +1189,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="signin.aspx.cs">
+      <DependentUpon>signin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="signin.aspx.designer.cs">
+      <DependentUpon>signin.aspx</DependentUpon>
     </Compile>
     <Compile Include="system\course\course_action.aspx.cs">
       <DependentUpon>course_action.aspx</DependentUpon>
@@ -1249,6 +1260,20 @@
     <Compile Include="system\main.aspx.designer.cs">
       <DependentUpon>main.aspx</DependentUpon>
     </Compile>
+    <Compile Include="system\config\class_list.aspx.cs">
+      <DependentUpon>class_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\config\class_list.aspx.designer.cs">
+      <DependentUpon>class_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\student\manager_action.aspx.cs">
+      <DependentUpon>manager_action.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\student\manager_action.aspx.designer.cs">
+      <DependentUpon>manager_action.aspx</DependentUpon>
+    </Compile>
     <Compile Include="system\student\student_action.aspx.cs">
       <DependentUpon>student_action.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1279,6 +1304,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="documentFile\" />
     <Folder Include="static\kindeditor\attached\" />
+    <Folder Include="static\otherJs\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\utils\model.csproj">

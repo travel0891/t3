@@ -11,7 +11,7 @@ namespace model.entity
 
     public partial class entityProvider 
     {
-        public List<students> selectStudents(students whereModel, Int32 pageSize, Int32 pageIndex, out Int32 dataCount, out Int32 pageCount, String orderString, params Object[] param)
+        public List<students> selectStudents(Int32 pageSize, Int32 pageIndex, out Int32 dataCount, out Int32 pageCount, String orderString, params Object[] param)
         {
             String dataCountSQL = " select count(1) from students ";
 
@@ -34,7 +34,7 @@ namespace model.entity
             }
 
             StringBuilder orderSQL = new StringBuilder();
-            orderSQL.AppendFormat(" order by {0} ", String.IsNullOrEmpty(orderString) ? "intId asc" : orderString);
+            orderSQL.AppendFormat(" order by {0} ", String.IsNullOrEmpty(orderString) ? "super desc , intId asc" : orderString);
 
             List<students> listStudentsModel = new List<students>();
             students studentsModel = null;

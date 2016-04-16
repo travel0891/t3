@@ -9,36 +9,36 @@ namespace view.controller
 
     public partial class controllerProvider
     {
-        public courses selectCoursesByCharId(courses model)
+        public classes selectClassesByCharId(classes model)
         {
-            return entityProvider.instance().selectCoursesByCharId(model.charId);
+            return entityProvider.instance().selectClassesByCharId(model.charId);
         }
 
-        public List<courses> selectCourses()
+        public List<classes> selectClasses()
         {
             Int32 dataCount = 0, pageCount = 0;
-            return entityProvider.instance().selectCourses(Int32.MaxValue, 1, out dataCount, out pageCount, null, null);
+            return entityProvider.instance().selectClasses(Int32.MaxValue, 1, out dataCount, out pageCount, null, null);
         }
 
         /// <summary>
-        /// doCourses
+        /// doClasses
         /// </summary>
         /// <param name="type">1 insert 2 update 3 delete</param>
-        /// <param name="model">Courses</param>
+        /// <param name="model">classes</param>
         /// <returns>Boolean</returns>
-        public Boolean doCourses(Int32 type, courses model)
+        public Boolean doClasses(Int32 type, classes model)
         {
             Boolean ef = false;
             switch (type)
             {
                 case 1:
-                    ef = entityProvider.instance().insertCourses(model) > 0 ? true : false;
+                    ef = entityProvider.instance().insertClasses(model) > 0 ? true : false;
                     break;
                 case 2:
-                    ef = entityProvider.instance().updateCourses(model) > 0 ? true : false;
+                    ef = entityProvider.instance().updateClasses(model) > 0 ? true : false;
                     break;
                 case 3:
-                    ef = entityProvider.instance().deleteCourses(model) > 0 ? true : false;
+                    ef = entityProvider.instance().deleteClasses(model) > 0 ? true : false;
                     break;
             }
             return ef;

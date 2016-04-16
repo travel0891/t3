@@ -11,7 +11,7 @@ namespace model.entity
 
     public partial class entityProvider 
     {
-        public List<answers> selectAnswers(answers whereModel, Int32 pageSize, Int32 pageIndex, out Int32 dataCount, out Int32 pageCount, String orderString, params Object[] param)
+        public List<answers> selectAnswers(Int32 pageSize, Int32 pageIndex, out Int32 dataCount, out Int32 pageCount, String orderString, params Object[] param)
         {
             String dataCountSQL = " select count(1) from answers ";
 
