@@ -280,12 +280,18 @@ namespace view
 
                         String addCourseNumber = context.Request["number"]
                             , addCourseTitle = context.Request["title"]
-                            , addCourseContents = context.Request["hiContents"];
+                            , addCourseContents = context.Request["hiContents"]
+                        , addCourseConfigsCharId = context.Request["ConfigsCharId"]
+                        , addCourseParmsCharId = context.Request["parmsCharId"];
 
                         courses inCourse = new courses();
-                        inCourse.number = addCourseNumber;
+                        inCourse.configs_charId = addCourseConfigsCharId;
+                        inCourse.parms_charId = addCourseParmsCharId;
                         inCourse.title = addCourseTitle;
                         inCourse.contents = addCourseContents;
+                       
+                        String[] tempCourse = { "configs", addCourseConfigsCharId, "parms", addCourseParmsCharId, "courses"};
+                        inCourse.number = controllerProvider.instance().maxNumber(tempCourse);
 
                         if (controllerProvider.instance().doCourses(1, inCourse))
                         {
@@ -307,10 +313,14 @@ namespace view
                         String updateCourseNumber = context.Request["number"]
                             , updateCourseTitle = context.Request["title"]
                             , updateCourseContents = context.Request["hiContents"]
+                              , updateCourseConfigsCharId = context.Request["ConfigsCharId"]
+                        , updateCourseParmsCharId = context.Request["parmsCharId"]
                             , updateCourseCharId = context.Request["charId"];
 
                         inCourse = new courses();
                         inCourse.charId = updateCourseCharId;
+                        inCourse.configs_charId = updateCourseConfigsCharId;
+                        inCourse.parms_charId = updateCourseParmsCharId;
                         inCourse.number = updateCourseNumber;
                         inCourse.title = updateCourseTitle;
                         inCourse.contents = updateCourseContents;
@@ -362,16 +372,22 @@ namespace view
                         String addDocumentNumber = context.Request["number"]
                             , addDocumentTitle = context.Request["title"]
                             , tempFile = "documentFile"
-                            , tempName = Guid.NewGuid().ToString();
+                            , tempName = Guid.NewGuid().ToString()
+                            , addDocumentConfigsCharId = context.Request["ConfigsCharId"]
+                            , addDocumentParmsCharId = context.Request["parmsCharId"];
 
                         HttpPostedFile postFile = context.Request.Files["url"];
                         if (postFile.ContentLength > 0)
                         {
-                            inDocuments.number = addDocumentNumber;
+                            inDocuments.configs_charId = addDocumentConfigsCharId;
+                            inDocuments.parms_charId = addDocumentParmsCharId;
                             inDocuments.title = addDocumentTitle;
                             inDocuments.type = postFile.FileName.Substring(postFile.FileName.LastIndexOf(".") + 1).ToLower();
                             inDocuments.size = postFile.ContentLength;
                             inDocuments.url = tempFile + "/" + tempName + "." + inDocuments.type;
+
+                            String[] tempDocument = { "configs", addDocumentConfigsCharId, "parms", addDocumentParmsCharId, "documents"};
+                            inDocuments.number = controllerProvider.instance().maxNumber(tempDocument);
 
                             try
                             {
@@ -410,9 +426,13 @@ namespace view
                            , updateDocumentTitle = context.Request["title"]
                            , updateHiTitle = context.Request["hiTitle"]
                            , updateHiSize = context.Request["size"]
-                           , updateDocumentCharId = context.Request["charId"];
+                           , updateDocumentCharId = context.Request["charId"]
+                           , updateDocumentConfigsCharId = context.Request["ConfigsCharId"]
+                           , updateDocumentParmsCharId = context.Request["parmsCharId"];
 
                         inDocuments = new documents();
+                        inDocuments.configs_charId = updateDocumentConfigsCharId;
+                        inDocuments.parms_charId = updateDocumentParmsCharId;
                         inDocuments.number = updateDocumentNumber;
                         inDocuments.title = updateDocumentTitle;
                         inDocuments.size = Convert.ToInt32(updateHiSize);
@@ -629,6 +649,68 @@ namespace view
                         classes inClasses = new classes();
                         inClasses.charId = delClassCharId;
                         if (controllerProvider.instance().doClasses(3, inClasses))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "删除成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "删除失败";
+                        }
+                        break;
+
+                    #endregion
+
+                    #region config parm
+
+                    case "getParmByConfigCharId":
+                        StringBuilder sbSelect = new StringBuilder();
+                        String selectSelected = String.Empty;
+                        Object[] whereObj = { "and", "configs_charId", "=", String.IsNullOrEmpty(context.Request["configCharId"]) ? Guid.NewGuid().ToString() : context.Request["configCharId"] };
+                        List<parms> listModel = controllerProvider.instance().selectParms(whereObj);
+
+                        if (listModel.Count == 0)
+                        {
+                            json["code"] = "error";
+                            json["story"] = "该类型还未设置章节";
+                        }
+                        else
+                        {
+                            sbSelect.AppendFormat("<select id=\"{0}\" name=\"{0}\" class=\"{1}\" placeholder=\"{2}\">", "parmsCharId", "form-control", "必选");
+                            // sbSelect.Append("<option value=\"\">请选择</option>");
+                            foreach (parms item in listModel)
+                            {
+                                sbSelect.AppendFormat("<option {0} ", selectSelected == item.charId ? "selected=\"selected\"" : null);
+                                sbSelect.AppendFormat("value=\"{0}\">{1}", item.charId, item.chapter);
+                                sbSelect.Append("</option>");
+                            }
+                            sbSelect.Append("<select>");
+                            json["code"] = "pass";
+                            json["story"] = sbSelect.ToString();
+                        }
+                        break;
+
+                    case "delConfig":
+                        String delConfigId = context.Request["charId"];
+                        configs inConfigs = new configs();
+                        inConfigs.charId = delConfigId;
+                        if (controllerProvider.instance().doConfig(3, inConfigs))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "删除成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "删除失败";
+                        }
+                        break;
+                    case "delParm":
+                        String delParmId = context.Request["charId"];
+                        parms inParms = new parms();
+                        inParms.charId = delParmId;
+                        if (controllerProvider.instance().doParm(3, inParms))
                         {
                             json["code"] = "pass";
                             json["story"] = "删除成功";

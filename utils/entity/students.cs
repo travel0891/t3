@@ -9,7 +9,7 @@ namespace model.entity
     using model.table;
     using model.utils;
 
-    public partial class entityProvider 
+    public partial class entityProvider
     {
         public List<students> selectStudents(Int32 pageSize, Int32 pageIndex, out Int32 dataCount, out Int32 pageCount, String orderString, params Object[] param)
         {
@@ -72,7 +72,7 @@ namespace model.entity
             sbSQL.Append(" ,account ,password ,name ,number ,gender ,classes ,createTime ,super ,status ");
             sbSQL.Append(" from students ");
             sbSQL.Append(" where charId = @charId ");
-            IDbDataParameter[] parameter = { new SqlParameter("charId", charId) }; 
+            IDbDataParameter[] parameter = { new SqlParameter("charId", charId) };
             IDataReader dr = query.instance().dataReader(sbSQL.ToString(), parameter);
             if (dr.Read())
             {
@@ -106,6 +106,15 @@ namespace model.entity
         public Int32 deleteStudents(students studentsModel)
         {
             return query.instance().delete(studentsModel);
+        }
+
+        private static entityProvider entity = null;
+
+        private entityProvider() { }
+
+        public static entityProvider instance()
+        {
+            return entity == null ? new entityProvider() : entity;
         }
     }
 }

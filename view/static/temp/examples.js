@@ -4,7 +4,7 @@
         var submitStatus = $(form).validate({
             debug: true,
             rules: { number: { required: true }, example: { required: true }, aCountent: { required: true }, bCountent: { required: true }, cCountent: { required: true }, dCountent: { required: true} }
-            , messages: { number: { required: "编号不能为空" }, example: { required: "题目不能为空" }, aCountent: { required: "A选项内容不能为空" }, bCountent: { required: "B选项内容不能为空" }, cCountent: { required: "C选项内容不能为空" }, dCountent: { required: "D选项内容不能为空"} }
+            , messages: { number: { required: "编号必填" }, example: { required: "题目必填" }, aCountent: { required: "A选项必填" }, bCountent: { required: "B选项必填" }, cCountent: { required: "C选项必填" }, dCountent: { required: "D选项必填"} }
             , errorPlacement: function (error, element) { error.appendTo(element.parent()); }
         });
         return submitStatus;

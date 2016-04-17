@@ -19,7 +19,7 @@ namespace model.entity
             sbSQL.Append(" select ");
             sbSQL.AppendFormat(" {0} ", pageSize > 0 ? " top " + pageSize : null);
             sbSQL.Append(" intId, charId ");
-            sbSQL.Append(" ,number ,title ,createTime ,contents ,updateTime ");
+            sbSQL.Append(" ,configs_charId ,parms_charId ,number ,title ,createTime ,contents ,updateTime ");
             sbSQL.Append(" from courses ");
 
             String whereSQL = String.Empty;
@@ -48,11 +48,13 @@ namespace model.entity
                 coursesModel = new courses();
                 coursesModel.intId = dr.GetInt32(0);
                 coursesModel.charId = dr.GetGuid(1).ToString();
-                coursesModel.number = dr.GetString(2);
-                coursesModel.title = dr.GetString(3);
-                coursesModel.createTime = dr.GetDateTime(4);
-                coursesModel.contents = dr.GetString(5);
-                coursesModel.updateTime = dr.GetDateTime(6);
+                coursesModel.configs_charId = dr.GetGuid(2).ToString();
+                coursesModel.parms_charId = dr.GetGuid(3).ToString();
+                coursesModel.number = dr.GetString(4);
+                coursesModel.title = dr.GetString(5);
+                coursesModel.createTime = dr.GetDateTime(6);
+                coursesModel.contents = dr.GetString(7);
+                coursesModel.updateTime = dr.GetDateTime(8);
                 listCoursesModel.Add(coursesModel);
             }
             dr.Close();
@@ -65,7 +67,7 @@ namespace model.entity
             courses coursesModel = null;
             StringBuilder sbSQL = new StringBuilder();
             sbSQL.Append(" select intId, charId ");
-            sbSQL.Append(" ,number ,title ,createTime ,contents ,updateTime ");
+            sbSQL.Append(" ,configs_charId ,parms_charId ,number ,title ,createTime ,contents ,updateTime ");
             sbSQL.Append(" from courses ");
             sbSQL.Append(" where charId = @charId ");
             IDbDataParameter[] parameter = { new SqlParameter("charId", charId) }; 
@@ -75,11 +77,13 @@ namespace model.entity
                 coursesModel = new courses();
                 coursesModel.intId = dr.GetInt32(0);
                 coursesModel.charId = dr.GetGuid(1).ToString();
-                coursesModel.number = dr.GetString(2);
-                coursesModel.title = dr.GetString(3);
-                coursesModel.createTime = dr.GetDateTime(4);
-                coursesModel.contents = dr.GetString(5);
-                coursesModel.updateTime = dr.GetDateTime(6);
+                coursesModel.configs_charId = dr.GetGuid(2).ToString();
+                coursesModel.parms_charId = dr.GetGuid(3).ToString();
+                coursesModel.number = dr.GetString(4);
+                coursesModel.title = dr.GetString(5);
+                coursesModel.createTime = dr.GetDateTime(6);
+                coursesModel.contents = dr.GetString(7);
+                coursesModel.updateTime = dr.GetDateTime(8);
             }
             dr.Close();
             return coursesModel;

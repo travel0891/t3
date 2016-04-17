@@ -16,7 +16,20 @@
             <li class="c999">当前：文档管理</li><li class="c999">文档<%=String.IsNullOrEmpty(Request.QueryString["charId"])?"添加":"编辑" %></li>
         </ol>
         <form id="documentForm" class="form-horizontal" method="post" enctype="multipart/form-data">
+         <div class="form-group">
+            <label class="col-sm-1  control-label">
+                类型</label>
+            <div class="col-sm-2" id="configList" runat="server">
+            </div>
+        </div>
         <div class="form-group">
+            <label class="col-sm-1  control-label">
+                章节</label>
+            <div class="col-sm-2" id="parmList" runat="server">
+                <span class="form-control">请先选择类型</span>
+            </div>
+        </div>
+        <div class="form-group" style="display:none">
             <label class="col-sm-1  control-label">编号</label>
             <div class="col-sm-2">
                 <input type="text" id="number" class="form-control" maxlength="6" placeholder="必填"

@@ -3,8 +3,8 @@
     var validate = function (form) {
         var submitStatus = $(form).validate({
             debug: true,
-            rules: { number: { required: true }, title: { required: true} }
-            , messages: { number: { required: "编号不能为空" }, title: { required: "标题不能为空"} }
+            rules: { configsCharId: { required: true }, number: { required: true }, title: { required: true} }
+            , messages: { configsCharId: { required: "类型必选" }, number: { required: "编号必填" }, title: { required: "标题必填"} }
             , errorPlacement: function (error, element) { error.appendTo(element.parent()); }
         });
         return submitStatus;

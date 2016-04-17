@@ -19,7 +19,7 @@ namespace model.entity
             sbSQL.Append(" select ");
             sbSQL.AppendFormat(" {0} ", pageSize > 0 ? " top " + pageSize : null);
             sbSQL.Append(" intId, charId ");
-            sbSQL.Append(" ,number ,title ,type ,size ,url ,createTime ,updateTime ");
+            sbSQL.Append(" ,configs_charId ,parms_charId ,number ,title ,type ,size ,url ,createTime ,updateTime ");
             sbSQL.Append(" from documents ");
 
             String whereSQL = String.Empty;
@@ -48,13 +48,15 @@ namespace model.entity
                 documentsModel = new documents();
                 documentsModel.intId = dr.GetInt32(0);
                 documentsModel.charId = dr.GetGuid(1).ToString();
-                documentsModel.number = dr.GetString(2);
-                documentsModel.title = dr.GetString(3);
-                documentsModel.type = dr.GetString(4);
-                documentsModel.size = dr.GetInt32(5);
-                documentsModel.url = dr.GetString(6);
-                documentsModel.createTime = dr.GetDateTime(7);
-                documentsModel.updateTime = dr.GetDateTime(8);
+                documentsModel.configs_charId = dr.GetGuid(2).ToString();
+                documentsModel.parms_charId = dr.GetGuid(3).ToString();
+                documentsModel.number = dr.GetString(4);
+                documentsModel.title = dr.GetString(5);
+                documentsModel.type = dr.GetString(6);
+                documentsModel.size = dr.GetInt32(7);
+                documentsModel.url = dr.GetString(8);
+                documentsModel.createTime = dr.GetDateTime(9);
+                documentsModel.updateTime = dr.GetDateTime(10);
                 listDocumentsModel.Add(documentsModel);
             }
             dr.Close();
@@ -67,7 +69,7 @@ namespace model.entity
             documents documentsModel = null;
             StringBuilder sbSQL = new StringBuilder();
             sbSQL.Append(" select intId, charId ");
-            sbSQL.Append(" ,number ,title ,type ,size ,url ,createTime ,updateTime ");
+            sbSQL.Append(" ,configs_charId ,parms_charId ,number ,title ,type ,size ,url ,createTime ,updateTime ");
             sbSQL.Append(" from documents ");
             sbSQL.Append(" where charId = @charId ");
             IDbDataParameter[] parameter = { new SqlParameter("charId", charId) }; 
@@ -77,13 +79,15 @@ namespace model.entity
                 documentsModel = new documents();
                 documentsModel.intId = dr.GetInt32(0);
                 documentsModel.charId = dr.GetGuid(1).ToString();
-                documentsModel.number = dr.GetString(2);
-                documentsModel.title = dr.GetString(3);
-                documentsModel.type = dr.GetString(4);
-                documentsModel.size = dr.GetInt32(5);
-                documentsModel.url = dr.GetString(6);
-                documentsModel.createTime = dr.GetDateTime(7);
-                documentsModel.updateTime = dr.GetDateTime(8);
+                documentsModel.configs_charId = dr.GetGuid(2).ToString();
+                documentsModel.parms_charId = dr.GetGuid(3).ToString();
+                documentsModel.number = dr.GetString(4);
+                documentsModel.title = dr.GetString(5);
+                documentsModel.type = dr.GetString(6);
+                documentsModel.size = dr.GetInt32(7);
+                documentsModel.url = dr.GetString(8);
+                documentsModel.createTime = dr.GetDateTime(9);
+                documentsModel.updateTime = dr.GetDateTime(10);
             }
             dr.Close();
             return documentsModel;
@@ -102,15 +106,6 @@ namespace model.entity
         public Int32 deleteDocuments(documents documentsModel)
         {
             return query.instance().delete(documentsModel);
-        }
-
-        private static entityProvider entity = null;
-
-        private entityProvider() { }
-
-        public static entityProvider instance()
-        {
-            return entity == null ? new entityProvider() : entity;
         }
     }
 }

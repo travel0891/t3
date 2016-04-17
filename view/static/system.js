@@ -6,11 +6,12 @@
         course: "temp/courses",
         document: "temp/documents",
         example: "temp/examples",
-        manager: "temp/managers"
+        manager: "temp/managers",
+        cfg: "temp/configs"
     }
 });
 
-require(["jquery", "jqueryv", "student", "course", "document", "example", "manager"], function ($, a, b, c, d, e, f) {
+require(["jquery", "jqueryv", "student", "course", "document", "example", "manager", "cfg"], function ($, a, b, c, d, e, f, g) {
     $(function () {
         b.v("#studentForm");
         c.v("#courseForm");
@@ -45,5 +46,9 @@ require(["jquery", "jqueryv", "student", "course", "document", "example", "manag
         if (f.v("#managerForm").form()) {
             f.m("#managerForm", $("#postType").val());
         }
+    });
+
+    $("#configsCharId").on("change", function () {
+        g.c("parmList", $(this).val());
     });
 });

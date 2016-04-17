@@ -17,6 +17,8 @@ namespace view
             sbHTML.Append("<table id=\"tableList\" class=\"table table-striped\" cellspacing=\"0\" width=\"100%\">");
             sbHTML.Append("<thead>");
             sbHTML.Append("<tr>");
+            sbHTML.Append("<th>类型</th>");
+            sbHTML.Append("<th>章节</th>");
             sbHTML.Append("<th>编号</th>");
             sbHTML.Append("<th>名称</th>");
             sbHTML.Append("<th class=\"tac\">类型</th>");
@@ -29,7 +31,12 @@ namespace view
             List<documents> listModel = controllerProvider.instance().selectDocuments();
             foreach (documents item in listModel)
             {
+                configs configModel = controllerProvider.instance().selectConfigsByCharId(item.configs_charId);
+                parms parmModel = controllerProvider.instance().selectParmsByCharId(item.parms_charId);
+
                 sbHTML.Append("<tr>");
+                sbHTML.AppendFormat("<td>{0}</td>", configModel == null ? "-" : configModel.type);
+                sbHTML.AppendFormat("<td>{0}</td>", parmModel == null ? "-" : parmModel.chapter);
                 sbHTML.AppendFormat("<td>{0}</td>", item.number);
                 sbHTML.AppendFormat("<td>{0}</td>", item.title);
                 sbHTML.AppendFormat("<td class=\"tac\">{0}</td>", item.type);

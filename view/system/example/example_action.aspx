@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>习题<%=String.IsNullOrEmpty(Request.QueryString["charId"])?"添加":"编辑" %> - <%=WebsiteTitle %></title>
+    <title>选择题<%=String.IsNullOrEmpty(Request.QueryString["charId"])?"添加":"编辑" %> - <%=WebsiteTitle %></title>
     <link href="../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../../static/extend.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
@@ -13,7 +13,7 @@
 <body>
     <div id="formList" class="container-fluid mt15">
         <ol class="breadcrumb">
-            <li class="c999">当前：习题管理</li><li class="c999">习题<%=String.IsNullOrEmpty(Request.QueryString["charId"])?"添加":"编辑" %></li>
+            <li class="c999">当前：试题管理</li><li class="c999">选择题<%=String.IsNullOrEmpty(Request.QueryString["charId"])?"添加":"编辑" %></li>
         </ol>
         <form id="exampleForm" class="form-horizontal">
         <div class="form-group">

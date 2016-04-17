@@ -19,6 +19,19 @@
         <form id="courseForm" class="form-horizontal">
         <div class="form-group">
             <label class="col-sm-1  control-label">
+                类型</label>
+            <div class="col-sm-2" id="configList" runat="server">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1  control-label">
+                章节</label>
+            <div class="col-sm-2" id="parmList" runat="server">
+                <span class="form-control">请先选择类型</span>
+            </div>
+        </div>
+        <div class="form-group" style="display:none">
+            <label class="col-sm-1  control-label">
                 编号</label>
             <div class="col-sm-2">
                 <input type="text" id="number" class="form-control" maxlength="6" placeholder="必填"

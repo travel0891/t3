@@ -7,6 +7,16 @@ namespace model.table
     public class documents : baseTable
     {
         /// <summary> 
+        ///  UNIQUEIDENTIFIER 16
+        /// </summary> 
+        public String configs_charId { get; set; }
+
+        /// <summary> 
+        ///  UNIQUEIDENTIFIER 16
+        /// </summary> 
+        public String parms_charId { get; set; }
+
+        /// <summary> 
         /// 文档编号 VARCHAR 12    
         /// </summary> 
         public String number { get; set; }

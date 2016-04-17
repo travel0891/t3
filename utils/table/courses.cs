@@ -7,6 +7,16 @@ namespace model.table
     public class courses : baseTable
     {
         /// <summary> 
+        ///  UNIQUEIDENTIFIER 16
+        /// </summary> 
+        public String configs_charId { get; set; }
+
+        /// <summary> 
+        ///  UNIQUEIDENTIFIER 16
+        /// </summary> 
+        public String parms_charId { get; set; }
+
+        /// <summary> 
         /// 课题编号 VARCHAR 12    
         /// </summary> 
         public String number { get; set; }

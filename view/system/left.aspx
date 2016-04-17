@@ -34,10 +34,10 @@
             font-size: 14px;
             position: relative;
             border-bottom: #ccc 1px dotted;
-            background: -webkit-linear-gradient(#f9f9f9, #f3f3f3); /* Safari 5.1 - 6.0 */
-            background: -o-linear-gradient(#f9f9f9, #f3f3f3); /* Opera 11.1 - 12.0 */
-            background: -moz-linear-gradient(#f9f9f9, #f3f3f3); /* Firefox 3.6 - 15 */
-            background: linear-gradient(#f9f9f9, #f3f3f3); /* 标准的语法 */
+            background: -webkit-linear-gradient(#f9f9f9, #f3f3f3);
+            background: -o-linear-gradient(#f9f9f9, #f3f3f3);
+            background: -moz-linear-gradient(#f9f9f9, #f3f3f3);
+            background: linear-gradient(#f9f9f9, #f3f3f3);
             background-color: #f6f6f6;
         }
         
@@ -126,30 +126,31 @@
             <div class="bgm">
                 <div class="icon4">
                 </div>
-                考试管理</div>
+                试题管理</div>
             <div class="meun">
                 <ul>
-                    <li title="example/example_list">测试列表</li>
-                    <li title="example/example_action">测试添加</li>
-                    <li title="example/example_list">习题列表</li>
-                    <li title="example/example_action">习题添加</li>
+                    <li title="example/example_list">选择题列表</li>
+                    <li title="example/example_action">选择题添加</li>
+                    <li title="example/example_list">问答题列表</li>
+                    <li title="example/example_action">问答题添加</li>
                 </ul>
             </div>
             <div class="bgm">
                 <div class="icon1">
                 </div>
-                参数设置</div>
+                参数预设</div>
             <div class="meun">
                 <ul>
-                    <li title="config/class_list">班级列表</li>
-                    <li title="config/class_list">章节列表</li>
+                    <li title="config/class_list">班级设置</li>
+                    <li title="config/config_list">类型设置</li>
+                    <li title="config/parm_list">章节设置</li>
                 </ul>
             </div>
         </div>
     </div>
 </body>
 </html>
-<script src="../static/temp/slide-toggle.min.js" type="text/javascript"></script>
+<script src="/static/jquery/slide-toggle.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(".bgm").click(function () {
         $(this).next("div").slideToggle("fast").siblings(".meun:visible").slideUp("fast");

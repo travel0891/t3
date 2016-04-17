@@ -56,7 +56,6 @@
     <Content Include="index.aspx" />
     <Content Include="lib\LitJSON.dll" />
     <Content Include="signin.aspx" />
-    <Content Include="SQL\script.sql" />
     <Content Include="static\bootstrap\js\dropdowns.min.js" />
     <Content Include="static\datatables\examples\advanced_init\column_render.html" />
     <Content Include="static\datatables\examples\advanced_init\complex_header.html" />
@@ -594,6 +593,7 @@
     <Content Include="static\extend.css" />
     <Content Include="static\image\temp.jpg" />
     <Content Include="static\image\temp1.jpg" />
+    <Content Include="static\jquery\slide-toggle.min.js" />
     <Content Include="static\kindeditor\asp.net\bin\LitJSON.dll" />
     <Content Include="static\kindeditor\asp.net\demo.aspx" />
     <Content Include="static\kindeditor\asp.net\README.txt" />
@@ -808,12 +808,15 @@
     <Content Include="static\layer\skin\layer.css" />
     <Content Include="static\layer\skin\layer.ext.css" />
     <Content Include="static\system.js" />
+    <Content Include="static\temp\configs.js" />
     <Content Include="static\temp\courses.js" />
     <Content Include="static\temp\documents.js" />
     <Content Include="static\temp\examples.js" />
     <Content Include="static\temp\managers.js" />
     <Content Include="static\temp\signin.js" />
     <Content Include="static\temp\students.js" />
+    <Content Include="system\config\config_list.aspx" />
+    <Content Include="system\config\parm_list.aspx" />
     <Content Include="system\course\course_action.aspx" />
     <Content Include="system\course\course_list.aspx" />
     <Content Include="system\document\document_action.aspx" />
@@ -1168,7 +1171,6 @@
     <Content Include="static\jquery-validation\test\rules.js" />
     <Content Include="static\jquery-validation\test\test.js" />
     <Content Include="static\jquery\jquery.min.js" />
-    <Content Include="static\temp\slide-toggle.min.js" />
     <Content Include="static\main.js" />
     <Content Include="static\require.js" />
     <Content Include="static\temp\login.js" />
@@ -1182,7 +1184,9 @@
     <Compile Include="controller\courses.cs" />
     <Compile Include="controller\documents.cs" />
     <Compile Include="controller\examples.cs" />
+    <Compile Include="controller\parms.cs" />
     <Compile Include="controller\students.cs" />
+    <Compile Include="controller\configs.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1196,6 +1200,20 @@
     </Compile>
     <Compile Include="signin.aspx.designer.cs">
       <DependentUpon>signin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\config\config_list.aspx.cs">
+      <DependentUpon>config_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\config\config_list.aspx.designer.cs">
+      <DependentUpon>config_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\config\parm_list.aspx.cs">
+      <DependentUpon>parm_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\config\parm_list.aspx.designer.cs">
+      <DependentUpon>parm_list.aspx</DependentUpon>
     </Compile>
     <Compile Include="system\course\course_action.aspx.cs">
       <DependentUpon>course_action.aspx</DependentUpon>
@@ -1303,6 +1321,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="documentFile\" />
+    <Folder Include="SQL\" />
     <Folder Include="static\kindeditor\attached\" />
     <Folder Include="static\otherJs\" />
   </ItemGroup>

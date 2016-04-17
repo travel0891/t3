@@ -11,9 +11,9 @@
             , gender: { required: true }
             , classes: { required: true }
             }
-            , messages: { account: { required: "账号不能为空", rangelength: "账号长度3至8位", remote: "该账号不存在" }
-            , password: { required: "密码不能为空", rangelength: "密码长度6至12位" }
-            , confirm_password: { required: "确认密码不能为空", rangelength: "确认密码长度6至12位", equalTo: "两次密码输入不一致" }
+            , messages: { account: { required: "账号必填", rangelength: "账号长度3至8位" }
+            , password: { required: "密码必填", rangelength: "密码长度6至12位" }
+            , confirm_password: { required: "确认密码必填", rangelength: "确认密码长度6至12位", equalTo: "两次密码输入不一致" }
             , number: { required: "学号必填" }
             , name: { required: "姓名必填" }
             , gender: { required: "性别必选" }
