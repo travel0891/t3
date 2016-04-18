@@ -16,7 +16,7 @@
             <li class="c999">当前：试题管理</li><li class="c999">选择题<%=String.IsNullOrEmpty(Request.QueryString["charId"])?"添加":"编辑" %></li>
         </ol>
         <form id="exampleForm" class="form-horizontal">
-        <div class="form-group">
+        <div class="form-group" style="display:none">
             <label class="col-sm-1  control-label">
                 编号</label>
             <div class="col-sm-2">

@@ -516,11 +516,13 @@ namespace view
                             , addExampleACountent = context.Request["aCountent"]
                             , addExampleBCountent = context.Request["bCountent"]
                             , addExampleCCountent = context.Request["cCountent"]
-                            , addExampleDCountent = context.Request["dCountent"];
+                            , addExampleDCountent = context.Request["dCountent"]
+                            , addExampleConfigsCharId = context.Request["ConfigsCharId"]
+                            , addExampleParmsCharId = context.Request["parmsCharId"];
 
                         examples inExamples = new examples();
                         inExamples.number = addExampleNumber;
-                        inExamples.example = addExampleExample;
+                        // inExamples.example = addExampleExample;
                         inExamples.optionA = 0;
                         inExamples.optionB = 0;
                         inExamples.optionC = 0;
@@ -546,6 +548,9 @@ namespace view
                         inExamples.bCountent = addExampleBCountent;
                         inExamples.cCountent = addExampleCCountent;
                         inExamples.dCountent = addExampleDCountent;
+
+                        String[] tempExample = { "configs", addExampleConfigsCharId, "parms", addExampleParmsCharId, "examples" };
+                        inExamples.number = controllerProvider.instance().maxNumber(tempExample);
 
                         if (controllerProvider.instance().doExamples(1, inExamples))
                         {
@@ -573,7 +578,9 @@ namespace view
                             , updateExampleBCountent = context.Request["bCountent"]
                             , updateExampleCCountent = context.Request["cCountent"]
                             , updateExampleDCountent = context.Request["dCountent"]
-                            , updateExampleCharId = context.Request["charId"];
+                            , updateExampleCharId = context.Request["charId"]
+                            , updateExampleConfigsCharId = context.Request["ConfigsCharId"]
+                            , updateExampleParmsCharId = context.Request["parmsCharId"];
 
                         inExamples = new examples();
                         inExamples.charId = updateExampleCharId;
