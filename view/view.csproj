@@ -56,6 +56,7 @@
     <Content Include="index.aspx" />
     <Content Include="lib\LitJSON.dll" />
     <Content Include="signin.aspx" />
+    <Content Include="SQL\script.sql" />
     <Content Include="static\bootstrap\js\dropdowns.min.js" />
     <Content Include="static\datatables\examples\advanced_init\column_render.html" />
     <Content Include="static\datatables\examples\advanced_init\complex_header.html" />
@@ -1321,7 +1322,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="documentFile\" />
-    <Folder Include="SQL\" />
     <Folder Include="static\kindeditor\attached\" />
     <Folder Include="static\otherJs\" />
   </ItemGroup>

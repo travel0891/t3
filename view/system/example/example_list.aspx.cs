@@ -15,6 +15,8 @@ namespace view
             sbHTML.Append("<table id=\"tableList\" class=\"table table-striped\" cellspacing=\"0\" width=\"100%\">");
             sbHTML.Append("<thead>");
             sbHTML.Append("<tr>");
+            sbHTML.Append("<th>类型</th>");
+            sbHTML.Append("<th>章节</th>");
             sbHTML.Append("<th>编号</th>");
             sbHTML.Append("<th>题目</th>");
             sbHTML.Append("<th class=\"tac\">操作</th>");
@@ -23,7 +25,12 @@ namespace view
             List<examples> listModel = controllerProvider.instance().selectExamples();
             foreach (examples item in listModel)
             {
+                configs configModel = controllerProvider.instance().selectConfigsByCharId(item.configs_charId);
+                parms parmModel = controllerProvider.instance().selectParmsByCharId(item.parms_charId);
+
                 sbHTML.Append("<tr>");
+                sbHTML.AppendFormat("<td>{0}</td>", configModel == null ? "-" : configModel.type);
+                sbHTML.AppendFormat("<td>{0}</td>", parmModel == null ? "-" : parmModel.chapter);
                 sbHTML.AppendFormat("<td>{0}</td>", item.number);
                 sbHTML.AppendFormat("<td title=\"" + item.example + "\">{0}</td>", item.example.Length > 50 ? item.example.Substring(0, 50) + "..." : item.example);
                 sbHTML.AppendFormat("<td class=\"tac\">");

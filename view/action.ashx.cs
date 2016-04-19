@@ -281,7 +281,7 @@ namespace view
                         String addCourseNumber = context.Request["number"]
                             , addCourseTitle = context.Request["title"]
                             , addCourseContents = context.Request["hiContents"]
-                        , addCourseConfigsCharId = context.Request["ConfigsCharId"]
+                        , addCourseConfigsCharId = context.Request["configsCharId"]
                         , addCourseParmsCharId = context.Request["parmsCharId"];
 
                         courses inCourse = new courses();
@@ -313,8 +313,8 @@ namespace view
                         String updateCourseNumber = context.Request["number"]
                             , updateCourseTitle = context.Request["title"]
                             , updateCourseContents = context.Request["hiContents"]
-                              , updateCourseConfigsCharId = context.Request["ConfigsCharId"]
-                        , updateCourseParmsCharId = context.Request["parmsCharId"]
+                            , updateCourseConfigsCharId = context.Request["configsCharId"]
+                            , updateCourseParmsCharId = context.Request["parmsCharId"]
                             , updateCourseCharId = context.Request["charId"];
 
                         inCourse = new courses();
@@ -373,7 +373,7 @@ namespace view
                             , addDocumentTitle = context.Request["title"]
                             , tempFile = "documentFile"
                             , tempName = Guid.NewGuid().ToString()
-                            , addDocumentConfigsCharId = context.Request["ConfigsCharId"]
+                            , addDocumentConfigsCharId = context.Request["configsCharId"]
                             , addDocumentParmsCharId = context.Request["parmsCharId"];
 
                         HttpPostedFile postFile = context.Request.Files["url"];
@@ -427,7 +427,7 @@ namespace view
                            , updateHiTitle = context.Request["hiTitle"]
                            , updateHiSize = context.Request["size"]
                            , updateDocumentCharId = context.Request["charId"]
-                           , updateDocumentConfigsCharId = context.Request["ConfigsCharId"]
+                           , updateDocumentConfigsCharId = context.Request["configsCharId"]
                            , updateDocumentParmsCharId = context.Request["parmsCharId"];
 
                         inDocuments = new documents();
@@ -517,12 +517,14 @@ namespace view
                             , addExampleBCountent = context.Request["bCountent"]
                             , addExampleCCountent = context.Request["cCountent"]
                             , addExampleDCountent = context.Request["dCountent"]
-                            , addExampleConfigsCharId = context.Request["ConfigsCharId"]
+                            , addExampleConfigsCharId = context.Request["configsCharId"]
                             , addExampleParmsCharId = context.Request["parmsCharId"];
 
                         examples inExamples = new examples();
-                        inExamples.number = addExampleNumber;
-                        // inExamples.example = addExampleExample;
+                        inExamples.configs_charId = addExampleConfigsCharId;
+                        inExamples.parms_charId = addExampleParmsCharId;
+                        // inExamples.number = addExampleNumber;
+                        inExamples.example = addExampleExample;
                         inExamples.optionA = 0;
                         inExamples.optionB = 0;
                         inExamples.optionC = 0;
@@ -579,12 +581,14 @@ namespace view
                             , updateExampleCCountent = context.Request["cCountent"]
                             , updateExampleDCountent = context.Request["dCountent"]
                             , updateExampleCharId = context.Request["charId"]
-                            , updateExampleConfigsCharId = context.Request["ConfigsCharId"]
+                            , updateExampleConfigsCharId = context.Request["configsCharId"]
                             , updateExampleParmsCharId = context.Request["parmsCharId"];
 
                         inExamples = new examples();
                         inExamples.charId = updateExampleCharId;
-                        inExamples.number = updateExampleNumber;
+                        inExamples.configs_charId = updateExampleConfigsCharId;
+                        inExamples.parms_charId = updateExampleParmsCharId;
+                        // inExamples.number = updateExampleNumber;
                         inExamples.example = updateExampleExample;
                         inExamples.optionA = 0;
                         inExamples.optionB = 0;
