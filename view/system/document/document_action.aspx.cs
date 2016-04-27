@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace view
 {
     using model.table;
-    using view.controller;
+    using controller;
 
     public partial class document_action : viewBase
     {

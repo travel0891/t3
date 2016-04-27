@@ -7,7 +7,7 @@ using System.Web;
 namespace view
 {
     using model.table;
-    using view.controller;
+    using controller;
 
     public partial class course_list : viewBase
     {

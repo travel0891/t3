@@ -1181,13 +1181,6 @@
     <Compile Include="action.ashx.cs">
       <DependentUpon>action.ashx</DependentUpon>
     </Compile>
-    <Compile Include="controller\classes.cs" />
-    <Compile Include="controller\courses.cs" />
-    <Compile Include="controller\documents.cs" />
-    <Compile Include="controller\examples.cs" />
-    <Compile Include="controller\parms.cs" />
-    <Compile Include="controller\students.cs" />
-    <Compile Include="controller\configs.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1326,6 +1319,10 @@
     <Folder Include="static\otherJs\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\controller\controller.csproj">
+      <Project>{A9911DB4-31A8-4076-8E97-DB7B2CEF2B8F}</Project>
+      <Name>controller</Name>
+    </ProjectReference>
     <ProjectReference Include="..\utils\model.csproj">
       <Project>{5965930E-B1F7-4472-BAB6-AAAEA3C93BC4}</Project>
       <Name>model</Name>

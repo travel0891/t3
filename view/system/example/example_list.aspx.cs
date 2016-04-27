@@ -5,7 +5,7 @@ using System.Text;
 namespace view
 {
     using model.table;
-    using view.controller;
+    using controller;
 
     public partial class example_list : viewBase
     {

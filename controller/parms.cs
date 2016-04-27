@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 
-namespace view.controller
+namespace controller
 {
     using model.table;
     using model.entity;
