@@ -131,8 +131,8 @@
                 <ul>
                     <li title="example/example_list">选择题列表</li>
                     <li title="example/example_action">选择题添加</li>
-                    <li title="example/example_list">问答题列表</li>
-                    <li title="example/example_action">问答题添加</li>
+                    <li title="example/qanda_list">问答题列表</li>
+                    <li title="example/qanda_action">问答题添加</li>
                 </ul>
             </div>
             <div class="bgm">

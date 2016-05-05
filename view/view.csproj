@@ -814,6 +814,7 @@
     <Content Include="static\temp\documents.js" />
     <Content Include="static\temp\examples.js" />
     <Content Include="static\temp\managers.js" />
+    <Content Include="static\temp\qandas.js" />
     <Content Include="static\temp\signin.js" />
     <Content Include="static\temp\students.js" />
     <Content Include="system\config\config_list.aspx" />
@@ -824,6 +825,8 @@
     <Content Include="system\document\document_list.aspx" />
     <Content Include="system\example\example_action.aspx" />
     <Content Include="system\example\example_list.aspx" />
+    <Content Include="system\example\qanda_action.aspx" />
+    <Content Include="system\example\qanda_list.aspx" />
     <Content Include="system\left.aspx" />
     <Content Include="system\login.aspx" />
     <Content Include="system\main.aspx" />
@@ -1250,6 +1253,20 @@
     </Compile>
     <Compile Include="system\example\example_list.aspx.designer.cs">
       <DependentUpon>example_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\example\qanda_action.aspx.cs">
+      <DependentUpon>qanda_action.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\example\qanda_action.aspx.designer.cs">
+      <DependentUpon>qanda_action.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\example\qanda_list.aspx.cs">
+      <DependentUpon>qanda_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\example\qanda_list.aspx.designer.cs">
+      <DependentUpon>qanda_list.aspx</DependentUpon>
     </Compile>
     <Compile Include="system\left.aspx.cs">
       <DependentUpon>left.aspx</DependentUpon>

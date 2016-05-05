@@ -289,8 +289,8 @@ namespace view
                         inCourse.parms_charId = addCourseParmsCharId;
                         inCourse.title = addCourseTitle;
                         inCourse.contents = addCourseContents;
-                       
-                        String[] tempCourse = { "configs", addCourseConfigsCharId, "parms", addCourseParmsCharId, "courses"};
+
+                        String[] tempCourse = { "configs", addCourseConfigsCharId, "parms", addCourseParmsCharId, "courses" };
                         inCourse.number = controllerProvider.instance().maxNumber(tempCourse);
 
                         if (controllerProvider.instance().doCourses(1, inCourse))
@@ -386,7 +386,7 @@ namespace view
                             inDocuments.size = postFile.ContentLength;
                             inDocuments.url = tempFile + "/" + tempName + "." + inDocuments.type;
 
-                            String[] tempDocument = { "configs", addDocumentConfigsCharId, "parms", addDocumentParmsCharId, "documents"};
+                            String[] tempDocument = { "configs", addDocumentConfigsCharId, "parms", addDocumentParmsCharId, "documents" };
                             inDocuments.number = controllerProvider.instance().maxNumber(tempDocument);
 
                             try
@@ -734,13 +734,104 @@ namespace view
                         break;
 
                     #endregion
+
+                    #region qanda
+
+                    #region addQanda
+                    case "addQanda":
+
+                        String addQandaNumber = context.Request["number"]
+                            , addQandaTitle = context.Request["qanda"]
+                            , addQandaContents = context.Request["hiContents"]
+                        , addQandaConfigsCharId = context.Request["configsCharId"]
+                        , addQandaParmsCharId = context.Request["parmsCharId"];
+
+                        qandas inQandas = new qandas();
+                        inQandas.configs_charId = addQandaConfigsCharId;
+                        inQandas.parms_charId = addQandaParmsCharId;
+                        inQandas.qanda = addQandaTitle;
+                        inQandas.qaCountent = addQandaContents;
+
+                        String[] tempQanda = { "configs", addQandaConfigsCharId, "parms", addQandaParmsCharId, "qandas" };
+                        inQandas.number = controllerProvider.instance().maxNumber(tempQanda);
+
+                        if (controllerProvider.instance().doQandas(1, inQandas))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "保存成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "保存失败";
+                        }
+
+                        break;
+                    #endregion
+
+                    #region updateQanda
+                    case "updateQanda":
+
+                        String updateQandaNumber = context.Request["number"]
+                            , updateQandaTitle = context.Request["title"]
+                            , updateQandaContents = context.Request["hiContents"]
+                            , updateQandaConfigsCharId = context.Request["configsCharId"]
+                            , updateQandaParmsCharId = context.Request["parmsCharId"]
+                            , updateQandaCharId = context.Request["charId"];
+
+                        inQandas = new qandas();
+                        inQandas.charId = updateQandaCharId;
+                        inQandas.configs_charId = updateQandaConfigsCharId;
+                        inQandas.parms_charId = updateQandaParmsCharId;
+                        inQandas.number = updateQandaNumber;
+                        inQandas.qanda = updateQandaTitle;
+                        inQandas.qaCountent = updateQandaContents;
+
+                        if (controllerProvider.instance().doQandas(2, inQandas))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "更新成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "更新失败";
+                        }
+
+                        break;
+
+                    #endregion
+
+                    #region delQanda
+
+                    case "delQanda":
+                        String delQandaCharId = context.Request["charId"];
+                        inQandas = new qandas();
+                        inQandas.charId = delQandaCharId;
+                        if (controllerProvider.instance().doQandas(3, inQandas))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "删除成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "删除失败";
+                        }
+                        break;
+
+                    #endregion
+
+                    #endregion
                 }
             }
+
             if (!json.IsObject)
             {
                 json["code"] = "error";
                 json["story"] = "Empty";
             }
+
             context.Response.ContentType = "application/json";
             context.Response.Write(json.ToJson());
         }

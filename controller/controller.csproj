@@ -43,6 +43,7 @@
     <Compile Include="examples.cs" />
     <Compile Include="parms.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="qandas.cs" />
     <Compile Include="students.cs" />
   </ItemGroup>
   <ItemGroup>
