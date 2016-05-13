@@ -20,12 +20,6 @@ namespace controller
             return entityProvider.instance().selectClasses(Int32.MaxValue, 1, out dataCount, out pageCount, null, null);
         }
 
-        /// <summary>
-        /// doClasses
-        /// </summary>
-        /// <param name="type">1 insert 2 update 3 delete</param>
-        /// <param name="model">classes</param>
-        /// <returns>Boolean</returns>
         public Boolean doClasses(Int32 type, classes model)
         {
             Boolean ef = false;

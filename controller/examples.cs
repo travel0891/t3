@@ -20,12 +20,12 @@ namespace controller
             return entityProvider.instance().selectExamples(Int32.MaxValue, 1, out dataCount, out pageCount, null, null);
         }
 
-        /// <summary>
-        /// doCourses
-        /// </summary>
-        /// <param name="type">1 insert 2 update 3 delete</param>
-        /// <param name="model">Courses</param>
-        /// <returns>Boolean</returns>
+        public List<examples> selectExamples(Int32 top)
+        {
+            Int32 dataCount = 0, pageCount = 0;
+            return entityProvider.instance().selectExamples(top, 1, out dataCount, out pageCount, " intId desc ", null);
+        }
+
         public Boolean doExamples(Int32 type, examples model)
         {
             Boolean ef = false;

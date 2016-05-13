@@ -3,7 +3,7 @@ using System.Web;
 
 namespace view
 {
-    public partial class signin : viewBase
+    public partial class signin : viewGuest
     {
         protected String account = String.Empty, password = String.Empty, keep = String.Empty;
 

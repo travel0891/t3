@@ -32,12 +32,6 @@ namespace controller
             return entityProvider.instance().selectStudents(Int32.MaxValue, 1, out dataCount, out pageCount, null, null);
         }
 
-        /// <summary>
-        /// doStudent
-        /// </summary>
-        /// <param name="type">1 insert 2 update 3 delete</param>
-        /// <param name="model">Students</param>
-        /// <returns>Boolean</returns>
         public Boolean doStudent(Int32 type, students model)
         {
             Boolean ef = false;

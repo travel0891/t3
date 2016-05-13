@@ -1,18 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace view
 {
-    public partial class login : viewBase
+    public partial class login : viewGuest
     {
         protected String account = String.Empty, password = String.Empty, keep = String.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!String.IsNullOrEmpty(Request.QueryString["logout"]))
+            {
+                Session.Remove("tempUser");
+            }
+
             HttpCookie cookies = Request.Cookies.Get("keepLine");
             if (cookies != null)
             {

@@ -90,6 +90,7 @@ namespace view
                             }
                             json["code"] = "pass";
                             json["story"] = "登录验证通过";
+                            context.Session["tempUser"] = "1," + outStudents.charId;
                         }
                         break;
                     #endregion
@@ -160,6 +161,7 @@ namespace view
                             }
                             json["code"] = "pass";
                             json["story"] = "登录验证通过";
+                            context.Session["tempUser"] = "0," + studentString.charId;
                         }
                         break;
                     #endregion

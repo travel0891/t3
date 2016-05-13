@@ -4,7 +4,7 @@ using System.Web.UI;
 
 namespace view
 {
-    public class viewBase : Page
+    public class viewGuest : Page
     {
         private String websiteTitle;
         /// <summary>
@@ -16,12 +16,6 @@ namespace view
         {
             base.OnInit(e);
             websiteTitle = ConfigurationManager.AppSettings["websiteTitle"];
-
-            if (Session["tempUser"] == null)
-            {
-                Response.Write("<script>top.location.href='/system/login.aspx?type=timeout'</script>");
-                Response.End();
-            }
         }
     }
 }

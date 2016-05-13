@@ -33,13 +33,17 @@
                         <li><a href="#">课件学习</a></li>
                         <li><a href="#">文档下载</a></li>
                         <li><a href="#">习题练习</a></li>
-                        <li><a href="#">模拟测试</a></li>
                         <li><a href="#">在线提问</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <button onclick="javascript:doSignin();" class="btn btn-info mt8">
-                                学生登录</button>
+                            <%if (Session["tempUser"] != null){
+                                  %>
+                                  <a href="">当前登录：<%=getUserInfo(Session["tempUser"].ToString()) %></a>
+                                  <%
+                              }else{%>
+                            <button onclick="javascript:doSignin();" class="btn btn-info mt8">学生登录</button>
+                            <%} %>
                         </li>
                     </ul>
                 </div>
@@ -56,28 +60,22 @@
                 <div class="item">
                     <img alt="page3" src="static/image/temp.jpg" data-holder-rendered="true" />
                     <div class="carousel-caption">
-                        <h3>
-                            PAGE 3</h3>
-                        <p>
-                            &nbsp;</p>
+                        <h3>PAGE 3</h3>
+                        <p>&nbsp;</p>
                     </div>
                 </div>
                 <div class="item active">
                     <img alt="page1" src="static/image/temp.jpg" data-holder-rendered="true" />
                     <div class="carousel-caption">
-                        <h3>
-                            PAGE 1</h3>
-                        <p>
-                            &nbsp;</p>
+                        <h3>PAGE 1</h3>
+                        <p>&nbsp;</p>
                     </div>
                 </div>
                 <div class="item">
                     <img alt="page2" src="static/image/temp.jpg" data-holder-rendered="true" />
                     <div class="carousel-caption">
-                        <h3>
-                            PAGE 2</h3>
-                        <p>
-                            &nbsp;</p>
+                        <h3>PAGE 2</h3>
+                        <p>&nbsp;</p>
                     </div>
                 </div>
             </div>
@@ -88,13 +86,18 @@
         </div>
 
         <div class="panel panel-default" style="margin-top: 20px">
-            <div class="panel-heading">学习课件</div>
+            <div class="panel-heading">最新课件<a style="float:right" title="更多课件" href="">更多<span class="caret"></span></a></div>
             <%=sbHTML1 %>
         </div>
 
         <div class="panel panel-default">
-            <div class="panel-heading">文档下载</div>
+            <div class="panel-heading">最新文档<a style="float:right" title="更多文档" href="">更多<span class="caret"></span></a></div>
             <%=sbHTML2 %>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">最新习题<a style="float:right" title="更多习题" href="">更多<span class="caret"></span></a></div>
+            <%=sbHTML3 %>
         </div>
 
         <div class="text-center" style="color: #999; margin-top: 20px; min-height: 60px;

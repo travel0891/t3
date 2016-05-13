@@ -20,12 +20,12 @@ namespace controller
             return entityProvider.instance().selectCourses(Int32.MaxValue, 1, out dataCount, out pageCount, null, null);
         }
 
-        /// <summary>
-        /// doCourses
-        /// </summary>
-        /// <param name="type">1 insert 2 update 3 delete</param>
-        /// <param name="model">Courses</param>
-        /// <returns>Boolean</returns>
+        public List<courses> selectCourses(Int32 top)
+        {
+            Int32 dataCount = 0, pageCount = 0;
+            return entityProvider.instance().selectCourses(top, 1, out dataCount, out pageCount, " updateTime desc ", null);
+        }
+
         public Boolean doCourses(Int32 type, courses model)
         {
             Boolean ef = false;

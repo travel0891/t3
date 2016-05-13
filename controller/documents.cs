@@ -20,12 +20,12 @@ namespace controller
             return entityProvider.instance().selectDocuments(Int32.MaxValue, 1, out dataCount, out pageCount, null, null);
         }
 
-        /// <summary>
-        /// doDocuments
-        /// </summary>
-        /// <param name="type">1 insert 2 update 3 delete</param>
-        /// <param name="model">Documents</param>
-        /// <returns>Boolean</returns>
+        public List<documents> selectDocuments(Int32 top)
+        {
+            Int32 dataCount = 0, pageCount = 0;
+            return entityProvider.instance().selectDocuments(top, 1, out dataCount, out pageCount, " updateTime desc ", null);
+        }
+
         public Boolean doDocuments(Int32 type, documents model)
         {
             Boolean ef = false;
