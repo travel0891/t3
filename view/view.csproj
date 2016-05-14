@@ -53,6 +53,11 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="courseDetails.aspx" />
+    <Content Include="courseList.aspx" />
+    <Content Include="documentList.aspx" />
+    <Content Include="exampleqandaList.aspx" />
+    <Content Include="exampleqandaDetails.aspx" />
     <Content Include="index.aspx" />
     <Content Include="lib\LitJSON.dll" />
     <Content Include="signin.aspx" />
@@ -1183,6 +1188,41 @@
   <ItemGroup>
     <Compile Include="action.ashx.cs">
       <DependentUpon>action.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="courseDetails.aspx.cs">
+      <DependentUpon>courseDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="courseDetails.aspx.designer.cs">
+      <DependentUpon>courseDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="courseList.aspx.cs">
+      <DependentUpon>courseList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="courseList.aspx.designer.cs">
+      <DependentUpon>courseList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="documentList.aspx.cs">
+      <DependentUpon>documentList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="documentList.aspx.designer.cs">
+      <DependentUpon>documentList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="exampleqandaList.aspx.cs">
+      <DependentUpon>exampleqandaList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="exampleqandaList.aspx.designer.cs">
+      <DependentUpon>exampleqandaList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="exampleqandaDetails.aspx.cs">
+      <DependentUpon>exampleqandaDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="exampleqandaDetails.aspx.designer.cs">
+      <DependentUpon>exampleqandaDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="view.index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="courseList.aspx.cs" Inherits="view.courseList" %>
 
 <!doctype html>
 <html lang="zh-CN">
@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>首页 -
+    <title>课件学习 -
         <%=WebsiteTitle %></title>
     <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
@@ -29,8 +29,8 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="javascript:;">首页</a></li>
-                        <li><a href="courseList.aspx">课件学习</a></li>
+                        <li><a href="index.aspx">首页</a></li>
+                        <li class="active"><a href="javascript:;">课件学习</a></li>
                         <li><a href="documentList.aspx">文档下载</a></li>
                         <li><a href="exampleqandaList.aspx">习题练习</a></li>
                     </ul>
@@ -85,18 +85,8 @@
         </div>
 
         <div class="panel panel-default" style="margin-top: 20px">
-            <div class="panel-heading">最新课件<a style="float:right" title="更多课件" href="courseList.aspx">更多<span class="caret"></span></a></div>
+            <div class="panel-heading">课件学习<span style="float:right">共 <%=tempCount %> 条记录</span></div>
             <%=sbHTML1 %>
-        </div>
-
-        <div class="panel panel-default">
-            <div class="panel-heading">最新文档<a style="float:right" title="更多文档" href="documentList.aspx">更多<span class="caret"></span></a></div>
-            <%=sbHTML2 %>
-        </div>
-
-        <div class="panel panel-default">
-            <div class="panel-heading">最新习题<a style="float:right" title="更多习题" href="exampleqandaList.aspx">更多<span class="caret"></span></a></div>
-            <%=sbHTML3 %>
         </div>
 
         <div class="text-center" style="color: #999; margin-top: 20px; min-height: 60px;
