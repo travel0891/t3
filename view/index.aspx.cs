@@ -25,10 +25,10 @@ namespace view
                 configs configModel = controllerProvider.instance().selectConfigsByCharId(item.configs_charId);
                 parms parmModel = controllerProvider.instance().selectParmsByCharId(item.parms_charId);
                 sbHTML1.Append("<tr>");
-                sbHTML1.AppendFormat("<td style=\"width:100px\">{0}</td>", item.number);
-                sbHTML1.AppendFormat("<td style=\"width:160px\" class=\"text-left\"><span class=\"label label-primary\">{0}</span> <span class=\"label label-info\">{1}</span></td>", configModel == null ? "-" : configModel.type, parmModel == null ? "-" : parmModel.chapter);
-                sbHTML1.AppendFormat("<td class=\"text-left\"><a href=\"courseDetails.aspx?charId={0}\">{1}</a></td>", item.charId, item.title);
-                sbHTML1.AppendFormat("<td class=\"text-right\">更新于 {0}</td>", item.updateTime.ToString());
+                // sbHTML1.AppendFormat("<td style=\"width:100px\">{0}</td>", item.number);
+                sbHTML1.AppendFormat("<td class=\"text-left\"><a title=\"{2}\" href=\"courseDetails.aspx?charId={0}\">{1}</a></td>", item.charId, str(item.title, 15), item.title);
+                sbHTML1.AppendFormat("<td class=\"text-right\"><span class=\"label label-primary\">{0}</span> <span class=\"label label-info\">{1}</span></td>", configModel == null ? "-" : configModel.type, parmModel == null ? "-" : parmModel.chapter);
+                // sbHTML1.AppendFormat("<td class=\"text-right\">{0}</td>", item.updateTime.ToString());
                 sbHTML1.Append("</tr>");
             }
             if (listModel1.Count == 0)
@@ -41,24 +41,23 @@ namespace view
 
             sbHTML2 = new StringBuilder();
             sbHTML2.Append("<table class=\"table table-hover\" cellspacing=\"0\" width=\"100%\">");
-            List<documents> listModel2 = controllerProvider.instance().selectDocuments(5);
+            List<documents> listModel2 = controllerProvider.instance().selectDocuments(10);
             foreach (documents item in listModel2)
             {
                 configs configModel = controllerProvider.instance().selectConfigsByCharId(item.configs_charId);
                 parms parmModel = controllerProvider.instance().selectParmsByCharId(item.parms_charId);
                 sbHTML2.Append("<tr>");
-                sbHTML2.AppendFormat("<td style=\"width:100px\">{0}</td>", item.number);
-                sbHTML2.AppendFormat("<td style=\"width:160px\" class=\"text-left\"><span class=\"label label-primary\">{0}</span> <span class=\"label label-info\">{1}</span></td>", configModel == null ? "-" : configModel.type, parmModel == null ? "-" : parmModel.chapter);
-
+                // sbHTML2.AppendFormat("<td style=\"width:100px\">{0}</td>", item.number);
                 if (Session["tempUser"] == null)
                 {
-                    sbHTML2.AppendFormat("<td class=\"text-left\"><a title=\"大小 {3} KB\" href=\"javascript:alert('您还未登录，无法下载！');\">{1}.{2}</a></td>", item.charId, item.title, item.type, item.size);
+                    sbHTML2.AppendFormat("<td class=\"text-left\"><a title=\"{4} 大小 {3} KB\" href=\"javascript:alert('您还未登录，无法下载！');\">{1}.{2}</a></td>", item.charId, str(item.title, 15), item.type, item.size, item.title);
                 }
                 else
                 {
-                    sbHTML2.AppendFormat("<td class=\"text-left\"><a title=\"大小 {3} KB\" target=\"_blank\" href=\"{4}\">{1}.{2}</a></td>", item.charId, item.title, item.type, item.size, item.url);
+                    sbHTML2.AppendFormat("<td class=\"text-left\"><a title=\"{4} 大小 {3} KB\" target=\"_blank\" href=\"{4}\">{1}.{2}</a></td>", item.charId, str(item.title, 15), item.type, item.size, item.url, item.title);
                 }
-                sbHTML2.AppendFormat("<td class=\"text-right\">上传于 {0}</td>", item.updateTime.ToString());
+                sbHTML2.AppendFormat("<td class=\"text-right\"><span class=\"label label-primary\">{0}</span> <span class=\"label label-info\">{1}</span></td>", configModel == null ? "-" : configModel.type, parmModel == null ? "-" : parmModel.chapter);
+                // sbHTML2.AppendFormat("<td class=\"text-right\">{0}</td>", item.updateTime.ToString());
                 sbHTML2.Append("</tr>");
             }
             if (listModel2.Count == 0)
@@ -71,29 +70,29 @@ namespace view
 
             sbHTML3 = new StringBuilder();
             sbHTML3.Append("<table class=\"table table-hover\" cellspacing=\"0\" width=\"100%\">");
-            List<examples> listModel3 = controllerProvider.instance().selectExamples(5);
+            List<examples> listModel3 = controllerProvider.instance().selectExamples(10);
             foreach (examples item in listModel3)
             {
                 configs configModel = controllerProvider.instance().selectConfigsByCharId(item.configs_charId);
                 parms parmModel = controllerProvider.instance().selectParmsByCharId(item.parms_charId);
                 sbHTML3.Append("<tr>");
-                sbHTML3.AppendFormat("<td style=\"width:100px\">{0}</td>", item.number);
-                sbHTML3.AppendFormat("<td style=\"width:160px\" class=\"text-left\"><span class=\"label label-primary\">{0}</span> <span class=\"label label-info\">{1}</span></td>", configModel == null ? "-" : configModel.type, parmModel == null ? "-" : parmModel.chapter);
-                sbHTML3.AppendFormat("<td class=\"text-left\"><a href=\"exampleqandaDetails.aspx?charId1={0}\">{1}</a></td>", item.charId, item.example);
-                sbHTML3.AppendFormat("<td class=\"text-right\"><span class=\"label label-danger\">选择题</span></td>");
+                // sbHTML3.AppendFormat("<td style=\"width:100px\">{0}</td>", item.number);
+                sbHTML3.AppendFormat("<td class=\"text-right\"><span class=\"label label-danger\">选择</span></td>");
+                sbHTML3.AppendFormat("<td class=\"text-left\"><a title=\"{2}\" href=\"exampleqandaDetails.aspx?charId1={0}\">{1}</a></td>", item.charId, str(item.example, 11), item.example);
+                sbHTML3.AppendFormat("<td class=\"text-right\"><span class=\"label label-primary\">{0}</span> <span class=\"label label-info\">{1}</span></td>", configModel == null ? "-" : configModel.type, parmModel == null ? "-" : parmModel.chapter);
                 sbHTML3.Append("</tr>");
             }
 
-            List<qandas> listModel4 = controllerProvider.instance().selectQandas(5);
+            List<qandas> listModel4 = controllerProvider.instance().selectQandas(10);
             foreach (qandas item in listModel4)
             {
                 configs configModel = controllerProvider.instance().selectConfigsByCharId(item.configs_charId);
                 parms parmModel = controllerProvider.instance().selectParmsByCharId(item.parms_charId);
                 sbHTML3.Append("<tr>");
-                sbHTML3.AppendFormat("<td style=\"width:100px\">{0}</td>", item.number);
-                sbHTML3.AppendFormat("<td style=\"width:160px\" class=\"text-left\"><span class=\"label label-primary\">{0}</span> <span class=\"label label-info\">{1}</span></td>", configModel == null ? "-" : configModel.type, parmModel == null ? "-" : parmModel.chapter);
-                sbHTML3.AppendFormat("<td class=\"text-left\"><a href=\"exampleqandaDetails.aspx?charId2={0}\">{1}</a></td>", item.charId, item.qanda);
-                sbHTML3.AppendFormat("<td class=\"text-right\"><span class=\"label label-warning\">问答题</span></td>");
+                // sbHTML3.AppendFormat("<td style=\"width:100px\">{0}</td>", item.number);
+                sbHTML3.AppendFormat("<td class=\"text-right\"><span class=\"label label-warning\">问答</span></td>");
+                sbHTML3.AppendFormat("<td class=\"text-left\"><a title=\"{2}\" href=\"exampleqandaDetails.aspx?charId2={0}\">{1}</a></td>", item.charId, str(item.qanda, 11), item.qanda);
+                sbHTML3.AppendFormat("<td class=\"text-right\"><span class=\"label label-primary\">{0}</span> <span class=\"label label-info\">{1}</span></td>", configModel == null ? "-" : configModel.type, parmModel == null ? "-" : parmModel.chapter);
                 sbHTML3.Append("</tr>");
             }
 
@@ -104,6 +103,11 @@ namespace view
                 sbHTML3.Append("</tr>");
             }
             sbHTML3.Append("</table>");
+        }
+
+        private String str(String str, Int32 len)
+        {
+            return str.Length > len ? str.Substring(0, len - 2) + "..." : str;
         }
 
         protected String getUserInfo(String sessionString)

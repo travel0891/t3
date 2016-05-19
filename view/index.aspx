@@ -10,9 +10,10 @@
         <%=WebsiteTitle %></title>
     <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
-        .mt8 {
-            margin-top: 8px;
-        }
+        .mt8 {margin-top: 8px;}
+        .w360{ width:366px; min-height:412px;}
+        .fll{ float:left;}
+        .ml20{ margin-left:20px;}
     </style>
 </head>
 <body>
@@ -33,6 +34,8 @@
                         <li><a href="courseList.aspx">课件学习</a></li>
                         <li><a href="documentList.aspx">文档下载</a></li>
                         <li><a href="exampleqandaList.aspx">习题练习</a></li>
+                        <li><a href="#">自我测评</a></li>
+                        <li><a href="#">在线提问</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
@@ -41,7 +44,8 @@
                                   <a href="javascript:doExit();">当前登录：<%=getUserInfo(Session["tempUser"].ToString()) %></a>
                                   <%
                               }else{%>
-                            <button onclick="javascript:doSignin();" class="btn btn-info mt8">学生登录</button>
+                              <button onclick="javascript:doRegister();" class="btn btn-success mt8">学生注册</button>
+                              <button onclick="javascript:doSignin();" class="btn btn-info mt8">学生登录</button>
                             <%} %>
                         </li>
                     </ul>
@@ -84,22 +88,22 @@
                 <span class="glyphicon glyphicon-chevron-right"></span><span class="sr-only">Next</span></a>
         </div>
 
-        <div class="panel panel-default" style="margin-top: 20px">
+        <div class="panel panel-default w360 fll" style="margin-top: 20px">
             <div class="panel-heading">最新课件<a style="float:right" title="更多课件" href="courseList.aspx">更多<span class="caret"></span></a></div>
             <%=sbHTML1 %>
         </div>
 
-        <div class="panel panel-default">
+        <div class="panel panel-default w360 fll ml20" style="margin-top: 20px">
             <div class="panel-heading">最新文档<a style="float:right" title="更多文档" href="documentList.aspx">更多<span class="caret"></span></a></div>
             <%=sbHTML2 %>
         </div>
 
-        <div class="panel panel-default">
+        <div class="panel panel-default w360 fll ml20" style="margin-top: 20px">
             <div class="panel-heading">最新习题<a style="float:right" title="更多习题" href="exampleqandaList.aspx">更多<span class="caret"></span></a></div>
             <%=sbHTML3 %>
         </div>
 
-        <div class="text-center" style="color: #999; margin-top: 20px; min-height: 60px;
+        <div class="text-center" style="color: #999; margin-top: 20px; min-height: 60px; clear:both;
             background-color: #f9f9f9; padding: 20px 0; border-top: 1px solid #e7e7e7;">
             © 2016
             <%=WebsiteTitle %>
@@ -110,6 +114,7 @@
 </html>
 <script src="static/jquery/jquery.min.js" type="text/javascript"></script>
 <script src="static/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
 <script type="text/javascript">
     $(function () {
         $(".carousel").carousel();
@@ -117,6 +122,9 @@
 
     var doSignin = function () {
         window.location.href = "/signin.aspx?from=index";
+    };
+
+    var doRegister = function () {
     };
 
     var doExit = function () {
