@@ -825,6 +825,63 @@ namespace view
                     #endregion
 
                     #endregion
+
+                    #region message
+
+                    case "insertMessages":
+                        String insertMessagesTitle = context.Request["title"];
+                        messages inMessages = new messages();
+                        inMessages.title = insertMessagesTitle;
+                        inMessages.students_charId = context.Session["tempUser"].ToString().Split(',')[1].ToString();
+                        inMessages.reply = " ";
+                        if (controllerProvider.instance().doMessages(1, inMessages))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "发布成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "发布失败";
+                        }
+                        break;
+
+                    case "updateMessages":
+                        String updateMessagesCharId = context.Request["charId"];
+                        String updateReply = context.Request["reply"];
+                         inMessages = new messages();
+                        inMessages.charId = updateMessagesCharId;
+                        inMessages.reply = updateReply;
+                        inMessages.replyTime = DateTime.Now;
+                        if (controllerProvider.instance().doMessages(2, inMessages))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "提交成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "提交失败";
+                        }
+                        break;
+
+                    case "deleteMessages":
+                        String delMessagesCharId = context.Request["charId"];
+                        inMessages = new messages();
+                        inMessages.charId = delMessagesCharId;
+                        if (controllerProvider.instance().doMessages(3, inMessages))
+                        {
+                            json["code"] = "pass";
+                            json["story"] = "删除成功";
+                        }
+                        else
+                        {
+                            json["code"] = "error";
+                            json["story"] = "删除失败";
+                        }
+                        break;
+
+                    #endregion message
                 }
             }
 

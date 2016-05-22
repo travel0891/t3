@@ -69,6 +69,7 @@
     <Compile Include="entity\downLoads.cs" />
     <Compile Include="entity\examples.cs" />
     <Compile Include="entity\exams.cs" />
+    <Compile Include="entity\messages.cs" />
     <Compile Include="entity\parms.cs" />
     <Compile Include="entity\qandas.cs" />
     <Compile Include="entity\questions.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="table\downLoads.cs" />
     <Compile Include="table\examples.cs" />
     <Compile Include="table\exams.cs" />
+    <Compile Include="table\messages.cs" />
     <Compile Include="table\parms.cs" />
     <Compile Include="table\qandas.cs" />
     <Compile Include="table\questions.cs" />

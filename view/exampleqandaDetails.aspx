@@ -32,6 +32,8 @@
                         <li><a href="courseList.aspx">课件学习</a></li>
                         <li><a href="documentList.aspx">文档下载</a></li>
                         <li class="active"><a href="exampleqandaList.aspx">习题练习</a></li>
+                        <li><a href="linetest.aspx">自我测评</a></li>
+                        <li><a href="message.aspx">在线提问</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
@@ -40,6 +42,7 @@
                                   <a href="javascript:doExit();">当前登录：<%=getUserInfo(Session["tempUser"].ToString()) %></a>
                                   <%
                               }else{%>
+                            <button onclick="javascript:doRegister();" class="btn btn-success mt8">学生注册</button>
                             <button onclick="javascript:doSignin();" class="btn btn-info mt8">学生登录</button>
                             <%} %>
                         </li>
@@ -87,7 +90,11 @@
 <script type="text/javascript">
 
     var doSignin = function () {
-        window.location.href = "/signin.aspx?from=index";
+        window.location.href = "/signin.aspx?from=exampleqandaDetails";
+    };
+
+    var doRegister = function () {
+        window.location.href = "/register.aspx?from=exampleqandaDetails";
     };
 
     var doExit = function () {

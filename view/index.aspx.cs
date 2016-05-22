@@ -19,7 +19,7 @@ namespace view
 
             sbHTML1 = new StringBuilder();
             sbHTML1.Append("<table class=\"table table-hover\" cellspacing=\"0\" width=\"100%\">");
-            List<courses> listModel1 = controllerProvider.instance().selectCourses(5);
+            List<courses> listModel1 = controllerProvider.instance().selectCourses(6);
             foreach (courses item in listModel1)
             {
                 configs configModel = controllerProvider.instance().selectConfigsByCharId(item.configs_charId);
@@ -41,7 +41,7 @@ namespace view
 
             sbHTML2 = new StringBuilder();
             sbHTML2.Append("<table class=\"table table-hover\" cellspacing=\"0\" width=\"100%\">");
-            List<documents> listModel2 = controllerProvider.instance().selectDocuments(10);
+            List<documents> listModel2 = controllerProvider.instance().selectDocuments(6);
             foreach (documents item in listModel2)
             {
                 configs configModel = controllerProvider.instance().selectConfigsByCharId(item.configs_charId);
@@ -70,7 +70,7 @@ namespace view
 
             sbHTML3 = new StringBuilder();
             sbHTML3.Append("<table class=\"table table-hover\" cellspacing=\"0\" width=\"100%\">");
-            List<examples> listModel3 = controllerProvider.instance().selectExamples(10);
+            List<examples> listModel3 = controllerProvider.instance().selectExamples(3);
             foreach (examples item in listModel3)
             {
                 configs configModel = controllerProvider.instance().selectConfigsByCharId(item.configs_charId);
@@ -83,7 +83,7 @@ namespace view
                 sbHTML3.Append("</tr>");
             }
 
-            List<qandas> listModel4 = controllerProvider.instance().selectQandas(10);
+            List<qandas> listModel4 = controllerProvider.instance().selectQandas(3);
             foreach (qandas item in listModel4)
             {
                 configs configModel = controllerProvider.instance().selectConfigsByCharId(item.configs_charId);

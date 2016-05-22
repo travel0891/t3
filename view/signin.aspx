@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="signin.aspx.cs" Inherits="view.signin" %>
 
-
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -89,7 +88,7 @@
         </form>
         </div>
         <div class="footer text-center color999">
-            © 2016 <%=WebsiteTitle %> <a href="/index.aspx">返回首页</a>
+            © 2016 <%=WebsiteTitle %> <a href="/index.aspx">返回首页</a> <a href="register.aspx">学生注册</a>
         </div>
     </div>
     <script src="../static/require.js" data-main="../static/main" type="text/javascript"></script>

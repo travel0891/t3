@@ -60,6 +60,9 @@
     <Content Include="exampleqandaDetails.aspx" />
     <Content Include="index.aspx" />
     <Content Include="lib\LitJSON.dll" />
+    <Content Include="linetest.aspx" />
+    <Content Include="message.aspx" />
+    <Content Include="register.aspx" />
     <Content Include="signin.aspx" />
     <Content Include="SQL\script.sql" />
     <Content Include="static\bootstrap\js\dropdowns.min.js" />
@@ -597,8 +600,9 @@
     <Content Include="static\datatables\media\js\jquery.dataTables.min.js" />
     <Content Include="static\datatables\media\js\jquery.js" />
     <Content Include="static\extend.css" />
-    <Content Include="static\image\temp.jpg" />
-    <Content Include="static\image\temp1.jpg" />
+    <Content Include="static\image\temp01.jpg" />
+    <Content Include="static\image\temp02.jpg" />
+    <Content Include="static\image\temp03.jpg" />
     <Content Include="static\jquery\slide-toggle.min.js" />
     <Content Include="static\kindeditor\asp.net\bin\LitJSON.dll" />
     <Content Include="static\kindeditor\asp.net\demo.aspx" />
@@ -820,6 +824,7 @@
     <Content Include="static\temp\examples.js" />
     <Content Include="static\temp\managers.js" />
     <Content Include="static\temp\qandas.js" />
+    <Content Include="static\temp\register.js" />
     <Content Include="static\temp\signin.js" />
     <Content Include="static\temp\students.js" />
     <Content Include="system\config\config_list.aspx" />
@@ -1230,6 +1235,27 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="linetest.aspx.cs">
+      <DependentUpon>linetest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="linetest.aspx.designer.cs">
+      <DependentUpon>linetest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="message.aspx.cs">
+      <DependentUpon>message.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="message.aspx.designer.cs">
+      <DependentUpon>message.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
     </Compile>
     <Compile Include="signin.aspx.cs">
       <DependentUpon>signin.aspx</DependentUpon>

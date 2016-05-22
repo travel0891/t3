@@ -34,6 +34,8 @@
                         <li><a href="courseList.aspx">课件学习</a></li>
                         <li><a href="documentList.aspx">文档下载</a></li>
                         <li class="active"><a href="javascript:;">习题练习</a></li>
+                        <li><a href="linetest.aspx">自我测评</a></li>
+                        <li><a href="message.aspx">在线提问</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
@@ -42,6 +44,7 @@
                                   <a href="javascript:doExit();">当前登录：<%=getUserInfo(Session["tempUser"].ToString()) %></a>
                                   <%
                               }else{%>
+                            <button onclick="javascript:doRegister();" class="btn btn-success mt8">学生注册</button>
                             <button onclick="javascript:doSignin();" class="btn btn-info mt8">学生登录</button>
                             <%} %>
                         </li>
@@ -51,32 +54,15 @@
         </div>
 
         <div data-ride="carousel" class="carousel slide" id="carousel-example-captions">
-            <ol class="carousel-indicators">
-                <li data-slide-to="0" data-target="#carousel-example-captions"></li>
-                <li data-slide-to="1" data-target="#carousel-example-captions"></li>
-                <li data-slide-to="2" data-target="#carousel-example-captions"></li>
-            </ol>
             <div role="listbox" class="carousel-inner">
                 <div class="item">
-                    <img alt="page3" src="static/image/temp.jpg" data-holder-rendered="true" />
-                    <div class="carousel-caption">
-                        <h3>PAGE 3</h3>
-                        <p>&nbsp;</p>
-                    </div>
+                    <img alt="page3" src="static/image/temp03.jpg" data-holder-rendered="true" />
                 </div>
                 <div class="item active">
-                    <img alt="page1" src="static/image/temp.jpg" data-holder-rendered="true" />
-                    <div class="carousel-caption">
-                        <h3>PAGE 1</h3>
-                        <p>&nbsp;</p>
-                    </div>
+                    <img alt="page1" src="static/image/temp01.jpg" data-holder-rendered="true" />
                 </div>
                 <div class="item">
-                    <img alt="page2" src="static/image/temp.jpg" data-holder-rendered="true" />
-                    <div class="carousel-caption">
-                        <h3>PAGE 2</h3>
-                        <p>&nbsp;</p>
-                    </div>
+                    <img alt="page2" src="static/image/temp02.jpg" data-holder-rendered="true" />
                 </div>
             </div>
             <a data-slide="prev" role="button" href="#carousel-example-captions" class="left carousel-control">
@@ -107,7 +93,11 @@
     });
 
     var doSignin = function () {
-        window.location.href = "/signin.aspx?from=index";
+        window.location.href = "/signin.aspx?from=exampleqandaList";
+    };
+
+    var doRegister = function () {
+        window.location.href = "/register.aspx?from=exampleqandaList";
     };
 
     var doExit = function () {

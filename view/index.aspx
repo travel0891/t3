@@ -11,7 +11,7 @@
     <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .mt8 {margin-top: 8px;}
-        .w360{ width:366px; min-height:412px;}
+        .w360{ width:366px; min-height:264px;}
         .fll{ float:left;}
         .ml20{ margin-left:20px;}
     </style>
@@ -34,8 +34,8 @@
                         <li><a href="courseList.aspx">课件学习</a></li>
                         <li><a href="documentList.aspx">文档下载</a></li>
                         <li><a href="exampleqandaList.aspx">习题练习</a></li>
-                        <li><a href="#">自我测评</a></li>
-                        <li><a href="#">在线提问</a></li>
+                        <li><a href="linetest.aspx">自我测评</a></li>
+                        <li><a href="message.aspx">在线提问</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
@@ -54,32 +54,15 @@
         </div>
 
         <div data-ride="carousel" class="carousel slide" id="carousel-example-captions">
-            <ol class="carousel-indicators">
-                <li data-slide-to="0" data-target="#carousel-example-captions"></li>
-                <li data-slide-to="1" data-target="#carousel-example-captions"></li>
-                <li data-slide-to="2" data-target="#carousel-example-captions"></li>
-            </ol>
             <div role="listbox" class="carousel-inner">
                 <div class="item">
-                    <img alt="page3" src="static/image/temp.jpg" data-holder-rendered="true" />
-                    <div class="carousel-caption">
-                        <h3>PAGE 3</h3>
-                        <p>&nbsp;</p>
-                    </div>
+                    <img alt="page3" src="static/image/temp03.jpg" data-holder-rendered="true" />
                 </div>
                 <div class="item active">
-                    <img alt="page1" src="static/image/temp.jpg" data-holder-rendered="true" />
-                    <div class="carousel-caption">
-                        <h3>PAGE 1</h3>
-                        <p>&nbsp;</p>
-                    </div>
+                    <img alt="page1" src="static/image/temp01.jpg" data-holder-rendered="true" />
                 </div>
                 <div class="item">
-                    <img alt="page2" src="static/image/temp.jpg" data-holder-rendered="true" />
-                    <div class="carousel-caption">
-                        <h3>PAGE 2</h3>
-                        <p>&nbsp;</p>
-                    </div>
+                    <img alt="page2" src="static/image/temp02.jpg" data-holder-rendered="true" />
                 </div>
             </div>
             <a data-slide="prev" role="button" href="#carousel-example-captions" class="left carousel-control">
@@ -125,6 +108,7 @@
     };
 
     var doRegister = function () {
+        window.location.href = "/register.aspx?from=index";
     };
 
     var doExit = function () {
