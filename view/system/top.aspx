@@ -38,7 +38,7 @@
 </head>
 <body>
     <div class="top">
-        当前账号：管理员 <a target="_parent" href="login.aspx?logout=true">[安全退出]</a>
+        当前账号：管理员 <a target="_parent" href="../index.aspx">[返回首页]</a> <a target="_parent" href="login.aspx?logout=true">[安全退出]</a>
     </div>
 </body>
 </html>

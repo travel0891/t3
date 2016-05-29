@@ -14,6 +14,11 @@ namespace view
                 Session.Remove("tempUser");
             }
 
+            if (Session["tempUser"] != null && Session["tempUser"].ToString().Split(',')[0] == "1")
+            {
+                Response.Redirect("../system/mainframe.html");
+            }
+
             HttpCookie cookies = Request.Cookies.Get("keepLine");
             if (cookies != null)
             {

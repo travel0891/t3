@@ -42,7 +42,7 @@
             <label class="col-sm-1 control-label">
                 学号</label>
             <div class="col-sm-5">
-                <input type="text" id="number" class="form-control" placeholder="必填" runat="server" />
+                <input type="text" id="number" class="form-control" placeholder="必填，只限8位数字" runat="server" maxlength="8" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')" />
             </div>
         </div>
         <div class="form-group">

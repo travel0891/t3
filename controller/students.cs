@@ -32,6 +32,13 @@ namespace controller
             return entityProvider.instance().selectStudents(Int32.MaxValue, 1, out dataCount, out pageCount, null, null);
         }
 
+        public List<students> selectStudents(Int32 tp)
+        {
+            Int32 dataCount = 0, pageCount = 0;
+            String orderString = "number asc";
+            return entityProvider.instance().selectStudents(Int32.MaxValue, 1, out dataCount, out pageCount, orderString, null);
+        }
+
         public Boolean doStudent(Int32 type, students model)
         {
             Boolean ef = false;

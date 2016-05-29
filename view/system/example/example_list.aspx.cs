@@ -19,6 +19,7 @@ namespace view
             sbHTML.Append("<th>章节</th>");
             sbHTML.Append("<th>编号</th>");
             sbHTML.Append("<th>题目</th>");
+            sbHTML.Append("<th>答案</th>");
             sbHTML.Append("<th class=\"tac\">操作</th>");
             sbHTML.Append("</thead>");
             sbHTML.Append("<tbody>");
@@ -33,6 +34,26 @@ namespace view
                 sbHTML.AppendFormat("<td>{0}</td>", parmModel == null ? "-" : parmModel.chapter);
                 sbHTML.AppendFormat("<td>{0}</td>", item.number);
                 sbHTML.AppendFormat("<td title=\"" + item.example + "\">{0}</td>", item.example.Length > 50 ? item.example.Substring(0, 50) + "..." : item.example);
+
+                if (item.optionA == 1)
+                {
+                    sbHTML.AppendFormat("<td title=\"" + item.aCountent + "\">{0}</td>", item.aCountent.Length > 50 ? item.aCountent.Substring(0, 50) + "..." : item.aCountent);
+                }
+                else if (item.optionB == 1)
+                {
+                    sbHTML.AppendFormat("<td title=\"" + item.bCountent + "\">{0}</td>", item.bCountent.Length > 50 ? item.bCountent.Substring(0, 50) + "..." : item.bCountent);
+
+                }
+                else if (item.optionC == 1)
+                {
+                    sbHTML.AppendFormat("<td title=\"" + item.cCountent + "\">{0}</td>", item.cCountent.Length > 50 ? item.cCountent.Substring(0, 50) + "..." : item.cCountent);
+
+                }
+                else
+                {
+                    sbHTML.AppendFormat("<td title=\"" + item.dCountent + "\">{0}</td>", item.dCountent.Length > 50 ? item.dCountent.Substring(0, 50) + "..." : item.dCountent);
+                }
+
                 sbHTML.AppendFormat("<td class=\"tac\">");
                 //sbHTML.AppendFormat("<a href=\"javascript:void(0);\" onclick=\"javascript:layer.alert('{0}');\" class=\"btn btn-success btn-sm\">查看</a>", item.charId);
                 sbHTML.AppendFormat("<a href=\"example_action.aspx?charId={0}\" class=\"btn btn-primary btn-sm\">编辑</a>", item.charId);//ml6

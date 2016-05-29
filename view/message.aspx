@@ -84,7 +84,9 @@
             background-color: #f9f9f9; padding: 20px 0; border-top: 1px solid #e7e7e7;">
             © 2016
             <%=WebsiteTitle %>
+            <%if (Session["tempUser"] != null && Session["tempUser"].ToString().Split(',')[0] == "0"){}else{%>
             <a href="system/login.aspx">后台管理</a>
+            <%}%>
         </div>
     </div>
 </body>

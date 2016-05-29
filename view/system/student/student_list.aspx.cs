@@ -25,7 +25,7 @@ namespace view
             sbHTML.Append("<th class=\"tac\">操作</th>");
             sbHTML.Append("</thead>");
             sbHTML.Append("<tbody>");
-            List<students> listModel = controllerProvider.instance().selectStudents();
+            List<students> listModel = controllerProvider.instance().selectStudents(0);
             foreach (students item in listModel)
             {
                 sbHTML.Append("<tr>");
