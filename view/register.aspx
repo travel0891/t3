@@ -89,7 +89,7 @@
             <div class="input-group form-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-education color999">
                 </span></span>
-                <input type="text" name="number" class="form-control" placeholder="请输入学号，只限8位数字" maxlength="8" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')" />
+                <input type="text" name="number" class="form-control" placeholder="请输入学号，只限10位数字" maxlength="10" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')" />
             </div>
             <div class="input-group form-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-home color999"></span>

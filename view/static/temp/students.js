@@ -6,7 +6,7 @@
             rules: { account: { required: true, rangelength: [3, 8] }
             , password: { required: true, rangelength: [6, 12] }
             , confirm_password: { required: true, rangelength: [6, 12], equalTo: "#password" }
-            , number: { required: true, rangelength: [8, 8] }
+            , number: { required: true, rangelength: [10, 10] }
             , name: { required: true }
             , gender: { required: true }
             , classes: { required: true }
@@ -14,7 +14,7 @@
             , messages: { account: { required: "账号必填", rangelength: "账号长度3至8位" }
             , password: { required: "密码必填", rangelength: "密码长度6至12位" }
             , confirm_password: { required: "确认密码必填", rangelength: "确认密码长度6至12位", equalTo: "两次密码输入不一致" }
-            , number: { required: "学号必填", rangelength: "学号只限8位数字" }
+            , number: { required: "学号必填", rangelength: "学号只限10位数字" }
             , name: { required: "姓名必填" }
             , gender: { required: "性别必选" }
             , classes: { required: "班级必填" }
